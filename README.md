@@ -4,4 +4,7 @@ The School Management System is an all inclusive software that is used to automa
 Use Case Diagram:
 <img width="1440" height="1664" alt="image" src="https://github.com/user-attachments/assets/9541d862-06cc-4b09-9200-6d3904c11691" />
 
+<img width="1440" height="1682" alt="image" src="https://github.com/user-attachments/assets/d9f60eae-4db7-4877-a606-d569c0ca831c" />
+
+
 
