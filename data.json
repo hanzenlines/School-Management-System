@@ -1,0 +1,58 @@
+{
+  "accounts": [
+    {
+      "id": "s001",
+      "userType": "student",
+      "name": "Juan dela Cruz",
+      "email": "juan.delacruz@school.edu",
+      "password": "password123",
+      "contactNumber": "09171234567",
+      "studentNumber": "2021-00001",
+      "course": "BSCS",
+      "yearLevel": 3
+    },
+    {
+      "id": "s002",
+      "userType": "student",
+      "name": "Maria Santos",
+      "email": "maria.santos@school.edu",
+      "password": "password123",
+      "contactNumber": "09181234567",
+      "studentNumber": "2022-00002",
+      "course": "BSIT",
+      "yearLevel": 2
+    },
+    {
+      "id": "f001",
+      "userType": "faculty",
+      "name": "Dr. Jose Reyes",
+      "email": "jose.reyes@school.edu",
+      "password": "password123",
+      "contactNumber": "09191234567",
+      "employeeNumber": "EMP-001",
+      "department": "Computer Science",
+      "position": "Professor"
+    },
+    {
+      "id": "f002",
+      "userType": "faculty",
+      "name": "Prof. Ana Lim",
+      "email": "ana.lim@school.edu",
+      "password": "password123",
+      "contactNumber": "09201234567",
+      "employeeNumber": "EMP-002",
+      "department": "Information Technology",
+      "position": "Associate Professor"
+    },
+    {
+      "id": "a001",
+      "userType": "admin",
+      "name": "Carlos Mendoza",
+      "email": "carlos.mendoza@school.edu",
+      "password": "password123",
+      "contactNumber": "09211234567",
+      "employeeNumber": "ADM-001"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
