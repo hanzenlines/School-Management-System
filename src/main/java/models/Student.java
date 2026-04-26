@@ -8,6 +8,7 @@ public class Student extends Account {
     private final String studentNumber;
     private String course;
     private int yearLevel;
+    private boolean hasPendingBalance;
 
     @JsonCreator
     public Student(
@@ -18,7 +19,8 @@ public class Student extends Account {
             @JsonProperty("contactNumber") String contactNumber,
             @JsonProperty("studentNumber") String studentNumber,
             @JsonProperty("course")        String course,
-            @JsonProperty("yearLevel")     int yearLevel
+            @JsonProperty("yearLevel")     int yearLevel,
+            @JsonProperty("hasPendingBalance")  boolean hasPendingBalance
     ) {
         super(id, name, email, password, contactNumber, UserType.student);
         this.studentNumber = studentNumber;
@@ -40,5 +42,9 @@ public class Student extends Account {
         if (yearLevel < 1 || yearLevel > 5)
             throw new IllegalArgumentException("Year level must be between 1 and 5");
         this.yearLevel = yearLevel;
+    }
+
+    public void togglePendingBalance() {
+        this.hasPendingBalance = !hasPendingBalance;
     }
 }
