@@ -1,4 +1,4 @@
-package auth;
+package features.auth;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

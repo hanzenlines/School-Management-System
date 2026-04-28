@@ -1,4 +1,4 @@
-package auth;
+package features.auth;
 
 import models.Account;
 

@@ -1,10 +1,6 @@
-package auth;
+package features.auth;
 
 import models.Account;
-import models.Admin;
-import models.Faculty;
-import models.Student;
-import models.enums.UserType;
 
 import java.io.IOException;
 
