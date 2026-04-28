@@ -2,8 +2,10 @@ package features.announcements;
 
 import models.Account;
 import models.Announcement;
+import models.enums.UserType;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,20 +15,20 @@ public class AnnouncementController {
     private AnnouncementController() {}
 
     // shared — any role can view their announcements
-    public static void viewAnnouncements(Account account)
+    public static void viewAnnouncements(UserType userType)
             throws IOException, InterruptedException {
 
-        List<Announcement> announcements = AnnouncementService.getAnnouncementsFor(account.getRole());
+        List<Announcement> announcements = AnnouncementService.getAnnouncementsFor(userType);
 
         if (announcements.isEmpty()) {
             System.out.println("No announcements available.");
             return;
         }
 
-        announcements.forEach(Announcement::displayInfo);
+        announcements.forEach(AnnouncementController::displayInfo);
     }
 
-    // admin only — prompt and post
+    // ADMIN only — prompt and post
     public static void promptPostAnnouncement() throws IOException, InterruptedException {
         System.out.print("Title: ");
         String title = scanner.nextLine();
@@ -42,37 +44,37 @@ public class AnnouncementController {
 
         try {
             AnnouncementService.postAnnouncement(title, content, category, audience);
-            System.out.println("Announcement posted successfully.");
+            System.out.println("models.Announcement posted successfully.");
         } catch (IllegalArgumentException e) {
             System.out.println("Failed: " + e.getMessage());
         }
     }
 
-    // admin only — prompt and archive
+    // ADMIN only — prompt and archive
     public static void promptArchiveAnnouncement() throws IOException, InterruptedException {
-        System.out.print("Enter Announcement ID to archive: ");
+        System.out.print("Enter models.Announcement ID to archive: ");
         String id = scanner.nextLine();
 
         try {
             AnnouncementService.archiveAnnouncement(id);
-            System.out.println("Announcement archived.");
+            System.out.println("models.Announcement archived.");
         } catch (IllegalArgumentException | IllegalStateException e) {
             System.out.println("Failed: " + e.getMessage());
         }
     }
 
-    // admin only — prompt and delete
+    // ADMIN only — prompt and delete
     public static void promptDeleteAnnouncement() throws IOException, InterruptedException {
-        System.out.print("Enter Announcement ID to delete: ");
+        System.out.print("Enter models.Announcement ID to delete: ");
         String id = scanner.nextLine();
 
         AnnouncementService.deleteAnnouncement(id);
-        System.out.println("Announcement deleted.");
+        System.out.println("models.Announcement deleted.");
     }
 
-    // admin only — prompt and edit
+    // ADMIN only — prompt and edit
     public static void promptEditAnnouncement() throws IOException, InterruptedException {
-        System.out.print("Enter Announcement ID to edit: ");
+        System.out.print("Enter models.Announcement ID to edit: ");
         String id = scanner.nextLine();
 
         System.out.print("New title (leave blank to keep): ");
@@ -93,9 +95,22 @@ public class AnnouncementController {
 
         try {
             AnnouncementService.editAnnouncement(id, title, content, category, audience);
-            System.out.println("Announcement updated.");
+            System.out.println("models.Announcement updated.");
         } catch (IllegalArgumentException e) {
             System.out.println("Failed: " + e.getMessage());
         }
+    }
+
+    public static void displayInfo(Announcement announcement) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy hh:mm a");
+
+        System.out.println("========================================");
+        System.out.println("  [" + announcement.getCategory() + "] " + announcement.getTitle());
+        System.out.println("  Posted   : " + announcement.getPostedAt().format(formatter));
+        System.out.println("  For      : " + announcement.getTargetAudience());
+        System.out.println("  Status   : " + (announcement.isArchived() ? "ARCHIVED" : "ACTIVE"));
+        System.out.println("----------------------------------------");
+        System.out.println("  " + announcement.getContent());
+        System.out.println("========================================");
     }
 }

@@ -21,6 +21,7 @@ public class AuthController {
             return account;
         } catch (IllegalArgumentException e) {
             System.out.println("Login failed: " + e.getMessage());
+            e.printStackTrace();
             return null;
         } catch (IOException | InterruptedException e) {
             System.out.println("Connection error");

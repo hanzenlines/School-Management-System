@@ -4,6 +4,7 @@ import models.Announcement;
 import models.enums.UserType;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +29,7 @@ public class AnnouncementService {
                 .collect(Collectors.toList());
     }
 
-    // admin only — post a new announcement
+    // ADMIN only — post a new announcement
     public static void postAnnouncement(String title, String content,
                                         Announcement.Category category,
                                         Announcement.TargetAudience targetAudience)
@@ -40,11 +41,11 @@ public class AnnouncementService {
             throw new IllegalArgumentException("Content cannot be empty");
 
         String id = "ann-" + System.currentTimeMillis(); // simple id generation
-        Announcement announcement = new Announcement(id, title, content, category, targetAudience);
+        Announcement announcement = new Announcement(id, title, content, category, targetAudience, LocalDateTime.now(), false);
         AnnouncementRepository.post(announcement);
     }
 
-    // admin only — archive instead of hard delete (soft delete)
+    // ADMIN only — archive instead of hard delete (soft delete)
     public static void archiveAnnouncement(String announcementId) throws IOException, InterruptedException {
 
         List<Announcement> all = AnnouncementRepository.getAll();
@@ -52,21 +53,21 @@ public class AnnouncementService {
         Announcement target = all.stream()
                 .filter(a -> a.getAnnouncementId().equals(announcementId))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Announcement not found"));
+                .orElseThrow(() -> new IllegalArgumentException("models.Announcement not found"));
 
         if (target.isArchived())
-            throw new IllegalStateException("Announcement is already archived");
+            throw new IllegalStateException("models.Announcement is already archived");
 
         target.archive(); // flips isArchived to true
         AnnouncementRepository.update(target); // persist the change
     }
 
-    // admin only — hard delete
+    // ADMIN only — hard delete
     public static void deleteAnnouncement(String announcementId) throws IOException, InterruptedException {
         AnnouncementRepository.delete(announcementId);
     }
 
-    // admin only — edit an existing announcement
+    // ADMIN only — edit an existing announcement
     public static void editAnnouncement(String announcementId, String newTitle,
                                         String newContent, Announcement.Category newCategory,
                                         Announcement.TargetAudience newAudience)
@@ -77,7 +78,7 @@ public class AnnouncementService {
         Announcement target = all.stream()
                 .filter(a -> a.getAnnouncementId().equals(announcementId))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Announcement not found"));
+                .orElseThrow(() -> new IllegalArgumentException("models.Announcement not found"));
 
         if (newTitle != null && !newTitle.isBlank()) target.setTitle(newTitle);
         if (newContent != null && !newContent.isBlank()) target.setContent(newContent);

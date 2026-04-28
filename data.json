@@ -2,7 +2,7 @@
   "accounts": [
     {
       "id": "s001",
-      "userType": "student",
+      "userType": "STUDENT",
       "name": "Juan dela Cruz",
       "email": "juan.delacruz@school.edu",
       "password": "password123",
@@ -13,7 +13,7 @@
     },
     {
       "id": "s002",
-      "userType": "student",
+      "userType": "STUDENT",
       "name": "Maria Santos",
       "email": "maria.santos@school.edu",
       "password": "password123",
@@ -24,7 +24,7 @@
     },
     {
       "id": "f001",
-      "userType": "faculty",
+      "userType": "FACULTY",
       "name": "Dr. Jose Reyes",
       "email": "jose.reyes@school.edu",
       "password": "password123",
@@ -35,7 +35,7 @@
     },
     {
       "id": "f002",
-      "userType": "faculty",
+      "userType": "FACULTY",
       "name": "Prof. Ana Lim",
       "email": "ana.lim@school.edu",
       "password": "password123",
@@ -46,12 +46,59 @@
     },
     {
       "id": "a001",
-      "userType": "admin",
+      "userType": "ADMIN",
       "name": "Carlos Mendoza",
       "email": "carlos.mendoza@school.edu",
       "password": "password123",
       "contactNumber": "09211234567",
       "employeeNumber": "ADM-001"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann001",
+      "title": "Enrollment Period Now Open",
+      "content": "Enrollment for the 1st semester of SY 2026-2025 is now open. Please log in to the system and enroll in your subjects before August 15, 2026.",
+      "category": "ENROLLMENT",
+      "targetAudience": "STUDENTS",
+      "postedAt": [2026, 8, 1, 9, 0],
+      "isArchived": false
+    },
+    {
+      "id": "ann002",
+      "title": "Faculty Meeting",
+      "content": "There will be a mandatory faculty meeting on August 5, 2026 at 2:00 PM in the conference room. Attendance is required.",
+      "category": "REMINDER",
+      "targetAudience": "FACULTY",
+      "postedAt": [2026, 7, 30, 10, 0],
+      "isArchived": false
+    },
+    {
+      "id": "ann003",
+      "title": "Semestral Break",
+      "content": "The university will be on semestral break from October 28 to November 3, 2026. Classes will resume on November 4.",
+      "category": "HOLIDAY",
+      "targetAudience": "ALL",
+      "postedAt": [2026, 7, 28, 8, 0],
+      "isArchived": false
+    },
+    {
+      "id": "ann004",
+      "title": "Midterm Examination Schedule",
+      "content": "Midterm examinations will be held from September 16-20, 2026. Please check your respective department bulletin boards for the detailed schedule.",
+      "category": "EXAM",
+      "targetAudience": "STUDENTS",
+      "postedAt": [2026, 7, 25, 11, 0],
+      "isArchived": false
+    },
+    {
+      "id": "ann005",
+      "title": "System Maintenance Notice",
+      "content": "The system will undergo scheduled maintenance on August 3, 2026 from 12:00 AM to 4:00 AM. All admin accounts will be temporarily inaccessible.",
+      "category": "GENERAL",
+      "targetAudience": "ADMIN",
+      "postedAt": [2026, 7, 20, 14, 0],
+      "isArchived": false
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

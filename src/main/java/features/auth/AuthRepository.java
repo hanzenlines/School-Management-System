@@ -3,9 +3,9 @@ package features.auth;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.Account;
-import models.Admin;
-import models.Faculty;
-import models.Student;
+import models.admin.Admin;
+import models.faculty.Faculty;
+import models.student.Student;
 
 import java.io.IOException;
 import java.net.URI;
@@ -34,10 +34,10 @@ public class AuthRepository {
         JsonNode node = array.get(0);
         String userTypeStr = node.get("userType").asText();
 
-        return switch (userTypeStr.toLowerCase()) {
-            case "admin"   -> mapper.treeToValue(node, Admin.class);
-            case "faculty" -> mapper.treeToValue(node, Faculty.class);
-            case "student" -> mapper.treeToValue(node, Student.class);
+        return switch (userTypeStr.toUpperCase()) {
+            case "ADMIN"   -> mapper.treeToValue(node, Admin.class);
+            case "FACULTY" -> mapper.treeToValue(node, Faculty.class);
+            case "STUDENT" -> mapper.treeToValue(node, Student.class);
             default        -> null;
         };
     }

@@ -1,7 +1,8 @@
-package models;
+package models.faculty;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import models.Account;
 import models.enums.UserType;
 
 public class Faculty extends Account {
@@ -20,7 +21,7 @@ public class Faculty extends Account {
             @JsonProperty("department")     String department,
             @JsonProperty("position")       String position
     ) {
-        super(id, name, email, password, contactNumber, UserType.faculty);
+        super(id, name, email, password, contactNumber, UserType.FACULTY);
         this.employeeNumber = employeeNumber;
         setDepartment(department);
         setPosition(position);

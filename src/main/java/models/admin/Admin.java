@@ -1,7 +1,8 @@
-package models;
+package models.admin;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import models.Account;
 import models.enums.UserType;
 
 public class Admin extends Account {
@@ -16,7 +17,7 @@ public class Admin extends Account {
             @JsonProperty("contactNumber")  String contactNumber,
             @JsonProperty("employeeNumber") String employeeNumber
     ) {
-        super(id, name, email, password, contactNumber, UserType.admin);
+        super(id, name, email, password, contactNumber, UserType.ADMIN);
         this.employeeNumber = employeeNumber;
     }
 

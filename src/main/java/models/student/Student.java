@@ -1,7 +1,8 @@
-package models;
+package models.student;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import models.Account;
 import models.enums.UserType;
 
 public class Student extends Account {
@@ -22,7 +23,7 @@ public class Student extends Account {
             @JsonProperty("yearLevel")     int yearLevel,
             @JsonProperty("hasPendingBalance")  boolean hasPendingBalance
     ) {
-        super(id, name, email, password, contactNumber, UserType.student);
+        super(id, name, email, password, contactNumber, UserType.STUDENT);
         this.studentNumber = studentNumber;
         setCourse(course);
         setYearLevel(yearLevel);
