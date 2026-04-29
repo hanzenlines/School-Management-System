@@ -61,7 +61,13 @@
       "content": "Enrollment for the 1st semester of SY 2026-2025 is now open. Please log in to the system and enroll in your subjects before August 15, 2026.",
       "category": "ENROLLMENT",
       "targetAudience": "STUDENTS",
-      "postedAt": [2026, 8, 1, 9, 0],
+      "postedAt": [
+        2026,
+        8,
+        1,
+        9,
+        0
+      ],
       "isArchived": false
     },
     {
@@ -70,7 +76,13 @@
       "content": "There will be a mandatory faculty meeting on August 5, 2026 at 2:00 PM in the conference room. Attendance is required.",
       "category": "REMINDER",
       "targetAudience": "FACULTY",
-      "postedAt": [2026, 7, 30, 10, 0],
+      "postedAt": [
+        2026,
+        7,
+        30,
+        10,
+        0
+      ],
       "isArchived": false
     },
     {
@@ -79,7 +91,13 @@
       "content": "The university will be on semestral break from October 28 to November 3, 2026. Classes will resume on November 4.",
       "category": "HOLIDAY",
       "targetAudience": "ALL",
-      "postedAt": [2026, 7, 28, 8, 0],
+      "postedAt": [
+        2026,
+        7,
+        28,
+        8,
+        0
+      ],
       "isArchived": false
     },
     {
@@ -88,7 +106,13 @@
       "content": "Midterm examinations will be held from September 16-20, 2026. Please check your respective department bulletin boards for the detailed schedule.",
       "category": "EXAM",
       "targetAudience": "STUDENTS",
-      "postedAt": [2026, 7, 25, 11, 0],
+      "postedAt": [
+        2026,
+        7,
+        25,
+        11,
+        0
+      ],
       "isArchived": false
     },
     {
@@ -97,8 +121,31 @@
       "content": "The system will undergo scheduled maintenance on August 3, 2026 from 12:00 AM to 4:00 AM. All admin accounts will be temporarily inaccessible.",
       "category": "GENERAL",
       "targetAudience": "ADMIN",
-      "postedAt": [2026, 7, 20, 14, 0],
-      "isArchived": false
+      "postedAt": [
+        2026,
+        7,
+        20,
+        14,
+        0
+      ],
+      "archived": true
+    },
+    {
+      "id": "ann-1777423391931",
+      "title": "Final Exam Schedule",
+      "content": "Graduating Students:\nMay 18, 2026 - May 23, 2026\n\nNon Graduating Students:\nMay 25, 2026 - May 30, 2026",
+      "category": "EXAM",
+      "targetAudience": "ALL",
+      "postedAt": [
+        2026,
+        4,
+        29,
+        8,
+        43,
+        11,
+        934590900
+      ],
+      "archived": false
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

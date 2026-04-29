@@ -4,28 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="Features Separation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" afterDir="false" />
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="Basic Login and Announcement Dashboard for Admin, Student, and Faculty">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/faculty_dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Announcement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Announcement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/auth/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/auth/AuthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/auth/AuthRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/CompletedSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/CompletedSubject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Enrollment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/EnrollmentPeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/EnrollmentPeriod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Faculty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/Faculty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/enums/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/enums/UserType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Announcement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Announcement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +33,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -46,6 +43,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="3CbV3sqn21YjfWDjGJghoamggBS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -53,12 +53,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.LoginUI.executor": "Run",
     "Application.Main.executor": "Run",
+    "Maven.SchoolManagementSystem [clean,install].executor": "Run",
+    "Maven.SchoolManagementSystem [clean,javafx:run].executor": "Run",
+    "Maven.SchoolManagementSystem [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.SchoolManagementSystem [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "Maven.UI.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Marion Alfeche/IdeaProjects/SchoolManagementSystem/src/main/java/features"
+    "last_opened_file_path": "C:/Users/Marion Alfeche/IdeaProjects/SchoolManagementSystem/src/main/java/features",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -70,7 +82,13 @@
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+      <command value="mvn clean javafx:run" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Maven.UI">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SchoolManagementSystem" />
@@ -78,6 +96,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UI" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Maven.UI" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -104,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777354517426</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Basic Login and Announcement Dashboard for Admin, Student, and Faculty">
+      <option name="closed" value="true" />
+      <created>1777360027477</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1777360027477</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,7 +178,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Repo1/master" />
+                        <option value="Repo2/alfeche" />
                       </list>
                     </value>
                   </entry>
@@ -132,6 +192,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Features Separation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Features Separation" />
+    <MESSAGE value="Basic Login and Announcement Dashboard for Admin, Student, and Faculty" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Login and Announcement Dashboard for Admin, Student, and Faculty" />
   </component>
 </project>

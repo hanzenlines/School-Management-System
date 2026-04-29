@@ -45,7 +45,7 @@ public class AnnouncementRepository {
         String body = mapper.writeValueAsString(announcement);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/" + announcement.getAnnouncementId()))
+                .uri(URI.create(BASE_URL + "/" + announcement.getId()))
                 .header("Content-Type", "application/json")
                 .PUT(HttpRequest.BodyPublishers.ofString(body))
                 .build();
@@ -53,9 +53,9 @@ public class AnnouncementRepository {
         client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
-    public static void delete(String announcementId) throws IOException, InterruptedException {
+    public static void delete(String id) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/" + announcementId))
+                .uri(URI.create(BASE_URL + "/" + id))
                 .DELETE()
                 .build();
 

@@ -1,32 +1,42 @@
 package features.auth;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 import models.Account;
-
-import java.io.IOException;
-import java.util.Scanner;
+import models.admin.Admin;
+import models.faculty.Faculty;
+import models.student.Student;
+import models.student.StudentController;
+import models.faculty.FacultyController;
+import models.admin.AdminController;
 
 public class AuthController {
-    private static final Scanner scanner = new Scanner(System.in);
 
-    public static Account promptLogin() {
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
+    @FXML private TextField emailField;
+    @FXML private PasswordField passwordField;
+    @FXML private Label errorLabel;
 
-        System.out.print("Password: ");
-        String password = scanner.nextLine();
-
+    @FXML
+    private void handleLogin() {
         try {
-            Account account = AuthService.login(email, password);
-            System.out.println("Welcome, " + account.getName());
-            return account;
+            Account account = AuthService.login(
+                    emailField.getText().trim(),
+                    passwordField.getText()
+            );
+
+            Stage stage = (Stage) emailField.getScene().getWindow();
+            stage.close();
+
+            switch (account.getUserType()) {
+                case STUDENT -> StudentController.loadDashboard((Student) account);
+                case FACULTY -> FacultyController.loadDashboard((Faculty) account);
+                case ADMIN   -> AdminController.loadDashboard((Admin) account);
+            }
         } catch (IllegalArgumentException e) {
-            System.out.println("Login failed: " + e.getMessage());
-            e.printStackTrace();
-            return null;
-        } catch (IOException | InterruptedException e) {
-            System.out.println("Connection error");
-            e.printStackTrace();
-            return null;
+            errorLabel.setText(e.getMessage());
+        } catch (Exception e) {
+            errorLabel.setText("Connection error.");
         }
     }
 }

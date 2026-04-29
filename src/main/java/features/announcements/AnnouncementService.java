@@ -29,6 +29,10 @@ public class AnnouncementService {
                 .collect(Collectors.toList());
     }
 
+    public static List<Announcement> getAllAnnouncements() throws IOException, InterruptedException {
+        return AnnouncementRepository.getAll();
+    }
+
     // ADMIN only — post a new announcement
     public static void postAnnouncement(String title, String content,
                                         Announcement.Category category,
@@ -46,29 +50,29 @@ public class AnnouncementService {
     }
 
     // ADMIN only — archive instead of hard delete (soft delete)
-    public static void archiveAnnouncement(String announcementId) throws IOException, InterruptedException {
+    public static void archiveAnnouncement(String id) throws IOException, InterruptedException {
 
         List<Announcement> all = AnnouncementRepository.getAll();
 
         Announcement target = all.stream()
-                .filter(a -> a.getAnnouncementId().equals(announcementId))
+                .filter(a -> a.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("models.Announcement not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Announcement not found"));
 
         if (target.isArchived())
-            throw new IllegalStateException("models.Announcement is already archived");
+            throw new IllegalStateException("Announcement is already archived");
 
         target.archive(); // flips isArchived to true
         AnnouncementRepository.update(target); // persist the change
     }
 
     // ADMIN only — hard delete
-    public static void deleteAnnouncement(String announcementId) throws IOException, InterruptedException {
-        AnnouncementRepository.delete(announcementId);
+    public static void deleteAnnouncement(String id) throws IOException, InterruptedException {
+        AnnouncementRepository.delete(id);
     }
 
     // ADMIN only — edit an existing announcement
-    public static void editAnnouncement(String announcementId, String newTitle,
+    public static void editAnnouncement(String id, String newTitle,
                                         String newContent, Announcement.Category newCategory,
                                         Announcement.TargetAudience newAudience)
             throws IOException, InterruptedException {
@@ -76,9 +80,9 @@ public class AnnouncementService {
         List<Announcement> all = AnnouncementRepository.getAll();
 
         Announcement target = all.stream()
-                .filter(a -> a.getAnnouncementId().equals(announcementId))
+                .filter(a -> a.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("models.Announcement not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Announcement not found"));
 
         if (newTitle != null && !newTitle.isBlank()) target.setTitle(newTitle);
         if (newContent != null && !newContent.isBlank()) target.setContent(newContent);

@@ -1,11 +1,13 @@
 package models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Announcement {
 
     // meant for
@@ -30,7 +32,7 @@ public class Announcement {
     // constructor
     @JsonCreator
     public Announcement(
-            @JsonProperty("id")  String id,
+            @JsonProperty("id")              String id,
             @JsonProperty("title")           String title,
             @JsonProperty("content")         String content,
             @JsonProperty("category")        Category category,
@@ -55,7 +57,7 @@ public class Announcement {
         return this.targetAudience == TargetAudience.ALL || this.targetAudience == audience;
     }
 
-    public String getAnnouncementId() { 
+    public String getId() {
       return id;
     }
 

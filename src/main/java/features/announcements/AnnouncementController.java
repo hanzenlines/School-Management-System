@@ -44,7 +44,7 @@ public class AnnouncementController {
 
         try {
             AnnouncementService.postAnnouncement(title, content, category, audience);
-            System.out.println("models.Announcement posted successfully.");
+            System.out.println("Announcement posted successfully.");
         } catch (IllegalArgumentException e) {
             System.out.println("Failed: " + e.getMessage());
         }
@@ -52,12 +52,12 @@ public class AnnouncementController {
 
     // ADMIN only — prompt and archive
     public static void promptArchiveAnnouncement() throws IOException, InterruptedException {
-        System.out.print("Enter models.Announcement ID to archive: ");
+        System.out.print("Enter Announcement ID to archive: ");
         String id = scanner.nextLine();
 
         try {
             AnnouncementService.archiveAnnouncement(id);
-            System.out.println("models.Announcement archived.");
+            System.out.println("Announcement archived.");
         } catch (IllegalArgumentException | IllegalStateException e) {
             System.out.println("Failed: " + e.getMessage());
         }
@@ -65,16 +65,16 @@ public class AnnouncementController {
 
     // ADMIN only — prompt and delete
     public static void promptDeleteAnnouncement() throws IOException, InterruptedException {
-        System.out.print("Enter models.Announcement ID to delete: ");
+        System.out.print("Enter Announcement ID to delete: ");
         String id = scanner.nextLine();
 
         AnnouncementService.deleteAnnouncement(id);
-        System.out.println("models.Announcement deleted.");
+        System.out.println("Announcement deleted.");
     }
 
     // ADMIN only — prompt and edit
     public static void promptEditAnnouncement() throws IOException, InterruptedException {
-        System.out.print("Enter models.Announcement ID to edit: ");
+        System.out.print("Enter Announcement ID to edit: ");
         String id = scanner.nextLine();
 
         System.out.print("New title (leave blank to keep): ");
@@ -95,7 +95,7 @@ public class AnnouncementController {
 
         try {
             AnnouncementService.editAnnouncement(id, title, content, category, audience);
-            System.out.println("models.Announcement updated.");
+            System.out.println("Announcement updated.");
         } catch (IllegalArgumentException e) {
             System.out.println("Failed: " + e.getMessage());
         }
