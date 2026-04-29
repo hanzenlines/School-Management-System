@@ -2,7 +2,7 @@ package features.enrollment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import models.Enrollment;
+import models.Balance;
 
 import java.io.IOException;
 import java.net.URI;
@@ -12,15 +12,16 @@ import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
 
-public class EnrollmentRepository {
+public class BalanceRepository {
 
     private static final HttpClient client = HttpClient.newHttpClient();
-    private static final ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
-    private static final String BASE_URL = "http://localhost:3000/enrollments";
+    private static final ObjectMapper mapper = new ObjectMapper()
+            .registerModule(new JavaTimeModule());
+    private static final String BASE_URL = "http://localhost:3000/balances";
 
-    private EnrollmentRepository() {}
+    private BalanceRepository() {}
 
-    public static List<Enrollment> getByStudentId(String studentId)
+    public static List<Balance> getByStudentId(String studentId)
             throws IOException, InterruptedException {
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -31,29 +32,13 @@ public class EnrollmentRepository {
         HttpResponse<String> response = client.send(request,
                 HttpResponse.BodyHandlers.ofString());
 
-        return Arrays.asList(mapper.readValue(response.body(), Enrollment[].class));
+        return Arrays.asList(mapper.readValue(response.body(), Balance[].class));
     }
 
-    public static Enrollment getById(String id)
+    public static void save(Balance balance)
             throws IOException, InterruptedException {
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/" + id))
-                .GET()
-                .build();
-
-        HttpResponse<String> response = client.send(request,
-                HttpResponse.BodyHandlers.ofString());
-
-        if (response.body().equals("{}") || response.body().isBlank()) return null;
-
-        return mapper.readValue(response.body(), Enrollment.class);
-    }
-
-    public static void save(Enrollment enrollment)
-            throws IOException, InterruptedException {
-
-        String body = mapper.writeValueAsString(enrollment);
+        String body = mapper.writeValueAsString(balance);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL))
@@ -64,13 +49,13 @@ public class EnrollmentRepository {
         client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
-    public static void update(Enrollment enrollment)
+    public static void update(Balance balance)
             throws IOException, InterruptedException {
 
-        String body = mapper.writeValueAsString(enrollment);
+        String body = mapper.writeValueAsString(balance);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/" + enrollment.getId()))
+                .uri(URI.create(BASE_URL + "/" + balance.getId()))
                 .header("Content-Type", "application/json")
                 .PUT(HttpRequest.BodyPublishers.ofString(body))
                 .build();

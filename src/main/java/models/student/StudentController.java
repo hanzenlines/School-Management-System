@@ -1,9 +1,11 @@
 package models.student;
 
 import features.announcements.AnnouncementService;
+import features.enrollment.EnrollmentController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -113,5 +115,25 @@ public class StudentController {
                 getClass().getResource("/login.fxml"));
         stage.setScene(new Scene(loader.load()));
         stage.setTitle("School Management System");
+    }
+
+    @FXML
+    private void showEnrollment() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/EnrollmentView.fxml"));
+
+            Scene scene = new Scene(loader.load());
+
+            EnrollmentController controller = loader.getController();
+            controller.initData(student);
+
+            Stage stage = (Stage) studentNameLabel.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Enrollment");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

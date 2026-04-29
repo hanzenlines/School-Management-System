@@ -1,6 +1,5 @@
 package features.announcements;
 
-import models.Account;
 import models.Announcement;
 import models.enums.UserType;
 

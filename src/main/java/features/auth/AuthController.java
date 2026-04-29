@@ -3,7 +3,7 @@ package features.auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import models.Account;
+import models.account.Account;
 import models.admin.Admin;
 import models.faculty.Faculty;
 import models.student.Student;

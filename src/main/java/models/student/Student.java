@@ -2,7 +2,7 @@ package models.student;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import models.Account;
+import models.account.Account;
 import models.enums.UserType;
 
 public class Student extends Account {
@@ -47,5 +47,9 @@ public class Student extends Account {
 
     public void togglePendingBalance() {
         this.hasPendingBalance = !hasPendingBalance;
+    }
+
+    public void setHasPendingBalance(Boolean hasPendingBalance) {
+        this.hasPendingBalance = hasPendingBalance;
     }
 }

@@ -28,7 +28,24 @@
             <Button text="Announcements"
                     onAction="#showAnnouncements"
                     maxWidth="Infinity"
-                    style="-fx-background-color: #444441; -fx-text-fill: white; -fx-font-size: 13px; -fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;"/>
+                    style="-fx-background-color: #444441;
+                    -fx-text-fill: white;
+                    -fx-font-size: 13px;
+                    -fx-background-radius: 6;
+                    -fx-padding: 8 12;
+                    -fx-alignment: CENTER-LEFT;
+                    -fx-cursor: hand;"/>
+
+            <Button text="Enrollment"
+                    onAction="#showEnrollment"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #444441;
+                    -fx-text-fill: white;
+                    -fx-font-size: 13px;
+                    -fx-background-radius: 6;
+                    -fx-padding: 8 12;
+                    -fx-alignment: CENTER-LEFT;
+                    -fx-cursor: hand;"/>
 
             <Region VBox.vgrow="ALWAYS"/>
 

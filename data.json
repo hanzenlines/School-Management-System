@@ -148,5 +148,59 @@
       "archived": false
     }
   ],
+  "sections": [
+    {
+      "id": "SEC-001",
+      "subjectCode": "CS101",
+      "facultyId": "FAC-001",
+      "schedule": "MWF 9:00-10:00",
+      "roomNumber": "Room 201",
+      "capacity": 30,
+      "currentCount": 25
+    },
+    {
+      "id": "SEC-002",
+      "subjectCode": "CS101",
+      "facultyId": "FAC-002",
+      "schedule": "TTH 10:30-12:00",
+      "roomNumber": "Room 305",
+      "capacity": 25,
+      "currentCount": 25
+    }
+  ],
+  "subjects": [
+    {
+      "id": "SUB-001",
+      "subjectCode": "CS101",
+      "subjectName": "Introduction to Programming",
+      "units": 3,
+      "yearLevel": 1,
+      "semester": "FIRST",
+      "course": "BSCS",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-002",
+      "subjectCode": "CS201",
+      "subjectName": "Data Structures",
+      "units": 3,
+      "yearLevel": 3,
+      "semester": "FIRST",
+      "course": "BSCS",
+      "prerequisites": []
+    }
+],
+  "enrollments": [],
+  "enrollmentPeriods": [
+    {
+      "id": "EP-001",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "start": "2025-06-01T08:00:00",
+      "end": "2025-08-15T17:00:00",
+      "isOpen": true
+    }
+  ],
+  "completedSubjects": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

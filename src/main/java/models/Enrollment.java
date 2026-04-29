@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import models.enums.Semester;
 import models.enums.Status;
 
+import java.time.LocalDateTime;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Enrollment {
     private final String id;
@@ -15,27 +17,27 @@ public class Enrollment {
     private final Semester semester;
     private final String schoolYear;
     private Status status;
-    private final String enrolledAt;
+    private final LocalDateTime enrolledAt;
 
     @JsonCreator
     public Enrollment(
-            @JsonProperty("enrolledAt") String enrolledAt,
-            @JsonProperty("status") Status status,
-            @JsonProperty("schoolYear") String schoolYear,
-            @JsonProperty("semester") Semester semester,
-            @JsonProperty("sectionId") String sectionId,
-            @JsonProperty("subjectCode") String subjectCode,
-            @JsonProperty("studentId") String studentId,
-            @JsonProperty("id") String id
+            @JsonProperty("id")String id,
+            @JsonProperty("studentId")String studentId,
+            @JsonProperty("subjectCode")String subjectCode,
+            @JsonProperty("sectionId")String sectionId,
+            @JsonProperty("semester")Semester semester,
+            @JsonProperty("schoolYear")String schoolYear,
+            @JsonProperty("status")Status status,
+            @JsonProperty("enrolledAt")LocalDateTime enrolledAt
     ) {
-        this.enrolledAt = enrolledAt;
-        this.status = status;
-        this.schoolYear = schoolYear;
-        this.semester = semester;
-        this.sectionId = sectionId;
-        this.subjectCode = subjectCode;
-        this.studentId = studentId;
         this.id = id;
+        this.studentId = studentId;
+        this.subjectCode = subjectCode;
+        this.sectionId = sectionId;
+        this.semester = semester;
+        this.schoolYear = schoolYear;
+        this.status = status;
+        this.enrolledAt = enrolledAt;
     }
 
     public String getId() { return id; }
@@ -50,7 +52,7 @@ public class Enrollment {
 
     public String getSchoolYear() { return schoolYear; }
 
-    public String getEnrolledAt() { return enrolledAt; }
+    public LocalDateTime getEnrolledAt() { return enrolledAt; }
 
     public Status getStatus() { return status; }
 

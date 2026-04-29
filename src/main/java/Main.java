@@ -1,19 +1,7 @@
-import features.auth.AuthController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import models.Account;
-import models.admin.Admin;
-import models.admin.AdminController;
-import models.faculty.Faculty;
-import models.faculty.FacultyController;
-import models.student.Student;
-import models.student.StudentController;
-
-import java.io.IOException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 
 public class Main extends Application {

@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import models.enums.Semester;
-
 import java.time.LocalDateTime;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EnrollmentPeriod {
     private final String id;
     private final Semester semester;
@@ -44,7 +44,7 @@ public class EnrollmentPeriod {
 
     public boolean isOpen() { return isOpen; }
 
-    public void setOpen() {
-        this.isOpen = !isOpen;
+    public void setOpen(boolean isOpen) {
+        this.isOpen = isOpen;
     }
 }

@@ -2,7 +2,7 @@ package features.auth;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import models.Account;
+import models.account.Account;
 import models.admin.Admin;
 import models.faculty.Faculty;
 import models.student.Student;
