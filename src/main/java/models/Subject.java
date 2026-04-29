@@ -5,10 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import models.enums.Semester;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Subject {
+    private final String id;
     private final String subjectCode;
     private final String subjectName;
     private final int units;
@@ -19,22 +21,26 @@ public class Subject {
 
     @JsonCreator
     public Subject(
-            @JsonProperty("prerequisites")  List<String> prerequisites,
-            @JsonProperty("course")         String course,
-            @JsonProperty("semester")       Semester semester,
-            @JsonProperty("yearLevel")      int yearLevel,
-            @JsonProperty("units")          int units,
+            @JsonProperty("id")             String id,
+            @JsonProperty("subjectCode")    String subjectCode,
             @JsonProperty("subjectName")    String subjectName,
-            @JsonProperty("subjectCode")    String subjectCode
+            @JsonProperty("units")          int units,
+            @JsonProperty("yearLevel")      int yearLevel,
+            @JsonProperty("semester")       Semester semester,
+            @JsonProperty("course")         String course,
+            @JsonProperty("prerequisites")  List<String> prerequisites
     ) {
-        this.prerequisites = prerequisites;
-        this.course = course;
-        this.semester = semester;
-        this.yearLevel = yearLevel;
-        this.units = units;
-        this.subjectName = subjectName;
+        this.id = id;
         this.subjectCode = subjectCode;
+        this.subjectName = subjectName;
+        this.units = units;
+        this.yearLevel = yearLevel;
+        this.semester = semester;
+        this.course = course;
+        this.prerequisites = prerequisites;
     }
+
+    public String getId() { return id; }
 
     public String getSubjectCode() { return subjectCode; }
 
@@ -51,6 +57,6 @@ public class Subject {
     public List<String> getPrerequisites() { return prerequisites; }
 
     public void setPrerequisites(List<String> prerequisites) {
-        this.prerequisites = prerequisites;
+        this.prerequisites = prerequisites != null ? prerequisites : new ArrayList<>();
     }
 }

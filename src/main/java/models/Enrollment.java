@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import models.enums.Semester;
 import models.enums.Status;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Enrollment {
     private final String id;
     private final String studentId;
@@ -37,7 +38,7 @@ public class Enrollment {
         this.id = id;
     }
 
-    public String getEnrollmentId() { return id; }
+    public String getId() { return id; }
 
     public String getStudentId() { return studentId; }
 
@@ -52,4 +53,10 @@ public class Enrollment {
     public String getEnrolledAt() { return enrolledAt; }
 
     public Status getStatus() { return status; }
+
+    public void setStatus(Status status) {
+        if (status == null)
+            throw new IllegalArgumentException("Status cannot be null");
+        this.status = status;
+    }
 }
