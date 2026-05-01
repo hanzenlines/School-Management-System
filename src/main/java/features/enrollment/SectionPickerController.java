@@ -96,7 +96,8 @@ public class SectionPickerController {
     private void enroll(Section section) {
         Thread thread = new Thread(() -> {
             try {
-                EnrollmentService.enrollSubject(student, section.getSubjectCode());
+                // addToCart does all validation; throws on any rule violation
+                EnrollmentService.addToCart(student, section);
 
                 Platform.runLater(() -> {
                     if (onSuccess != null) onSuccess.run();
@@ -105,10 +106,11 @@ public class SectionPickerController {
 
             } catch (Exception e) {
                 Platform.runLater(() ->
-                        sectionList.getChildren().add(buildLabel("Enrollment failed: " + e.getMessage())));
+                        sectionList.getChildren()
+                                .add(buildLabel("⚠ " + e.getMessage())));
+                e.printStackTrace();
             }
         });
-
         thread.setDaemon(true);
         thread.start();
     }

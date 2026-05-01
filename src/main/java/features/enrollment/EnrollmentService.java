@@ -78,55 +78,10 @@ public class EnrollmentService {
 
     // ── ENROLLMENT ──────────────────────────────────────────────────────────
 
-    public static void enrollSubject(Student student, String sectionId)
+    // kept for call-site compatibility; just wraps addToCart
+    public static void enrollSubject(Student student, Section section)
             throws IOException, InterruptedException {
-
-        // 1. check enrollment period
-        EnrollmentPeriod period = getActivePeriod();
-        if (!period.isOpen())
-            throw new IllegalStateException("Enrollment is currently closed");
-
-        // 2. check unit limit
-        int currentUnits = getCurrentUnits(student.getId());
-        Section section = SectionRepository.getById(sectionId);
-        if (section == null)
-            throw new IllegalArgumentException("Section not found");
-
-        Subject subject = SubjectRepository.getByCode(section.getSubjectCode());
-        if (subject == null)
-            throw new IllegalArgumentException("Subject not found");
-
-        if (currentUnits + subject.getUnits() > MAX_UNITS)
-            throw new IllegalStateException(
-                    "Enrolling this subject exceeds the " + MAX_UNITS + " unit limit");
-
-        // 3. check section capacity
-        if (section.isFull())
-            throw new IllegalStateException("Section is already full");
-
-        // 4. check schedule conflict
-        if (hasScheduleConflict(student.getId(), section))
-            throw new IllegalStateException(
-                    "Schedule conflict with an existing enrollment");
-
-        // 5. create enrollment record
-        String id = java.util.UUID.randomUUID().toString();
-        Enrollment enrollment = new Enrollment(
-                id,
-                student.getId(),
-                subject.getSubjectCode(),
-                sectionId,
-                period.getSemester(),
-                period.getSchoolYear(),
-                Status.PENDING,
-                LocalDateTime.now()
-        );
-
-        EnrollmentRepository.save(enrollment);
-
-        // 6. increment section count
-        section.incrementCurrentCount();
-        SectionRepository.update(section);
+        addToCart(student, section);
     }
 
     // ── CONFIRM ENROLLMENT ──────────────────────────────────────────────────
@@ -137,36 +92,53 @@ public class EnrollmentService {
 
         EnrollmentPeriod period = getActivePeriod();
 
+        List<CartItem> cartItems = getCart(student.getId());
+        if (cartItems.isEmpty())
+            throw new IllegalStateException("No subjects selected to confirm");
+
+        // 1. save each cart item as a PENDING enrollment + increment section count
+        for (CartItem item : cartItems) {
+            String id = java.util.UUID.randomUUID().toString();
+            Enrollment enrollment = new Enrollment(
+                    id,
+                    student.getId(),
+                    item.subject().getSubjectCode(),
+                    item.section().getId(),
+                    period.getSemester(),
+                    period.getSchoolYear(),
+                    Status.PENDING,
+                    LocalDateTime.now()
+            );
+            EnrollmentRepository.save(enrollment);
+
+            item.section().incrementCurrentCount();
+            SectionRepository.update(item.section());
+        }
+
+        // 2. clear cart now that everything is persisted
+        clearCart(student.getId());
+
+        // 3. calculate cost from what was just saved
         List<Enrollment> pending = EnrollmentRepository
                 .getByStudentId(student.getId())
                 .stream()
                 .filter(e -> e.getStatus() == Status.PENDING)
                 .collect(Collectors.toList());
 
-        if (pending.isEmpty())
-            throw new IllegalStateException("No pending enrollments to confirm");
-
-        // calculate total cost
         double totalCost = pending.stream()
                 .mapToDouble(e -> {
                     try {
-                        Subject subject = SubjectRepository
-                                .getByCode(e.getSubjectCode());
+                        Subject subject = SubjectRepository.getByCode(e.getSubjectCode());
                         return subject != null ? subject.getUnits() * COST_PER_UNIT : 0;
-                    } catch (Exception ex) {
-                        return 0;
-                    }
+                    } catch (Exception ex) { return 0; }
                 })
                 .sum();
 
         double remainingBalance = totalCost - DOWNPAYMENT;
-
-        // apply 5% discount if full payment
         boolean discountApplied = paymentPlan == PaymentPlan.FULL;
         if (discountApplied)
             remainingBalance = remainingBalance * (1 - FULL_PAYMENT_DISCOUNT);
 
-        // create balance record
         String balanceId = java.util.UUID.randomUUID().toString();
         Balance balance = new Balance(
                 balanceId,
@@ -175,25 +147,20 @@ public class EnrollmentService {
                 period.getSemester(),
                 paymentPlan,
                 totalCost,
-                false,             // downpayment not yet paid
+                false,
                 remainingBalance,
                 discountApplied
         );
-
         BalanceRepository.save(balance);
 
-        // create quarterly schedule if applicable
-        if (paymentPlan == PaymentPlan.QUARTERLY) {
+        if (paymentPlan == PaymentPlan.QUARTERLY)
             createQuarterlySchedule(balanceId, remainingBalance);
-        }
     }
 
     // ── DROP SUBJECT ────────────────────────────────────────────────────────
 
-    public static void dropSubject(Student student, String enrollmentId)
+    public static void dropSubject(Student student, Enrollment enrollment)
             throws IOException, InterruptedException {
-
-        Enrollment enrollment = EnrollmentRepository.getById(enrollmentId);
 
         if (enrollment == null)
             throw new IllegalArgumentException("Enrollment not found");
@@ -284,5 +251,72 @@ public class EnrollmentService {
         if (period == null)
             throw new IllegalStateException("No active enrollment period");
         return period;
+    }
+
+    private static final java.util.Map<String, List<CartItem>> cart = new java.util.concurrent.ConcurrentHashMap<>();
+
+    public record CartItem(Section section, Subject subject) {}
+
+    public static List<CartItem> getCart(String studentId) {
+        return cart.getOrDefault(studentId, new java.util.ArrayList<>());
+    }
+
+    public static void addToCart(Student student, Section section)
+            throws IOException, InterruptedException {
+
+        // 1. check enrollment period
+        EnrollmentPeriod period = getActivePeriod();
+        if (!period.isOpen())
+            throw new IllegalStateException("Enrollment is currently closed");
+
+        Subject subject = SubjectRepository.getByCode(section.getSubjectCode());
+        if (subject == null)
+            throw new IllegalArgumentException("Subject not found");
+
+        List<CartItem> studentCart = cart.computeIfAbsent(
+                student.getId(), k -> new java.util.ArrayList<>());
+
+        // 2. duplicate check
+        boolean alreadyInCart = studentCart.stream()
+                .anyMatch(item -> item.subject().getSubjectCode()
+                        .equals(subject.getSubjectCode()));
+        if (alreadyInCart)
+            throw new IllegalStateException("Subject already in cart");
+
+        // 3. unit limit check (existing enrolled/pending + cart)
+        int currentUnits = getCurrentUnits(student.getId());
+        int cartUnits = studentCart.stream()
+                .mapToInt(item -> item.subject().getUnits())
+                .sum();
+        if (currentUnits + cartUnits + subject.getUnits() > MAX_UNITS)
+            throw new IllegalStateException(
+                    "Adding this subject exceeds the " + MAX_UNITS + " unit limit");
+
+        // 4. section capacity check
+        if (section.isFull())
+            throw new IllegalStateException("Section is already full");
+
+        // 5. schedule conflict check (against repo + cart)
+        if (hasScheduleConflict(student.getId(), section))
+            throw new IllegalStateException("Schedule conflict with an existing enrollment");
+
+        boolean cartConflict = studentCart.stream()
+                .anyMatch(item -> item.section().getSchedule()
+                        .equals(section.getSchedule()));
+        if (cartConflict)
+            throw new IllegalStateException("Schedule conflict with another selected subject");
+
+        studentCart.add(new CartItem(section, subject));
+    }
+
+    public static void removeFromCart(String studentId, String subjectCode) {
+        List<CartItem> studentCart = cart.get(studentId);
+        if (studentCart != null)
+            studentCart.removeIf(item ->
+                    item.subject().getSubjectCode().equals(subjectCode));
+    }
+
+    public static void clearCart(String studentId) {
+        cart.remove(studentId);
     }
 }

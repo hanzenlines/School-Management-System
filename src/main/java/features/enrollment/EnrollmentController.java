@@ -120,20 +120,26 @@ public class EnrollmentController {
 
     // ── Load selected subjects ───────────────────────────────────────────────
 
+    // In loadSelectedSubjects() — merge repo enrollments with cart items
     private void loadSelectedSubjects() {
         contentArea.getChildren().clear();
         contentArea.getChildren().add(buildLoadingLabel("Loading your subjects..."));
 
         Thread thread = new Thread(() -> {
             try {
-                List<Enrollment> pending = EnrollmentRepository
+                // already-persisted enrollments
+                List<Enrollment> persisted = EnrollmentRepository
                         .getByStudentId(student.getId())
                         .stream()
                         .filter(e -> e.getStatus() == Status.PENDING
                                 || e.getStatus() == Status.ENROLLED)
                         .collect(Collectors.toList());
 
-                Platform.runLater(() -> renderSelectedSubjects(pending));
+                // cart items (not yet in repo)
+                List<EnrollmentService.CartItem> cartItems =
+                        EnrollmentService.getCart(student.getId());
+
+                Platform.runLater(() -> renderSelectedSubjects(persisted, cartItems));
             } catch (Exception e) {
                 Platform.runLater(() -> showError("Failed to load subjects: " + e.getMessage()));
             }
@@ -142,25 +148,72 @@ public class EnrollmentController {
         thread.start();
     }
 
-    private void renderSelectedSubjects(List<Enrollment> enrollments) {
+    private void renderSelectedSubjects(List<Enrollment> enrollments,
+                                        List<EnrollmentService.CartItem> cartItems) {
         contentArea.getChildren().clear();
 
-        if (enrollments.isEmpty()) {
+        if (enrollments.isEmpty() && cartItems.isEmpty()) {
             contentArea.getChildren().add(buildEmptyLabel("No subjects selected yet."));
             return;
         }
 
+        // render cart items first with a "Selected" badge and a remove button
+        for (EnrollmentService.CartItem item : cartItems) {
+            contentArea.getChildren().add(buildCartItemCard(item));
+        }
+
+        // render persisted enrollments as before
         for (Enrollment enrollment : enrollments) {
             try {
                 Subject subject = SubjectRepository.getByCode(enrollment.getSubjectCode());
-                if (subject != null) {
-                    contentArea.getChildren().add(
-                            buildSelectedSubjectCard(enrollment, subject));
-                }
+                if (subject != null)
+                    contentArea.getChildren().add(buildSelectedSubjectCard(enrollment, subject));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private HBox buildCartItemCard(EnrollmentService.CartItem item) {
+        HBox card = new HBox(12);
+        card.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        card.setStyle(
+                "-fx-background-color: #f0f7ff; -fx-background-radius: 8; " +
+                        "-fx-border-color: #b3d4f5; -fx-border-radius: 8; -fx-border-width: 1;");
+        card.setPadding(new Insets(14, 16, 14, 16));
+
+        VBox info = new VBox(4);
+        HBox.setHgrow(info, Priority.ALWAYS);
+
+        Label nameLabel = new Label(item.subject().getSubjectName());
+        nameLabel.setStyle("-fx-font-size: 13px; -fx-font-weight: 500; -fx-text-fill: #2c2c2a;");
+
+        Label codeLabel = new Label(item.subject().getSubjectCode()
+                + "  ·  " + item.subject().getUnits() + " units"
+                + "  ·  " + item.section().getSchedule());
+        codeLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #888780;");
+
+        info.getChildren().addAll(nameLabel, codeLabel);
+
+        Label badge = new Label("Selected");
+        badge.setStyle(
+                "-fx-background-color: #cce5ff; -fx-text-fill: #004085; " +
+                        "-fx-background-radius: 10; -fx-padding: 3 10; -fx-font-size: 11px;");
+
+        Button removeBtn = new Button("Remove");
+        removeBtn.setStyle(
+                "-fx-background-color: transparent; -fx-text-fill: #888780; " +
+                        "-fx-font-size: 12px; -fx-padding: 4 10; -fx-border-color: #888780; " +
+                        "-fx-border-radius: 6; -fx-border-width: 1; -fx-cursor: hand;");
+        removeBtn.setOnAction(e -> {
+            EnrollmentService.removeFromCart(student.getId(),
+                    item.subject().getSubjectCode());
+            refreshUnitCount();
+            loadSelectedSubjects();
+        });
+
+        card.getChildren().addAll(info, badge, removeBtn);
+        return card;
     }
 
     // ── Section picker ───────────────────────────────────────────────────────
@@ -168,7 +221,7 @@ public class EnrollmentController {
     private void openSectionPicker(Subject subject) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/features/enrollment/SectionPickerDialog.fxml"));
+                    getClass().getResource("/SectionPickerDialog.fxml"));
             Parent root = loader.load();
 
             SectionPickerController controller = loader.getController();
@@ -193,8 +246,7 @@ public class EnrollmentController {
     @FXML
     private void handleConfirmEnrollment() {
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/features/enrollment/ConfirmEnrollmentDialog.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ConfirmEnrollmentDialog.fxml"));
             Parent root = loader.load();
 
             ConfirmEnrollmentController controller = loader.getController();
@@ -211,6 +263,7 @@ public class EnrollmentController {
 
         } catch (IOException e) {
             showError("Could not open confirmation dialog: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -225,7 +278,7 @@ public class EnrollmentController {
     private void dropEnrollment(Enrollment enrollment) {
         Thread thread = new Thread(() -> {
             try {
-                EnrollmentService.dropSubject(student, enrollment.getId());
+                EnrollmentService.dropSubject(student, enrollment);
                 Platform.runLater(() -> {
                     refreshUnitCount();
                     loadSelectedSubjects();
@@ -256,7 +309,13 @@ public class EnrollmentController {
                     if (subject != null) units += subject.getUnits();
                 }
 
-                final int total = units;
+                // add cart units
+                int cartUnits = EnrollmentService.getCart(student.getId())
+                        .stream()
+                        .mapToInt(item -> item.subject().getUnits())
+                        .sum();
+
+                final int total = units + cartUnits;
                 Platform.runLater(() ->
                         unitCountLabel.setText(total + " / 24 units"));
             } catch (Exception e) {

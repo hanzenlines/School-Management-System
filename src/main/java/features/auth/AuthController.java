@@ -37,6 +37,7 @@ public class AuthController {
             errorLabel.setText(e.getMessage());
         } catch (Exception e) {
             errorLabel.setText("Connection error.");
+            e.printStackTrace();
         }
     }
 }

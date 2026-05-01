@@ -10,6 +10,7 @@ public class Student extends Account {
     private String course;
     private int yearLevel;
     private boolean hasPendingBalance;
+    private boolean enrollmentConfirmed;
 
     @JsonCreator
     public Student(
@@ -21,10 +22,12 @@ public class Student extends Account {
             @JsonProperty("studentNumber") String studentNumber,
             @JsonProperty("course")        String course,
             @JsonProperty("yearLevel")     int yearLevel,
-            @JsonProperty("hasPendingBalance")  boolean hasPendingBalance
+            @JsonProperty("hasPendingBalance")  boolean hasPendingBalance,
+            @JsonProperty("enrollmentConfirmed") boolean enrollmentConfirmed
     ) {
         super(id, name, email, password, contactNumber, UserType.STUDENT);
         this.studentNumber = studentNumber;
+        this.enrollmentConfirmed = enrollmentConfirmed;
         setCourse(course);
         setYearLevel(yearLevel);
     }
@@ -51,5 +54,11 @@ public class Student extends Account {
 
     public void setHasPendingBalance(Boolean hasPendingBalance) {
         this.hasPendingBalance = hasPendingBalance;
+    }
+
+    public boolean isEnrollmentConfirmed() { return enrollmentConfirmed; }
+
+    public void setEnrollmentConfirmed(boolean enrollmentConfirmed) {
+        this.enrollmentConfirmed = enrollmentConfirmed;
     }
 }

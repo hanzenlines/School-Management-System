@@ -2,25 +2,37 @@
   "accounts": [
     {
       "id": "s001",
-      "userType": "STUDENT",
       "name": "Juan dela Cruz",
       "email": "juan.delacruz@school.edu",
       "password": "password123",
       "contactNumber": "09171234567",
       "studentNumber": "2021-00001",
       "course": "BSCS",
-      "yearLevel": 3
+      "yearLevel": 3,
+      "userType": "STUDENT"
     },
     {
       "id": "s002",
-      "userType": "STUDENT",
       "name": "Maria Santos",
       "email": "maria.santos@school.edu",
       "password": "password123",
       "contactNumber": "09181234567",
       "studentNumber": "2022-00002",
       "course": "BSIT",
-      "yearLevel": 2
+      "yearLevel": 2,
+      "userType": "STUDENT",
+      "role": "STUDENT"
+    },
+    {
+      "id": "s003",
+      "userType": "STUDENT",
+      "name": "Jepoy Dizon",
+      "email": "jepoy.dizon@school.edu",
+      "password": "password123",
+      "contactNumber": "09123456789",
+      "studentNumber": "2022-00003",
+      "course": "BSCS",
+      "yearLevel": 3
     },
     {
       "id": "f001",
@@ -52,6 +64,114 @@
       "password": "password123",
       "contactNumber": "09211234567",
       "employeeNumber": "ADM-001"
+    },
+    {
+      "id": "d7ee75fa-bcf2-4531-8258-3b3dbffabb29",
+      "balanceId": "5f1b5ebf-c2da-47cf-af01-d6d333ff9c19",
+      "quarter": "PRELIM",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "0da337f5-5522-4996-94cf-42ba832d6985",
+      "balanceId": "5f1b5ebf-c2da-47cf-af01-d6d333ff9c19",
+      "quarter": "MIDTERM",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "8c47a2be-d07d-4bfd-9f3b-86fdb4e28351",
+      "balanceId": "5f1b5ebf-c2da-47cf-af01-d6d333ff9c19",
+      "quarter": "PREFINAL",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "2d82e70f-bcd4-400c-ad1a-30fbdd24be9a",
+      "balanceId": "5f1b5ebf-c2da-47cf-af01-d6d333ff9c19",
+      "quarter": "FINAL",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "b1eba6ea-4829-4ceb-ab66-d05f065bb602",
+      "balanceId": "b2a413d5-e716-47d7-b986-32af2330b11d",
+      "quarter": "PRELIM",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "94947410-6ba4-4bb7-9375-595411c152b9",
+      "balanceId": "b2a413d5-e716-47d7-b986-32af2330b11d",
+      "quarter": "MIDTERM",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "8ac5620d-9788-4fe8-bcae-3fcb8a9e70b1",
+      "balanceId": "b2a413d5-e716-47d7-b986-32af2330b11d",
+      "quarter": "PREFINAL",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "d9c57a3c-6db4-4385-a333-038bd3f141bc",
+      "balanceId": "b2a413d5-e716-47d7-b986-32af2330b11d",
+      "quarter": "FINAL",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "8c55cc7f-0cb5-4af7-a3d8-af143beaeba0",
+      "balanceId": "86cb7be1-4bbe-43d9-b11d-5930b3f9a3ec",
+      "quarter": "PRELIM",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "d131e19a-09d8-459b-9076-3b9fc23bff88",
+      "balanceId": "86cb7be1-4bbe-43d9-b11d-5930b3f9a3ec",
+      "quarter": "MIDTERM",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "16acd6aa-dd3f-4047-a952-ffda749e15b4",
+      "balanceId": "86cb7be1-4bbe-43d9-b11d-5930b3f9a3ec",
+      "quarter": "PREFINAL",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
+    },
+    {
+      "id": "e7430335-fc15-463b-8cc9-9ae0e84dbd68",
+      "balanceId": "86cb7be1-4bbe-43d9-b11d-5930b3f9a3ec",
+      "quarter": "FINAL",
+      "scheduledAmount": 500,
+      "paidAmount": 0,
+      "remainingAmount": 500,
+      "status": "UNPAID"
     }
   ],
   "announcements": [
@@ -151,45 +271,235 @@
   "sections": [
     {
       "id": "SEC-001",
-      "subjectCode": "CS101",
-      "facultyId": "FAC-001",
-      "schedule": "MWF 9:00-10:00",
+      "subjectCode": "CSIT111",
+      "facultyId": "f001",
+      "schedule": "MWF 8:00-9:00",
       "roomNumber": "Room 201",
       "capacity": 30,
-      "currentCount": 25
+      "currentCount": 20
     },
     {
       "id": "SEC-002",
-      "subjectCode": "CS101",
-      "facultyId": "FAC-002",
-      "schedule": "TTH 10:30-12:00",
-      "roomNumber": "Room 305",
+      "subjectCode": "CSIT121",
+      "facultyId": "f002",
+      "schedule": "MWF 9:00-11:00",
+      "roomNumber": "Lab 1",
       "capacity": 25,
-      "currentCount": 25
+      "currentCount": 18
+    },
+    {
+      "id": "SEC-003",
+      "subjectCode": "CSIT122",
+      "facultyId": "f002",
+      "schedule": "TTH 10:00-12:00",
+      "roomNumber": "Lab 2",
+      "capacity": 30,
+      "currentCount": 22
+    },
+    {
+      "id": "SEC-004",
+      "subjectCode": "CSIT221",
+      "facultyId": "f001",
+      "schedule": "MWF 1:00-3:00",
+      "roomNumber": "Room 305",
+      "capacity": 35,
+      "currentCount": 31,
+      "full": false,
+      "availableSlots": 4
+    },
+    {
+      "id": "SEC-005",
+      "subjectCode": "CSIT227",
+      "facultyId": "f002",
+      "schedule": "TTH 1:00-3:00",
+      "roomNumber": "Lab 3",
+      "capacity": 30,
+      "currentCount": 28,
+      "availableSlots": 2,
+      "full": false
+    },
+    {
+      "id": "SEC-006",
+      "subjectCode": "CSIT228",
+      "facultyId": "f001",
+      "schedule": "MWF 10:00-12:00",
+      "roomNumber": "Lab 4",
+      "capacity": 30,
+      "currentCount": 29,
+      "availableSlots": 1,
+      "full": false
+    },
+    {
+      "id": "SEC-007",
+      "subjectCode": "CSIT321",
+      "facultyId": "f001",
+      "schedule": "MWF 3:00-5:00",
+      "roomNumber": "Room 401",
+      "capacity": 30,
+      "currentCount": 19
+    },
+    {
+      "id": "SEC-008",
+      "subjectCode": "IT332",
+      "facultyId": "f002",
+      "schedule": "TTH 3:00-5:00",
+      "roomNumber": "Room 402",
+      "capacity": 25,
+      "currentCount": 17
     }
   ],
   "subjects": [
     {
       "id": "SUB-001",
-      "subjectCode": "CS101",
-      "subjectName": "Introduction to Programming",
+      "subjectCode": "CSIT111",
+      "subjectName": "Introduction to Computing",
       "units": 3,
       "yearLevel": 1,
       "semester": "FIRST",
-      "course": "BSCS",
+      "course": "BSIT",
       "prerequisites": []
     },
     {
       "id": "SUB-002",
-      "subjectCode": "CS201",
-      "subjectName": "Data Structures",
+      "subjectCode": "CSIT121",
+      "subjectName": "Fundamentals of Programming",
+      "units": 3,
+      "yearLevel": 1,
+      "semester": "FIRST",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-003",
+      "subjectCode": "MATH031",
+      "subjectName": "Mathematics in the Modern World",
+      "units": 3,
+      "yearLevel": 1,
+      "semester": "FIRST",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-004",
+      "subjectCode": "ENGL031",
+      "subjectName": "Purposive Communication",
+      "units": 3,
+      "yearLevel": 1,
+      "semester": "FIRST",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-005",
+      "subjectCode": "PHILO031",
+      "subjectName": "Ethics",
+      "units": 3,
+      "yearLevel": 1,
+      "semester": "FIRST",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-006",
+      "subjectCode": "CS132",
+      "subjectName": "Introduction to Computer Systems",
+      "units": 3,
+      "yearLevel": 1,
+      "semester": "SECOND",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-007",
+      "subjectCode": "CSIT122",
+      "subjectName": "Intermediate Programming",
+      "units": 3,
+      "yearLevel": 1,
+      "semester": "SECOND",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-008",
+      "subjectCode": "CSIT221",
+      "subjectName": "Data Structures and Algorithms",
+      "units": 3,
+      "yearLevel": 2,
+      "semester": "FIRST",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-009",
+      "subjectCode": "CSIT227",
+      "subjectName": "Object-Oriented Programming 1",
+      "units": 3,
+      "yearLevel": 2,
+      "semester": "FIRST",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-010",
+      "subjectCode": "CSIT228",
+      "subjectName": "Object-Oriented Programming 2",
+      "units": 3,
+      "yearLevel": 2,
+      "semester": "SECOND",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-011",
+      "subjectCode": "CSIT226",
+      "subjectName": "Information Management 1",
+      "units": 3,
+      "yearLevel": 2,
+      "semester": "SECOND",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-012",
+      "subjectCode": "CSIT321",
+      "subjectName": "Applications Development and Emerging Technologies",
       "units": 3,
       "yearLevel": 3,
       "semester": "FIRST",
-      "course": "BSCS",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-013",
+      "subjectCode": "IT317",
+      "subjectName": "Project Management for IT",
+      "units": 3,
+      "yearLevel": 3,
+      "semester": "FIRST",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-014",
+      "subjectCode": "IT332",
+      "subjectName": "Capstone and Research 1",
+      "units": 3,
+      "yearLevel": 3,
+      "semester": "SECOND",
+      "course": "BSIT",
+      "prerequisites": []
+    },
+    {
+      "id": "SUB-015",
+      "subjectCode": "IT411",
+      "subjectName": "Capstone and Research 2",
+      "units": 3,
+      "yearLevel": 4,
+      "semester": "FIRST",
+      "course": "BSIT",
       "prerequisites": []
     }
-],
+  ],
   "enrollments": [],
   "enrollmentPeriods": [
     {

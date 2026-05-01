@@ -47,7 +47,9 @@
             <Label text="Payment plan"
                    style="-fx-font-size: 12px; -fx-text-fill: #888780; -fx-font-weight: 500;"/>
 
-            <ToggleGroup fx:id="paymentPlanGroup"/>
+            <fx:define>
+                <ToggleGroup fx:id="paymentPlanGroup"/>
+            </fx:define>
 
             <VBox fx:id="quarterlyOption" spacing="2"
                   style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: #2c2c2a; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-cursor: hand;">

@@ -119,6 +119,7 @@ public class StudentController {
 
     @FXML
     private void showEnrollment() {
+        if ("Enrollment".equals(pageTitleLabel.getText())) return;
         try {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/EnrollmentView.fxml"));

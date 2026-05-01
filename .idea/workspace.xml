@@ -4,24 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="Basic Login and Announcement Dashboard for Admin, Student, and Faculty">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/faculty_dashboard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="Started Enrollment logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/auth/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Announcement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Announcement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ConfirmEnrollmentDialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ConfirmEnrollmentDialog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/auth/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/auth/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/student/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/student/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Enum" />
         <option value="Class" />
-        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -43,43 +39,47 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3CbV3sqn21YjfWDjGJghoamggBS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.LoginUI.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Maven.SchoolManagementSystem [clean,install].executor": "Run",
-    "Maven.SchoolManagementSystem [clean,javafx:run].executor": "Run",
-    "Maven.SchoolManagementSystem [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.SchoolManagementSystem [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "Maven.UI.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Marion Alfeche/IdeaProjects/SchoolManagementSystem/src/main/java/features",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.LoginUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SchoolManagementSystem [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SchoolManagementSystem [clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SchoolManagementSystem [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SchoolManagementSystem [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.UI.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marion Alfeche/IdeaProjects/SchoolManagementSystem/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\resources" />
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\features" />
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -164,7 +164,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777360027477</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Announcement Dashboard, Admin can Post/Edit">
+      <option name="closed" value="true" />
+      <created>1777426685770</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1777426685770</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Started Enrollment logic">
+      <option name="closed" value="true" />
+      <created>1777476351881</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1777476351881</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,6 +209,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Features Separation" />
     <MESSAGE value="Basic Login and Announcement Dashboard for Admin, Student, and Faculty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic Login and Announcement Dashboard for Admin, Student, and Faculty" />
+    <MESSAGE value="Announcement Dashboard, Admin can Post/Edit" />
+    <MESSAGE value="Started Enrollment logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Enrollment logic" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
