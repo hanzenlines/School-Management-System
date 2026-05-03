@@ -17,7 +17,7 @@ import java.util.List;
 public class QuarterlyScheduleRepository {
     private static final HttpClient client = HttpClient.newHttpClient();
     private static final ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
-    private static final String BASE_URL = "http://localhost:3000/accounts";
+    private static final String BASE_URL = "http://localhost:3000/quarterlySchedules";
 
     private QuarterlyScheduleRepository() {}
 

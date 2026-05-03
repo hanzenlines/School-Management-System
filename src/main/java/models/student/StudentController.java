@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -22,6 +23,8 @@ public class StudentController {
     @FXML private Label studentNameLabel;
     @FXML private Label pageTitleLabel;
     @FXML private VBox contentArea;
+    @FXML private Button sidebarAnnouncements;
+    @FXML private Button sidebarEnrollment;
 
     private Student student;
 
@@ -136,5 +139,19 @@ public class StudentController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static final String SIDEBAR_ACTIVE =
+            "-fx-background-color: #444441; -fx-text-fill: white; -fx-font-size: 13px; " +
+                    "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
+
+    private static final String SIDEBAR_INACTIVE =
+            "-fx-background-color: transparent; -fx-text-fill: #888780; -fx-font-size: 13px; " +
+                    "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
+
+    private void setSidebarActive(Button active) {
+        sidebarAnnouncements.setStyle(SIDEBAR_INACTIVE);
+        sidebarEnrollment.setStyle(SIDEBAR_INACTIVE);
+        active.setStyle(SIDEBAR_ACTIVE);
     }
 }

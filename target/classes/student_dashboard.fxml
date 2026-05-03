@@ -26,6 +26,7 @@
 
             <!-- Nav buttons -->
             <Button text="Announcements"
+                    fx:id="sidebarAnnouncements"
                     onAction="#showAnnouncements"
                     maxWidth="Infinity"
                     style="-fx-background-color: #444441;
@@ -37,10 +38,11 @@
                     -fx-cursor: hand;"/>
 
             <Button text="Enrollment"
+                    fx:id="sidebarEnrollment"
                     onAction="#showEnrollment"
                     maxWidth="Infinity"
-                    style="-fx-background-color: #444441;
-                    -fx-text-fill: white;
+                    style="-fx-background-color: transparent;
+                    -fx-text-fill: #888780;
                     -fx-font-size: 13px;
                     -fx-background-radius: 6;
                     -fx-padding: 8 12;

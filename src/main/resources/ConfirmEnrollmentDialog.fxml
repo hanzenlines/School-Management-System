@@ -26,20 +26,20 @@
               style="-fx-background-color: #eeecea; -fx-background-radius: 8;">
             <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
             <HBox>
-                <Label text="Tuition total" style="-fx-font-size: 13px; -fx-text-fill: #555452;" HBox.hgrow="ALWAYS"/>
+                <Label text="Tuition total: " style="-fx-font-size: 13px; -fx-text-fill: #555452;" HBox.hgrow="ALWAYS"/>
                 <Label fx:id="totalCostLabel" text="PHP 0.00"
                        style="-fx-font-size: 13px; -fx-text-fill: #2c2c2a; -fx-font-weight: 500;"/>
             </HBox>
             <HBox>
-                <Label text="Downpayment due now" style="-fx-font-size: 13px; -fx-text-fill: #555452;" HBox.hgrow="ALWAYS"/>
+                <Label text="Downpayment: " style="-fx-font-size: 13px; -fx-text-fill: #555452;" HBox.hgrow="ALWAYS"/>
                 <Label text="PHP 1,000.00"
                        style="-fx-font-size: 13px; -fx-text-fill: #2c2c2a; -fx-font-weight: 500;"/>
             </HBox>
-            <HBox>
-                <Label text="Remaining balance" style="-fx-font-size: 13px; -fx-text-fill: #555452;" HBox.hgrow="ALWAYS"/>
-                <Label fx:id="remainingLabel" text="PHP 0.00"
-                       style="-fx-font-size: 13px; -fx-text-fill: #2c2c2a; -fx-font-weight: 500;"/>
-            </HBox>
+<!--            <HBox>-->
+<!--                <Label text="Remaining balance: " style="-fx-font-size: 13px; -fx-text-fill: #555452;" HBox.hgrow="ALWAYS"/>-->
+<!--                <Label fx:id="remainingLabel" text="PHP 0.00"-->
+<!--                       style="-fx-font-size: 13px; -fx-text-fill: #2c2c2a; -fx-font-weight: 500;"/>-->
+<!--            </HBox>-->
         </VBox>
 
         <!-- Payment plan -->
@@ -74,7 +74,7 @@
                     <Label text="5% off"
                            style="-fx-background-color: #d4edda; -fx-text-fill: #2d6a4f; -fx-font-size: 11px; -fx-background-radius: 10; -fx-padding: 2 8;"/>
                 </HBox>
-                <Label text="Pay the full remaining balance upfront and save 5%"
+                <Label text="Pay the full balance upfront and save 5%"
                        style="-fx-font-size: 12px; -fx-text-fill: #888780;"/>
             </VBox>
         </VBox>

@@ -28,6 +28,7 @@ public class Student extends Account {
         super(id, name, email, password, contactNumber, UserType.STUDENT);
         this.studentNumber = studentNumber;
         this.enrollmentConfirmed = enrollmentConfirmed;
+        this.hasPendingBalance = hasPendingBalance;
         setCourse(course);
         setYearLevel(yearLevel);
     }

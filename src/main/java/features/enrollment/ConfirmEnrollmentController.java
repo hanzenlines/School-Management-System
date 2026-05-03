@@ -46,28 +46,37 @@ public class ConfirmEnrollmentController {
     private void loadSummary() {
         Thread thread = new Thread(() -> {
             try {
-                List<Enrollment> enrollments =
-                        EnrollmentRepository.getByStudentId(student.getId());
+//                List<Enrollment> enrollments =
+//                        EnrollmentRepository.getByStudentId(student.getId());
 
-                double total = enrollments.stream()
-                        .filter(e -> e.getStatus() == Status.PENDING)
-                        .mapToDouble(e -> {
-                            try {
-                                Subject subject =
-                                        SubjectRepository.getByCode(e.getSubjectCode());
-                                return subject != null ? subject.getUnits() * 1000 : 0;
-                            } catch (Exception ex) {
-                                return 0;
-                            }
+                List<EnrollmentService.CartItem> cartItems = EnrollmentService.getCart(student.getId());
+
+//                double total = enrollments.stream()
+//                        .filter(e -> e.getStatus() == Status.PENDING)
+//                        .mapToDouble(e -> {
+//                            try {
+//                                Subject subject =
+//                                        SubjectRepository.getByCode(e.getSubjectCode());
+//                                return subject != null ? subject.getUnits() * 1000 : 0;
+//                            } catch (Exception ex) {
+//                                return 0;
+//                            }
+//                        })
+//                        .sum();
+
+                double total = cartItems.stream()
+                        .mapToDouble(item -> {
+                            Subject subject = item.subject();
+                            return subject != null ? subject.getUnits() * 1000 : 0;
                         })
                         .sum();
 
                 totalCost = total;
-                double remaining = total - 1000;
+//                double remaining = total - 1000;
 
                 Platform.runLater(() -> {
                     totalCostLabel.setText(formatCurrency(total));
-                    remainingLabel.setText(formatCurrency(remaining));
+//                    remainingLabel.setText(formatCurrency(remaining));
                 });
 
             } catch (Exception ignored) {}

@@ -4,20 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="Started Enrollment logic">
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="Enrollment Logic (TBC)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/auth/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/account/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/quarterlysched/QuarterlyScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/quarterlysched/QuarterlyScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ConfirmEnrollmentDialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ConfirmEnrollmentDialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/auth/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/auth/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/EnrollmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EnrollmentView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/student/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/student/Student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/student/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/student/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/student_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/student_dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777476351881</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Enrollment Logic (TBC)">
+      <option name="closed" value="true" />
+      <created>1777611839685</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777611839685</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,7 +223,8 @@
     <MESSAGE value="Basic Login and Announcement Dashboard for Admin, Student, and Faculty" />
     <MESSAGE value="Announcement Dashboard, Admin can Post/Edit" />
     <MESSAGE value="Started Enrollment logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Enrollment logic" />
+    <MESSAGE value="Enrollment Logic (TBC)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enrollment Logic (TBC)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -220,6 +233,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java</url>
           <line>41</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java</url>
+          <line>45</line>
+          <properties class="features.enrollment.ConfirmEnrollmentController" method="loadSummary">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

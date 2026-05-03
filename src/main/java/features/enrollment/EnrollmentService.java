@@ -27,14 +27,40 @@ public class EnrollmentService {
 
     // ── GATE CHECK ──────────────────────────────────────────────────────────
 
-    // checks if student has unpaid balance from previous semester
-    public static boolean canEnroll(Student student)
+    public static void canEnroll(Student student)
             throws IOException, InterruptedException {
 
-        List<Balance> balances = BalanceRepository.getByStudentId(student.getId());
+        EnrollmentPeriod period = EnrollmentPeriodRepository.getActive();
+        if (period == null)
+            throw new IllegalStateException(
+                    "There is no active enrollment period at this time. " +
+                            "Please check back later.");
 
-        return balances.stream()
-                .noneMatch(b -> b.getRemainingBalance() > 0);
+// 1. unpaid balance from a PREVIOUS semester only
+        boolean hasUnpaidBalance = BalanceRepository.getByStudentId(student.getId())
+                .stream()
+                .filter(b -> !(b.getSemester() == period.getSemester()
+                        && b.getSchoolYear().equals(period.getSchoolYear())))
+                .anyMatch(b -> b.getRemainingBalance() > 0);
+
+        if (hasUnpaidBalance)
+            throw new IllegalStateException(
+                    "You have an outstanding balance from a previous semester. " +
+                            "Please settle your balance before enrolling.");
+
+// 2. already enrolled this semester
+        boolean alreadyEnrolled = EnrollmentRepository
+                .getByStudentId(student.getId())
+                .stream()
+                .anyMatch(e -> e.getSemester() == period.getSemester()
+                        && e.getSchoolYear().equals(period.getSchoolYear())
+                        && (e.getStatus() == Status.ENROLLED
+                        || e.getStatus() == Status.PENDING));
+
+        if (alreadyEnrolled)
+            throw new IllegalStateException(
+                    "You have already enrolled for " + period.getSemester() +
+                            " Semester " + period.getSchoolYear() + ".");
     }
 
     // ── SUBJECT SELECTION ───────────────────────────────────────────────────
@@ -125,13 +151,8 @@ public class EnrollmentService {
                 .filter(e -> e.getStatus() == Status.PENDING)
                 .collect(Collectors.toList());
 
-        double totalCost = pending.stream()
-                .mapToDouble(e -> {
-                    try {
-                        Subject subject = SubjectRepository.getByCode(e.getSubjectCode());
-                        return subject != null ? subject.getUnits() * COST_PER_UNIT : 0;
-                    } catch (Exception ex) { return 0; }
-                })
+        double totalCost = cartItems.stream()
+                .mapToDouble(item -> item.subject().getUnits() * COST_PER_UNIT)
                 .sum();
 
         double remainingBalance = totalCost - DOWNPAYMENT;
@@ -155,6 +176,9 @@ public class EnrollmentService {
 
         if (paymentPlan == PaymentPlan.QUARTERLY)
             createQuarterlySchedule(balanceId, remainingBalance);
+
+        student.setEnrollmentConfirmed(true);
+        AccountRepository.update(student);
     }
 
     // ── DROP SUBJECT ────────────────────────────────────────────────────────

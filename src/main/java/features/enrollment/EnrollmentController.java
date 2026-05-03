@@ -37,10 +37,14 @@ public class EnrollmentController {
     @FXML private VBox contentArea;
     @FXML private Button confirmBtn;
     @FXML private Button dropBtn;
+    @FXML private Button sidebarAnnouncements;
+    @FXML private Button sidebarEnrollment;
 
     // ── State ───────────────────────────────────────────────────────────────
 
     private Student student;
+    private boolean enrollmentEligible = false;
+    private String enrollmentBlockReason = "";
 
     private static final String TAB_ACTIVE   =
             "-fx-background-color: transparent; -fx-text-fill: #2c2c2a; -fx-font-size: 13px; " +
@@ -52,28 +56,113 @@ public class EnrollmentController {
                     "-fx-padding: 10 16; -fx-background-radius: 0; " +
                     "-fx-border-color: transparent; -fx-cursor: hand;";
 
+    private static final String SIDEBAR_ACTIVE =
+            "-fx-background-color: #444441; -fx-text-fill: white; -fx-font-size: 13px; " +
+                    "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
+
+    private static final String SIDEBAR_INACTIVE =
+            "-fx-background-color: transparent; -fx-text-fill: #888780; -fx-font-size: 13px; " +
+                    "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
+
+
     // ── Init ────────────────────────────────────────────────────────────────
 
     /**
      * Called by the parent controller to inject the current student
      * before this scene is shown.
      */
+//    public void initData(Student student) {
+//        this.student = student;
+//        studentNameLabel.setText(student.getName());
+//        loadEnrollmentPeriodLabel();
+//        refreshUnitCount();
+//        setSidebarActive(sidebarEnrollment); // enrollment is active on load
+//
+//        if (student.isEnrollmentConfirmed()) {
+//            setConfirmedMode();
+//        }
+//
+//        showAvailableSubjects();
+//    }
+
     public void initData(Student student) {
         this.student = student;
         studentNameLabel.setText(student.getName());
         loadEnrollmentPeriodLabel();
         refreshUnitCount();
-        showAvailableSubjects();
+        setSidebarActive(sidebarEnrollment);
+
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(buildLoadingLabel("Checking enrollment eligibility..."));
+        confirmBtn.setVisible(false);
+        dropBtn.setVisible(false);
+
+        // disable tabs while checking so user can't click through
+        tabSubjects.setDisable(true);
+        tabSelected.setDisable(true);
+
+        Thread thread = new Thread(() -> {
+            try {
+                EnrollmentService.canEnroll(student);
+                // no exception = eligible
+                enrollmentEligible = true;
+                Platform.runLater(() -> {
+                    tabSubjects.setDisable(false);
+                    tabSelected.setDisable(false);
+                    showAvailableSubjects();
+                });
+            } catch (IllegalStateException e) {
+                enrollmentEligible = false;
+                enrollmentBlockReason = e.getMessage();
+                Platform.runLater(() -> {
+                    tabSubjects.setDisable(false);
+                    tabSelected.setDisable(false);
+                    showEnrollmentLocked(enrollmentBlockReason);
+                });
+            } catch (Exception e) {
+                enrollmentEligible = false;
+                Platform.runLater(() -> showError("Failed to check enrollment eligibility."));
+            }
+        });
+        thread.setDaemon(true);
+        thread.start();
     }
 
     // ── Tab navigation ──────────────────────────────────────────────────────
+
+    private void showEnrollmentLocked(String reason) {
+        contentArea.getChildren().clear();
+
+        VBox messageBox = new VBox(6);
+        messageBox.setPadding(new Insets(16, 0, 0, 0));
+
+        Label icon = new Label("⚠ Enrollment Unavailable");
+        icon.setStyle("-fx-font-size: 13px; -fx-font-weight: 500; -fx-text-fill: #2c2c2a;");
+
+        Label reasonLabel = new Label(reason);
+        reasonLabel.setStyle("-fx-font-size: 13px; -fx-text-fill: #888780;");
+        reasonLabel.setWrapText(true);
+
+        messageBox.getChildren().addAll(icon, reasonLabel);
+        contentArea.getChildren().add(messageBox);
+
+        confirmBtn.setVisible(false);
+        dropBtn.setVisible(false);
+    }
 
     @FXML
     private void showAvailableSubjects() {
         tabSubjects.setStyle(TAB_ACTIVE);
         tabSelected.setStyle(TAB_INACTIVE);
         dropBtn.setVisible(false);
-        confirmBtn.setVisible(true);
+        confirmBtn.setVisible(enrollmentEligible);
+        confirmBtn.setManaged(enrollmentEligible);
+
+        if (!enrollmentEligible) {
+            showEnrollmentLocked(enrollmentBlockReason);
+            return;
+        }
+
         loadAvailableSubjects();
     }
 
@@ -81,9 +170,27 @@ public class EnrollmentController {
     private void showSelectedSubjects() {
         tabSubjects.setStyle(TAB_INACTIVE);
         tabSelected.setStyle(TAB_ACTIVE);
-        dropBtn.setVisible(true);
-        confirmBtn.setVisible(true);
+        confirmBtn.setVisible(enrollmentEligible);
+        confirmBtn.setManaged(enrollmentEligible);
+
+//        if (!enrollmentEligible) {
+//            showEnrollmentLocked(enrollmentBlockReason);
+//            return;
+//        }
+
         loadSelectedSubjects();
+    }
+
+    private void setSidebarActive(Button active) {
+        sidebarAnnouncements.setStyle(SIDEBAR_INACTIVE);
+        sidebarEnrollment.setStyle(SIDEBAR_INACTIVE);
+        active.setStyle(SIDEBAR_ACTIVE);
+    }
+
+    @FXML
+    private void showEnrollmentTab() {
+        setSidebarActive(sidebarEnrollment);
+        showAvailableSubjects();
     }
 
     // ── Load available subjects ──────────────────────────────────────────────
@@ -351,8 +458,17 @@ public class EnrollmentController {
     @FXML
     private void showAnnouncements() {
         try {
-            StudentController.loadDashboard(student);
-            close();
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/student_dashboard.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            StudentController controller = loader.getController();
+            controller.initData(student);
+
+            Stage stage = (Stage) studentNameLabel.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Student Dashboard");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -368,11 +484,14 @@ public class EnrollmentController {
     /** Card shown in the Available Subjects tab. */
     private VBox buildSubjectCard(Subject subject) {
         VBox card = new VBox(4);
-        card.setStyle(
-                "-fx-background-color: white; -fx-background-radius: 8; " +
-                        "-fx-border-color: #dddcda; -fx-border-radius: 8; -fx-border-width: 1; " +
-                        "-fx-cursor: hand;");
         card.setPadding(new Insets(14, 16, 14, 16));
+
+        // base style — no cursor hand if confirmed
+        String baseStyle =
+                "-fx-background-color: white; -fx-background-radius: 8; " +
+                        "-fx-border-color: #dddcda; -fx-border-radius: 8; -fx-border-width: 1;" +
+                        (student.isEnrollmentConfirmed() ? "" : " -fx-cursor: hand;");
+        card.setStyle(baseStyle);
 
         HBox top = new HBox();
         Label nameLabel = new Label(subject.getSubjectName());
@@ -391,18 +510,15 @@ public class EnrollmentController {
 
         card.getChildren().addAll(top, codeLabel);
 
-        // Click to open section picker
-        card.setOnMouseClicked(e -> openSectionPicker(subject));
-
-        // Hover effect
-        card.setOnMouseEntered(e -> card.setStyle(
-                "-fx-background-color: #f8f7f5; -fx-background-radius: 8; " +
-                        "-fx-border-color: #b0afac; -fx-border-radius: 8; -fx-border-width: 1; " +
-                        "-fx-cursor: hand;"));
-        card.setOnMouseExited(e -> card.setStyle(
-                "-fx-background-color: white; -fx-background-radius: 8; " +
-                        "-fx-border-color: #dddcda; -fx-border-radius: 8; -fx-border-width: 1; " +
-                        "-fx-cursor: hand;"));
+        // only attach interactions if not confirmed
+        if (!student.isEnrollmentConfirmed()) {
+            card.setOnMouseClicked(e -> openSectionPicker(subject));
+            card.setOnMouseEntered(e -> card.setStyle(
+                    "-fx-background-color: #f8f7f5; -fx-background-radius: 8; " +
+                            "-fx-border-color: #b0afac; -fx-border-radius: 8; -fx-border-width: 1; " +
+                            "-fx-cursor: hand;"));
+            card.setOnMouseExited(e -> card.setStyle(baseStyle));
+        }
 
         return card;
     }
@@ -482,5 +598,10 @@ public class EnrollmentController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void setConfirmedMode() {
+        confirmBtn.setVisible(false);
+        confirmBtn.setManaged(false);
     }
 }

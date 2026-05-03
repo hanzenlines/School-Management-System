@@ -20,7 +20,7 @@ public abstract class Account {
     }
 
     public String getId() { return id; }
-    public UserType getRole() { return userType; }
+//    public UserType getRole() { return userType; }
     public String getName() { return name; }
     public String getEmail() { return email; }
     public String getPassword() { return password; }
