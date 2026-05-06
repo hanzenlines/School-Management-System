@@ -10,6 +10,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class EnrollmentRepository {
@@ -76,5 +77,22 @@ public class EnrollmentRepository {
                 .build();
 
         client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
+
+    public static List<Enrollment> getBySectionId(String sectionId)
+            throws IOException, InterruptedException {
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "?sectionId=" + sectionId))
+                .GET().build();
+
+        HttpResponse<String> response = client.send(request,
+                HttpResponse.BodyHandlers.ofString());
+
+        if (response.body() == null || response.body().isBlank()
+                || response.body().equals("[]"))
+            return Collections.emptyList();
+
+        return Arrays.asList(mapper.readValue(response.body(), Enrollment[].class));
     }
 }

@@ -30,7 +30,7 @@ public class AccountRepository {
         return Arrays.asList(mapper.readValue(response.body(), Section[].class));
     }
 
-    public static Section getById(String id) throws IOException, InterruptedException  {
+    public static Account getById(String id) throws IOException, InterruptedException  {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/" + id))
                 .GET()
@@ -40,7 +40,21 @@ public class AccountRepository {
 
         if (response.body().equals("{}") || response.body().isBlank()) return null;
 
-        return mapper.readValue(response.body(), Section.class);
+        return mapper.readValue(response.body(), Account.class);
+    }
+
+    public static Student getStudentById(String id) throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "/" + id))
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request,
+                HttpResponse.BodyHandlers.ofString());
+
+        if (response.body().equals("{}") || response.body().isBlank()) return null;
+
+        return mapper.readValue(response.body(), Student.class);
     }
 
     public static void update(Student student) throws IOException, InterruptedException  {

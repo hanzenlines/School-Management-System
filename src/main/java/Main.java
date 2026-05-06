@@ -3,8 +3,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 
 public class Main extends Application {
+
+    private static Process jsonServerProcess;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -16,8 +20,30 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+//        startJsonServer();
         launch(args);
     }
+
+//    private static void startJsonServer() {
+//        try {
+//            ProcessBuilder pb = System.getProperty("os.name").toLowerCase().contains("win")
+//                    ? new ProcessBuilder("cmd", "/c", "npx", "json-server", "data.json")
+//                    : new ProcessBuilder("npx", "json-server", "data.json");
+//            pb.directory(new File(System.getProperty("user.dir")));
+//            pb.redirectErrorStream(true);
+//            jsonServerProcess = pb.start();
+//
+//            // shutdown hook so it stops when the app closes
+//            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//                if (jsonServerProcess != null && jsonServerProcess.isAlive()) {
+//                    jsonServerProcess.destroy();
+//                }
+//            }));
+//
+//        } catch (Exception e) {
+//            System.err.println("Failed to start json-server: " + e.getMessage());
+//        }
+//    }
 }
 
 

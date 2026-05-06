@@ -2,6 +2,7 @@ package models.student;
 
 import features.announcements.AnnouncementService;
 import features.enrollment.EnrollmentController;
+import features.payment.PaymentController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +26,7 @@ public class StudentController {
     @FXML private VBox contentArea;
     @FXML private Button sidebarAnnouncements;
     @FXML private Button sidebarEnrollment;
+    @FXML private Button sidebarPayments;
 
     private Student student;
 
@@ -46,14 +48,22 @@ public class StudentController {
     public void initData(Student student) {
         this.student = student;
         studentNameLabel.setText(student.getName());
-        showAnnouncements(); // show announcements on load
+        setSidebarActive(sidebarAnnouncements);
+        loadAnnouncements(); // call the internal loader directly, not showAnnouncements()
     }
 
     @FXML
     private void showAnnouncements() {
+        if ("Announcements".equals(pageTitleLabel.getText())) return;
+        setSidebarActive(sidebarAnnouncements);
         pageTitleLabel.setText("Announcements");
         contentArea.getChildren().clear();
+        loadAnnouncements();
+    }
 
+    private void loadAnnouncements() {
+        pageTitleLabel.setText("Announcements");
+        contentArea.getChildren().clear();
         new Thread(() -> {
             try {
                 List<Announcement> announcements =
@@ -111,6 +121,68 @@ public class StudentController {
         }).start();
     }
 
+//    @FXML
+//    private void showAnnouncements() {
+//        pageTitleLabel.setText("Announcements");
+//        contentArea.getChildren().clear();
+//
+//        new Thread(() -> {
+//            try {
+//                List<Announcement> announcements =
+//                        AnnouncementService.getAnnouncementsFor(UserType.STUDENT);
+//
+//                Platform.runLater(() -> {
+//                    if (announcements.isEmpty()) {
+//                        Label empty = new Label("No announcements available.");
+//                        empty.setStyle("-fx-text-fill: #888780; -fx-font-size: 13px;");
+//                        contentArea.getChildren().add(empty);
+//                        return;
+//                    }
+//
+//                    DateTimeFormatter formatter =
+//                            DateTimeFormatter.ofPattern("MMM dd, yyyy hh:mm a");
+//
+//                    for (Announcement a : announcements) {
+//                        VBox card = new VBox(6);
+//                        card.setStyle(
+//                                "-fx-background-color: white;" +
+//                                        "-fx-border-color: #e0ded8;" +
+//                                        "-fx-border-width: 0.5;" +
+//                                        "-fx-border-radius: 8;" +
+//                                        "-fx-background-radius: 8;" +
+//                                        "-fx-padding: 16;"
+//                        );
+//
+//                        Label category = new Label(
+//                                a.getCategory().toString() + " · " +
+//                                        a.getPostedAt().format(formatter));
+//                        category.setStyle(
+//                                "-fx-font-size: 11px; -fx-text-fill: #888780;");
+//
+//                        Label title = new Label(a.getTitle());
+//                        title.setStyle(
+//                                "-fx-font-size: 15px; -fx-font-weight: 500; " +
+//                                        "-fx-text-fill: #2c2c2a;");
+//
+//                        Label content = new Label(a.getContent());
+//                        content.setStyle(
+//                                "-fx-font-size: 13px; -fx-text-fill: #5f5e5a;");
+//                        content.setWrapText(true);
+//
+//                        card.getChildren().addAll(category, title, content);
+//                        contentArea.getChildren().add(card);
+//                    }
+//                });
+//            } catch (Exception e) {
+//                Platform.runLater(() -> {
+//                    Label error = new Label("Failed to load announcements.");
+//                    error.setStyle("-fx-text-fill: #a32d2d; -fx-font-size: 13px;");
+//                    contentArea.getChildren().add(error);
+//                });
+//            }
+//        }).start();
+//    }
+
     @FXML
     private void handleLogout() throws IOException {
         Stage stage = (Stage) studentNameLabel.getScene().getWindow();
@@ -141,6 +213,37 @@ public class StudentController {
         }
     }
 
+    @FXML
+    private void showPayments() {
+        if ("Payments".equals(pageTitleLabel.getText())) return;
+        setSidebarActive(sidebarPayments);
+        pageTitleLabel.setText("Payments");
+        contentArea.getChildren().clear();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/PaymentView.fxml"));
+            Parent view = loader.load();
+
+            PaymentController controller = loader.getController();
+            controller.initData(student);
+
+            contentArea.getChildren().add(view);
+        } catch (IOException e) {
+            Label error = new Label("Failed to load payments.");
+            error.setStyle("-fx-text-fill: #a32d2d; -fx-font-size: 13px;");
+            contentArea.getChildren().add(error);
+        }
+    }
+
+    public void navigateTo(String section) {
+        switch (section) {
+            case "payments" -> showPayments();
+            case "enrollment" -> showEnrollment();
+            default -> showAnnouncements();
+        }
+    }
+
     private static final String SIDEBAR_ACTIVE =
             "-fx-background-color: #444441; -fx-text-fill: white; -fx-font-size: 13px; " +
                     "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
@@ -152,6 +255,7 @@ public class StudentController {
     private void setSidebarActive(Button active) {
         sidebarAnnouncements.setStyle(SIDEBAR_INACTIVE);
         sidebarEnrollment.setStyle(SIDEBAR_INACTIVE);
+        sidebarPayments.setStyle(SIDEBAR_INACTIVE);
         active.setStyle(SIDEBAR_ACTIVE);
     }
 }

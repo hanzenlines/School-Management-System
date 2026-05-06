@@ -2,7 +2,7 @@ package features.enrollment;
 
 import models.*;
 import models.account.AccountRepository;
-import models.account.QuarterlyScheduleRepository;
+import models.quarterlysched.QuarterlyScheduleRepository;
 import models.enums.*;
 import models.quarterlysched.QuarterlySchedule;
 import models.section.Section;
@@ -155,7 +155,7 @@ public class EnrollmentService {
                 .mapToDouble(item -> item.subject().getUnits() * COST_PER_UNIT)
                 .sum();
 
-        double remainingBalance = totalCost - DOWNPAYMENT;
+        double remainingBalance = totalCost;
         boolean discountApplied = paymentPlan == PaymentPlan.FULL;
         if (discountApplied)
             remainingBalance = remainingBalance * (1 - FULL_PAYMENT_DISCOUNT);

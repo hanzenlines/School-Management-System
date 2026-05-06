@@ -49,6 +49,18 @@
                     -fx-alignment: CENTER-LEFT;
                     -fx-cursor: hand;"/>
 
+            <Button text="Payments"
+                    fx:id="sidebarPayments"
+                    onAction="#showPayments"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent;
+                    -fx-text-fill: #888780;
+                    -fx-font-size: 13px;
+                    -fx-background-radius: 6;
+                    -fx-padding: 8 12;
+                    -fx-alignment: CENTER-LEFT;
+                    -fx-cursor: hand;"/>
+
             <Region VBox.vgrow="ALWAYS"/>
 
             <!-- Logout -->

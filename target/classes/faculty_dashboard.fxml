@@ -26,9 +26,28 @@
 
             <!-- Nav buttons -->
             <Button text="Announcements"
+                    fx:id="sidebarAnnouncements"
                     onAction="#showAnnouncements"
                     maxWidth="Infinity"
-                    style="-fx-background-color: #444441; -fx-text-fill: white; -fx-font-size: 13px; -fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;"/>
+                    style="-fx-background-color: #444441;
+                    -fx-text-fill: white;
+                    -fx-font-size: 13px;
+                    -fx-background-radius: 6;
+                    -fx-padding: 8 12;
+                    -fx-alignment: CENTER-LEFT;
+                    -fx-cursor: hand;"/>
+
+            <Button text="My Sections"
+                    fx:id="sidebarSections"
+                    onAction="#showMySections"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent;
+                    -fx-text-fill: #888780;
+                    -fx-font-size: 13px;
+                    -fx-background-radius: 6;
+                    -fx-padding: 8 12;
+                    -fx-alignment: CENTER-LEFT;
+                    -fx-cursor: hand;"/>
 
             <Region VBox.vgrow="ALWAYS"/>
 

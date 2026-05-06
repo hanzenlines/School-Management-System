@@ -21,20 +21,20 @@
       "studentNumber": "2022-00002",
       "course": "BSIT",
       "yearLevel": 2,
-      "enrollmentConfirmed": false,
+      "enrollmentConfirmed": true,
       "userType": "STUDENT"
     },
     {
       "id": "s003",
-      "userType": "STUDENT",
       "name": "Jepoy Dizon",
       "email": "jepoy.dizon@school.edu",
       "password": "password123",
       "contactNumber": "09123456789",
       "studentNumber": "2022-00003",
-      "course": "BSCS",
-      "enrollmentConfirmed": false,
-      "yearLevel": 3
+      "course": "BSIT",
+      "yearLevel": 2,
+      "enrollmentConfirmed": true,
+      "userType": "STUDENT"
     },
     {
       "id": "f001",
@@ -170,7 +170,7 @@
       "schedule": "MWF 8:00-9:00",
       "roomNumber": "Room 201",
       "capacity": 30,
-      "currentCount": 20
+      "currentCount": 0
     },
     {
       "id": "SEC-002",
@@ -179,7 +179,7 @@
       "schedule": "MWF 9:00-11:00",
       "roomNumber": "Lab 1",
       "capacity": 25,
-      "currentCount": 18
+      "currentCount": 0
     },
     {
       "id": "SEC-003",
@@ -188,7 +188,7 @@
       "schedule": "TTH 10:00-12:00",
       "roomNumber": "Lab 2",
       "capacity": 30,
-      "currentCount": 22
+      "currentCount": 0
     },
     {
       "id": "SEC-004",
@@ -197,9 +197,9 @@
       "schedule": "MWF 1:00-3:00",
       "roomNumber": "Room 305",
       "capacity": 35,
-      "currentCount": 32,
-      "full": false,
-      "availableSlots": 3
+      "currentCount": 2,
+      "availableSlots": 33,
+      "full": false
     },
     {
       "id": "SEC-005",
@@ -208,9 +208,9 @@
       "schedule": "TTH 1:00-3:00",
       "roomNumber": "Lab 3",
       "capacity": 30,
-      "currentCount": 20,
-      "full": false,
-      "availableSlots": 10
+      "currentCount": 2,
+      "availableSlots": 28,
+      "full": false
     },
     {
       "id": "SEC-006",
@@ -219,9 +219,9 @@
       "schedule": "MWF 10:00-12:00",
       "roomNumber": "Lab 4",
       "capacity": 30,
-      "currentCount": 20,
-      "full": false,
-      "availableSlots": 10
+      "currentCount": 2,
+      "availableSlots": 28,
+      "full": false
     },
     {
       "id": "SEC-007",
@@ -230,7 +230,7 @@
       "schedule": "MWF 3:00-5:00",
       "roomNumber": "Room 401",
       "capacity": 30,
-      "currentCount": 10
+      "currentCount": 0
     },
     {
       "id": "SEC-008",
@@ -239,7 +239,7 @@
       "schedule": "TTH 3:00-5:00",
       "roomNumber": "Room 402",
       "capacity": 25,
-      "currentCount": 10
+      "currentCount": 0
     }
   ],
   "subjects": [
@@ -394,7 +394,116 @@
       "prerequisites": []
     }
   ],
-  "enrollments": [],
+  "enrollments": [
+    {
+      "id": "5607415a-ebfc-4a35-a063-7281abc31171",
+      "studentId": "s002",
+      "subjectCode": "CSIT227",
+      "sectionId": "SEC-005",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [
+        2026,
+        5,
+        5,
+        20,
+        32,
+        51,
+        514512600
+      ]
+    },
+    {
+      "id": "e757d377-eb9a-43fb-aec9-d7810599b861",
+      "studentId": "s002",
+      "subjectCode": "CSIT228",
+      "sectionId": "SEC-006",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [
+        2026,
+        5,
+        5,
+        20,
+        32,
+        51,
+        537512800
+      ]
+    },
+    {
+      "id": "69acd531-5f48-47aa-a9cd-a8a21a6d30f7",
+      "studentId": "s002",
+      "subjectCode": "CSIT221",
+      "sectionId": "SEC-004",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [
+        2026,
+        5,
+        5,
+        20,
+        32,
+        51,
+        543511400
+      ]
+    },
+    {
+      "id": "07fb164c-376f-470b-b10a-0d061b6e3a80",
+      "studentId": "s003",
+      "subjectCode": "CSIT221",
+      "sectionId": "SEC-004",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [
+        2026,
+        5,
+        6,
+        9,
+        52,
+        23,
+        295779700
+      ]
+    },
+    {
+      "id": "04c714c0-d815-4eeb-9fc9-1a56c918b9b1",
+      "studentId": "s003",
+      "subjectCode": "CSIT228",
+      "sectionId": "SEC-006",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [
+        2026,
+        5,
+        6,
+        9,
+        52,
+        23,
+        316708800
+      ]
+    },
+    {
+      "id": "a5787a4d-3c93-4ce7-b238-528153b9f74e",
+      "studentId": "s003",
+      "subjectCode": "CSIT227",
+      "sectionId": "SEC-005",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [
+        2026,
+        5,
+        6,
+        9,
+        52,
+        23,
+        322688100
+      ]
+    }
+  ],
   "enrollmentPeriods": [
     {
       "id": "EP-001",
@@ -406,7 +515,178 @@
     }
   ],
   "completedSubjects": [],
-  "quarterlySchedules": [],
-  "balances": [],
+  "quarterlySchedules": [
+    {
+      "id": "e23af490-a6aa-42a9-bcb2-2908dfa6ae52",
+      "balanceId": "863f0543-16a8-4083-8df7-fa9d89f03bda",
+      "quarter": "PRELIM",
+      "scheduledAmount": 2250,
+      "paidAmount": 0,
+      "remainingAmount": 2250,
+      "status": "UNPAID"
+    },
+    {
+      "id": "17a8a88a-8972-4a57-ae07-0b2757857eac",
+      "balanceId": "863f0543-16a8-4083-8df7-fa9d89f03bda",
+      "quarter": "MIDTERM",
+      "scheduledAmount": 2250,
+      "paidAmount": 0,
+      "remainingAmount": 2250,
+      "status": "UNPAID"
+    },
+    {
+      "id": "e294d61d-0429-4cee-a0b9-e6c16c1caf5d",
+      "balanceId": "863f0543-16a8-4083-8df7-fa9d89f03bda",
+      "quarter": "PREFINAL",
+      "scheduledAmount": 2250,
+      "paidAmount": 0,
+      "remainingAmount": 2250,
+      "status": "UNPAID"
+    },
+    {
+      "id": "647a1b07-2536-4e51-b3b6-62777eb78588",
+      "balanceId": "863f0543-16a8-4083-8df7-fa9d89f03bda",
+      "quarter": "FINAL",
+      "scheduledAmount": 2250,
+      "paidAmount": 0,
+      "remainingAmount": 2250,
+      "status": "UNPAID"
+    },
+    {
+      "id": "69ef6b7c-db66-4ea9-bb2f-30deaac2663c",
+      "balanceId": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
+      "quarter": "PRELIM",
+      "scheduledAmount": 2250,
+      "paidAmount": 0,
+      "remainingAmount": 2250,
+      "status": "UNPAID"
+    },
+    {
+      "id": "cfde4764-4931-49f0-ad3d-fb8567f5ca91",
+      "balanceId": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
+      "quarter": "MIDTERM",
+      "scheduledAmount": 2250,
+      "paidAmount": 0,
+      "remainingAmount": 2250,
+      "status": "UNPAID"
+    },
+    {
+      "id": "12aee3e8-5956-47e8-a690-493ed41def69",
+      "balanceId": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
+      "quarter": "PREFINAL",
+      "scheduledAmount": 2250,
+      "paidAmount": 0,
+      "remainingAmount": 2250,
+      "status": "UNPAID"
+    },
+    {
+      "id": "0f81a745-f74e-4466-a979-036865f641d0",
+      "balanceId": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
+      "quarter": "FINAL",
+      "scheduledAmount": 2250,
+      "paidAmount": 0,
+      "remainingAmount": 2250,
+      "status": "UNPAID"
+    }
+  ],
+  "balances": [
+    {
+      "id": "863f0543-16a8-4083-8df7-fa9d89f03bda",
+      "studentId": "s002",
+      "schoolYear": "2025-2026",
+      "semester": "FIRST",
+      "paymentPlan": "QUARTERLY",
+      "totalCost": 9000,
+      "downpaymentPaid": true,
+      "remainingBalance": 8000,
+      "discountApplied": false
+    },
+    {
+      "id": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
+      "studentId": "s003",
+      "schoolYear": "2025-2026",
+      "semester": "FIRST",
+      "paymentPlan": "QUARTERLY",
+      "totalCost": 9000,
+      "downpaymentPaid": true,
+      "remainingBalance": 8000,
+      "discountApplied": false
+    }
+  ],
+  "payments": [
+    {
+      "id": "69c15b29-ebbd-4e0b-9b1b-a9b87929e458",
+      "studentId": "s002",
+      "schoolYear": "2025-2026",
+      "semester": "FIRST",
+      "type": "DOWNPAYMENT",
+      "quarter": null,
+      "amount": 1000,
+      "paymentMethod": "CASH",
+      "paidAt": [
+        2026,
+        5,
+        5,
+        20,
+        33,
+        44,
+        293081200
+      ]
+    },
+    {
+      "id": "0af7a6cb-38b4-4456-a329-831178a88689",
+      "studentId": "s003",
+      "schoolYear": "2025-2026",
+      "semester": "FIRST",
+      "type": "DOWNPAYMENT",
+      "quarter": null,
+      "amount": 1000,
+      "paymentMethod": "CASH",
+      "paidAt": [
+        2026,
+        5,
+        6,
+        9,
+        52,
+        28,
+        995025500
+      ]
+    }
+  ],
+  "gradingPeriods": [
+    {
+      "id": "gp001",
+      "semester": "SECOND",
+      "schoolYear": "2024-2025",
+      "deadline": "2026-05-30T23:59:00",
+      "isOpen": true
+    }
+  ],
+  "grades": [
+    {
+      "id": "c7fa7eca-07a1-405a-a0b9-1d6b01acb079",
+      "studentId": "s002",
+      "sectionId": "SEC-005",
+      "subjectCode": "CSIT227",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "prelimGrade": 3.1,
+      "midtermGrade": 3.9,
+      "preFinalGrade": 3.8,
+      "finalGrade": 4,
+      "computedMidterm": 3.58,
+      "computedFinal": 3.92,
+      "overallGrade": 3.75,
+      "submittedAt": [
+        2026,
+        5,
+        5,
+        20,
+        37,
+        9,
+        62984900
+      ]
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

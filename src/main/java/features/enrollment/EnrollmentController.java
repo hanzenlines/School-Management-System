@@ -1,5 +1,6 @@
 package features.enrollment;
 
+import features.payment.PaymentController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +40,7 @@ public class EnrollmentController {
     @FXML private Button dropBtn;
     @FXML private Button sidebarAnnouncements;
     @FXML private Button sidebarEnrollment;
+    @FXML private Button sidebarPayments;
 
     // ── State ───────────────────────────────────────────────────────────────
 
@@ -184,6 +186,7 @@ public class EnrollmentController {
     private void setSidebarActive(Button active) {
         sidebarAnnouncements.setStyle(SIDEBAR_INACTIVE);
         sidebarEnrollment.setStyle(SIDEBAR_INACTIVE);
+        sidebarPayments.setStyle(SIDEBAR_INACTIVE);
         active.setStyle(SIDEBAR_ACTIVE);
     }
 
@@ -477,6 +480,26 @@ public class EnrollmentController {
     private void close() {
         Stage stage = (Stage) studentNameLabel.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void showPayments() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/student_dashboard.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            StudentController controller = loader.getController();
+            controller.initData(student);
+            controller.navigateTo("payments"); // tell it to show payments on load
+
+            Stage stage = (Stage) studentNameLabel.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Student Portal");
+
+        } catch (IOException e) {
+            showError("Failed to navigate to payments.");
+        }
     }
 
     // ── Card builders ────────────────────────────────────────────────────────

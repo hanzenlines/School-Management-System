@@ -1,15 +1,28 @@
 package models.faculty;
 
 import features.announcements.AnnouncementService;
+import features.grades.GradeService;
+import features.grades.GradingPeriodRepository;
+import features.sections.SectionDetailController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Announcement;
+import models.GradingPeriod;
 import models.enums.UserType;
+import models.section.Section;
+import models.section.SectionRepository;
+import models.subject.Subject;
+import models.subject.SubjectRepository;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
@@ -20,16 +33,27 @@ public class FacultyController {
     @FXML private Label facultyNameLabel;
     @FXML private Label pageTitleLabel;
     @FXML private VBox contentArea;
+    @FXML private Button sidebarAnnouncements;
+    @FXML private Button sidebarSections;
 
     private Faculty faculty;
 
-    // called from Main/AuthController after login
+    private static final String SIDEBAR_ACTIVE =
+            "-fx-background-color: #444441; -fx-text-fill: white; -fx-font-size: 13px; " +
+                    "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
+
+    private static final String SIDEBAR_INACTIVE =
+            "-fx-background-color: transparent; -fx-text-fill: #888780; -fx-font-size: 13px; " +
+                    "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+
     public static void loadDashboard(Faculty faculty) throws IOException {
         FXMLLoader loader = new FXMLLoader(
-                models.faculty.FacultyController.class.getResource("/faculty_dashboard.fxml"));
+                FacultyController.class.getResource("/faculty_dashboard.fxml"));
         Scene scene = new Scene(loader.load());
 
-        models.faculty.FacultyController controller = loader.getController();
+        FacultyController controller = loader.getController();
         controller.initData(faculty);
 
         Stage stage = new Stage();
@@ -41,11 +65,39 @@ public class FacultyController {
     public void initData(Faculty faculty) {
         this.faculty = faculty;
         facultyNameLabel.setText(faculty.getName());
-        showAnnouncements(); // show announcements on load
+        setSidebarActive(sidebarAnnouncements);
+        loadAnnouncements();
+    }
+
+    // ── Sidebar ───────────────────────────────────────────────────────────────
+
+    private void setSidebarActive(Button active) {
+        sidebarAnnouncements.setStyle(SIDEBAR_INACTIVE);
+        sidebarSections.setStyle(SIDEBAR_INACTIVE);
+        active.setStyle(SIDEBAR_ACTIVE);
     }
 
     @FXML
     private void showAnnouncements() {
+        if ("Announcements".equals(pageTitleLabel.getText())) return;
+        setSidebarActive(sidebarAnnouncements);
+        pageTitleLabel.setText("Announcements");
+        contentArea.getChildren().clear();
+        loadAnnouncements();
+    }
+
+    @FXML
+    private void showMySections() {
+        if ("My Sections".equals(pageTitleLabel.getText())) return;
+        setSidebarActive(sidebarSections);
+        pageTitleLabel.setText("My Sections");
+        contentArea.getChildren().clear();
+        loadMySections();
+    }
+
+    // ── Announcements ─────────────────────────────────────────────────────────
+
+    private void loadAnnouncements() {
         pageTitleLabel.setText("Announcements");
         contentArea.getChildren().clear();
 
@@ -56,9 +108,8 @@ public class FacultyController {
 
                 Platform.runLater(() -> {
                     if (announcements.isEmpty()) {
-                        Label empty = new Label("No announcements available.");
-                        empty.setStyle("-fx-text-fill: #888780; -fx-font-size: 13px;");
-                        contentArea.getChildren().add(empty);
+                        contentArea.getChildren().add(
+                                buildEmptyLabel("No announcements available."));
                         return;
                     }
 
@@ -68,28 +119,20 @@ public class FacultyController {
                     for (Announcement a : announcements) {
                         VBox card = new VBox(6);
                         card.setStyle(
-                                "-fx-background-color: white;" +
-                                        "-fx-border-color: #e0ded8;" +
-                                        "-fx-border-width: 0.5;" +
-                                        "-fx-border-radius: 8;" +
-                                        "-fx-background-radius: 8;" +
-                                        "-fx-padding: 16;"
-                        );
+                                "-fx-background-color: white; -fx-border-color: #e0ded8; " +
+                                        "-fx-border-width: 0.5; -fx-border-radius: 8; " +
+                                        "-fx-background-radius: 8; -fx-padding: 16;");
 
-                        Label category = new Label(
-                                a.getCategory().toString() + " · " +
-                                        a.getPostedAt().format(formatter));
-                        category.setStyle(
-                                "-fx-font-size: 11px; -fx-text-fill: #888780;");
+                        Label category = new Label(a.getCategory().toString()
+                                + " · " + a.getPostedAt().format(formatter));
+                        category.setStyle("-fx-font-size: 11px; -fx-text-fill: #888780;");
 
                         Label title = new Label(a.getTitle());
-                        title.setStyle(
-                                "-fx-font-size: 15px; -fx-font-weight: 500; " +
-                                        "-fx-text-fill: #2c2c2a;");
+                        title.setStyle("-fx-font-size: 15px; -fx-font-weight: 500; " +
+                                "-fx-text-fill: #2c2c2a;");
 
                         Label content = new Label(a.getContent());
-                        content.setStyle(
-                                "-fx-font-size: 13px; -fx-text-fill: #5f5e5a;");
+                        content.setStyle("-fx-font-size: 13px; -fx-text-fill: #5f5e5a;");
                         content.setWrapText(true);
 
                         card.getChildren().addAll(category, title, content);
@@ -97,21 +140,188 @@ public class FacultyController {
                     }
                 });
             } catch (Exception e) {
-                Platform.runLater(() -> {
-                    Label error = new Label("Failed to load announcements.");
-                    error.setStyle("-fx-text-fill: #a32d2d; -fx-font-size: 13px;");
-                    contentArea.getChildren().add(error);
-                });
+                Platform.runLater(() ->
+                        contentArea.getChildren().add(
+                                buildErrorLabel("Failed to load announcements.")));
             }
         }).start();
     }
 
+    // ── My Sections ───────────────────────────────────────────────────────────
+
+    private void loadMySections() {
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(buildLoadingLabel("Loading your sections..."));
+
+        new Thread(() -> {
+            try {
+                List<Section> sections =
+                        SectionRepository.getByFacultyId(faculty.getId());
+
+                GradingPeriod gradingPeriod = GradingPeriodRepository.getActive();
+                boolean pastDeadline = GradeService.isPastDeadline();
+
+                Platform.runLater(() -> {
+                    contentArea.getChildren().clear();
+
+                    // deadline banner
+                    if (gradingPeriod != null) {
+                        String deadlineText = gradingPeriod.getDeadline()
+                                .format(DateTimeFormatter.ofPattern("MMM dd, yyyy hh:mm a"));
+                        String bannerMsg = pastDeadline
+                                ? "⚠ Grading deadline has passed (" + deadlineText
+                                + "). Grades are now final."
+                                : "Grading deadline: " + deadlineText;
+                        String bannerStyle = pastDeadline
+                                ? "-fx-font-size: 12px; -fx-text-fill: #c0392b; " +
+                                "-fx-background-color: #fdecea; -fx-background-radius: 6; " +
+                                "-fx-padding: 8 12;"
+                                : "-fx-font-size: 12px; -fx-text-fill: #856404; " +
+                                "-fx-background-color: #fff3cd; -fx-background-radius: 6; " +
+                                "-fx-padding: 8 12;";
+                        Label banner = new Label(bannerMsg);
+                        banner.setStyle(bannerStyle);
+                        banner.setWrapText(true);
+                        contentArea.getChildren().add(banner);
+                    }
+
+                    if (sections.isEmpty()) {
+                        contentArea.getChildren().add(
+                                buildEmptyLabel("No sections assigned to you."));
+                        return;
+                    }
+
+                    for (Section section : sections) {
+                        contentArea.getChildren().add(
+                                buildSectionCard(section, pastDeadline));
+                    }
+                });
+
+            } catch (Exception e) {
+                Platform.runLater(() ->
+                        contentArea.getChildren().add(
+                                buildErrorLabel("Failed to load sections.")));
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    private VBox buildSectionCard(Section section, boolean pastDeadline) {
+        VBox card = new VBox(6);
+        card.setStyle(
+                "-fx-background-color: white; -fx-background-radius: 8; " +
+                        "-fx-border-color: #dddcda; -fx-border-radius: 8; -fx-border-width: 1; " +
+                        "-fx-cursor: hand;");
+        card.setPadding(new Insets(14, 16, 14, 16));
+
+        new Thread(() -> {
+            try {
+                Subject subject = SubjectRepository.getByCode(section.getSubjectCode());
+                Platform.runLater(() -> {
+                    HBox top = new HBox();
+
+                    Label nameLabel = new Label(subject != null
+                            ? subject.getSubjectName() : section.getSubjectCode());
+                    nameLabel.setStyle(
+                            "-fx-font-size: 13px; -fx-font-weight: 500; -fx-text-fill: #2c2c2a;");
+                    HBox.setHgrow(nameLabel, Priority.ALWAYS);
+
+                    Label slotsLabel = new Label(
+                            section.getCurrentCount() + "/" + section.getCapacity() + " students");
+                    slotsLabel.setStyle(
+                            "-fx-font-size: 12px; -fx-text-fill: #888780; " +
+                                    "-fx-background-color: #f0efec; -fx-background-radius: 10; " +
+                                    "-fx-padding: 2 8;");
+
+                    top.getChildren().addAll(nameLabel, slotsLabel);
+
+                    Label detailLabel = new Label(
+                            section.getSubjectCode() + "  ·  Section " + section.getId()
+                                    + "  ·  " + section.getSchedule()
+                                    + "  ·  Room " + section.getRoomNumber());
+                    detailLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #888780;");
+
+                    card.getChildren().addAll(top, detailLabel);
+                });
+            } catch (Exception e) {
+                Platform.runLater(() -> {
+                    Label fallback = new Label("Section " + section.getId()
+                            + " · " + section.getSubjectCode());
+                    fallback.setStyle("-fx-font-size: 13px; -fx-text-fill: #2c2c2a;");
+                    card.getChildren().add(fallback);
+                });
+            }
+        }).start();
+
+        card.setOnMouseClicked(e -> openSectionDetail(section, pastDeadline));
+        card.setOnMouseEntered(e -> card.setStyle(
+                "-fx-background-color: #f8f7f5; -fx-background-radius: 8; " +
+                        "-fx-border-color: #b0afac; -fx-border-radius: 8; -fx-border-width: 1; " +
+                        "-fx-cursor: hand;"));
+        card.setOnMouseExited(e -> card.setStyle(
+                "-fx-background-color: white; -fx-background-radius: 8; " +
+                        "-fx-border-color: #dddcda; -fx-border-radius: 8; -fx-border-width: 1; " +
+                        "-fx-cursor: hand;"));
+
+        return card;
+    }
+
+    private void openSectionDetail(Section section, boolean pastDeadline) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/SectionDetailView.fxml"));
+            Parent root = loader.load();
+
+            SectionDetailController controller = loader.getController();
+            controller.initData(faculty, section, pastDeadline, this::showMySections);
+
+            Stage stage = (Stage) facultyNameLabel.getScene().getWindow();
+            stage.setScene(new Scene(root));
+
+        } catch (IOException e) {
+            contentArea.getChildren().add(
+                    buildErrorLabel("Failed to open section: " + e.getMessage()));
+            e.printStackTrace();
+        }
+    }
+
+    // ── Logout ────────────────────────────────────────────────────────────────
+
     @FXML
     private void handleLogout() throws IOException {
         Stage stage = (Stage) facultyNameLabel.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
         stage.setScene(new Scene(loader.load()));
         stage.setTitle("School Management System");
+    }
+
+    // ── Utility ───────────────────────────────────────────────────────────────
+
+    private Label buildLoadingLabel(String text) {
+        Label l = new Label(text);
+        l.setStyle("-fx-font-size: 13px; -fx-text-fill: #888780;");
+        l.setPadding(new Insets(16, 0, 0, 0));
+        return l;
+    }
+
+    private Label buildEmptyLabel(String text) {
+        Label l = new Label(text);
+        l.setStyle("-fx-font-size: 13px; -fx-text-fill: #888780;");
+        l.setPadding(new Insets(16, 0, 0, 0));
+        return l;
+    }
+
+    private Label buildErrorLabel(String text) {
+        Label l = new Label("⚠ " + text);
+        l.setStyle("-fx-font-size: 13px; -fx-text-fill: #c0392b;");
+        l.setPadding(new Insets(16, 0, 0, 0));
+        return l;
+    }
+
+    public void navigateTo(String section) {
+        switch (section) {
+            case "sections" -> showMySections();
+            default -> loadAnnouncements();
+        }
     }
 }
