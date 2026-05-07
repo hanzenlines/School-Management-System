@@ -1,4 +1,4 @@
-package models;
+package models.subject;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -7,6 +7,7 @@ import models.enums.Semester;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CompletedSubject {
+    private final String id;
     private final String studentId;
     private final String subjectCode;
     private double grade;
@@ -15,18 +16,21 @@ public class CompletedSubject {
 
     @JsonCreator
     public CompletedSubject(
+            @JsonProperty("id") String id,
             @JsonProperty("studentId") String studentId,
             @JsonProperty("subjectCode") String subjectCode,
             @JsonProperty("grade") double grade,
             @JsonProperty("semester") Semester semester,
             @JsonProperty("schoolYear") String schoolYear
     ) {
+        this.id = id;
         this.studentId = studentId;
         this.subjectCode = subjectCode;
         this.grade = grade;
         this.semester = semester;
         this.schoolYear = schoolYear;
     }
+    public String getId() { return id; }
 
     public String getStudentId() { return studentId; }
 

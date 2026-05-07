@@ -6,6 +6,8 @@ import models.section.Section;
 import models.enums.Semester;
 import models.section.Section;
 import models.student.Student;
+import models.subject.CompletedSubject;
+import models.subject.CompletedSubjectRepository;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -88,6 +90,24 @@ public class GradeService {
             existing.setComputedFinal(recomputedFinal);
             existing.setOverallGrade(recomputedOverall);
             existing.setSubmittedAt(LocalDateTime.now());
+
+            // check if overall is now passing and not already completed
+            if (overall != null && overall >= PASSING_GRADE) {
+                boolean alreadyCompleted = CompletedSubjectRepository
+                        .existsByStudentAndSubject(studentId, subjectCode);
+
+                if (!alreadyCompleted) {
+                    CompletedSubject completed = new CompletedSubject(
+                            java.util.UUID.randomUUID().toString(),
+                            studentId,
+                            subjectCode,
+                            overall,
+                            semester,
+                            schoolYear
+                    );
+                    CompletedSubjectRepository.save(completed);
+                }
+            }
 
             GradeRepository.update(existing);
         }

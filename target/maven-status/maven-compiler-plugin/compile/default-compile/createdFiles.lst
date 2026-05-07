@@ -4,6 +4,7 @@ features\announcements\AnnouncementService.class
 models\enums\Semester.class
 features\profile\ProfileController.class
 features\curriculum\CurriculumService.class
+models\subject\CompletedSubjectRepository.class
 features\profile\ProfileService.class
 models\account\Account.class
 models\Payment.class
@@ -25,6 +26,7 @@ models\Balance.class
 models\Enrollment.class
 models\account\AccountRepository.class
 features\payment\PaymentController.class
+features\grades\GradeController$RowData.class
 models\student\Student.class
 models\student\StudentController.class
 models\enums\PaymentType.class
@@ -37,7 +39,6 @@ features\payment\PaymentRepository.class
 features\enrollment\ConfirmEnrollmentController.class
 models\enums\Quarter.class
 features\calendar\CalendarService.class
-models\CompletedSubject.class
 features\enrollment\EnrollmentController.class
 features\enrollment\EnrollmentService$CartItem.class
 features\sections\SectionsController.class
@@ -55,6 +56,7 @@ features\announcements\AnnouncementController.class
 features\auth\AuthRepository.class
 features\announcements\AnnouncementRepository.class
 features\enrollment\EnrollmentRepository.class
+features\grades\GradeController$SemesterGroup.class
 features\profile\ProfileRepository.class
 features\sections\SectionsService.class
 features\grades\GradeService.class
@@ -69,6 +71,7 @@ models\subject\SubjectRepository.class
 models\EnrollmentPeriod.class
 features\enrollment\EnrollmentService.class
 features\curriculum\CurriculumController.class
+models\subject\CompletedSubject.class
 features\enrollment\EnrollmentPeriodRepository.class
 features\curriculum\CurriculumRepository.class
 models\section\Section.class

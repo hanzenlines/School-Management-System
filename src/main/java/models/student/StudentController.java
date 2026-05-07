@@ -2,6 +2,7 @@ package models.student;
 
 import features.announcements.AnnouncementService;
 import features.enrollment.EnrollmentController;
+import features.grades.GradeController;
 import features.payment.PaymentController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -27,6 +28,7 @@ public class StudentController {
     @FXML private Button sidebarAnnouncements;
     @FXML private Button sidebarEnrollment;
     @FXML private Button sidebarPayments;
+    @FXML private Button sidebarGrades;
 
     private Student student;
 
@@ -195,21 +197,23 @@ public class StudentController {
     @FXML
     private void showEnrollment() {
         if ("Enrollment".equals(pageTitleLabel.getText())) return;
+        setSidebarActive(sidebarEnrollment);
+        pageTitleLabel.setText("Enrollment");
+        contentArea.getChildren().clear();
+
         try {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/EnrollmentView.fxml"));
-
-            Scene scene = new Scene(loader.load());
+            Parent view = loader.load();
 
             EnrollmentController controller = loader.getController();
             controller.initData(student);
 
-            Stage stage = (Stage) studentNameLabel.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setTitle("Enrollment");
-
+            contentArea.getChildren().add(view);
         } catch (IOException e) {
-            e.printStackTrace();
+            Label error = new Label("Failed to load enrollment.");
+            error.setStyle("-fx-text-fill: #a32d2d; -fx-font-size: 13px;");
+            contentArea.getChildren().add(error);
         }
     }
 
@@ -236,14 +240,6 @@ public class StudentController {
         }
     }
 
-    public void navigateTo(String section) {
-        switch (section) {
-            case "payments" -> showPayments();
-            case "enrollment" -> showEnrollment();
-            default -> showAnnouncements();
-        }
-    }
-
     private static final String SIDEBAR_ACTIVE =
             "-fx-background-color: #444441; -fx-text-fill: white; -fx-font-size: 13px; " +
                     "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
@@ -252,10 +248,46 @@ public class StudentController {
             "-fx-background-color: transparent; -fx-text-fill: #888780; -fx-font-size: 13px; " +
                     "-fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT; -fx-cursor: hand;";
 
+    // update setSidebarActive
     private void setSidebarActive(Button active) {
         sidebarAnnouncements.setStyle(SIDEBAR_INACTIVE);
         sidebarEnrollment.setStyle(SIDEBAR_INACTIVE);
         sidebarPayments.setStyle(SIDEBAR_INACTIVE);
+        sidebarGrades.setStyle(SIDEBAR_INACTIVE);
         active.setStyle(SIDEBAR_ACTIVE);
+    }
+
+    // add showGrades
+    @FXML
+    private void showGrades() {
+        if ("Grades".equals(pageTitleLabel.getText())) return;
+        setSidebarActive(sidebarGrades);
+        pageTitleLabel.setText("Grades");
+        contentArea.getChildren().clear();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/GradeView.fxml"));
+            Parent view = loader.load();
+
+            GradeController controller = loader.getController();
+            controller.initData(student);
+
+            contentArea.getChildren().add(view);
+        } catch (IOException e) {
+            Label error = new Label("Failed to load grades.");
+            error.setStyle("-fx-text-fill: #a32d2d; -fx-font-size: 13px;");
+            contentArea.getChildren().add(error);
+        }
+    }
+
+    // update navigateTo
+    public void navigateTo(String section) {
+        switch (section) {
+            case "payments" -> showPayments();
+            case "enrollment" -> showEnrollment();
+            case "grades" -> showGrades();
+            default -> showAnnouncements();
+        }
     }
 }

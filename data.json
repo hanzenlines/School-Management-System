@@ -7,9 +7,10 @@
       "password": "password123",
       "contactNumber": "09171234567",
       "studentNumber": "2021-00001",
-      "course": "BSCS",
-      "yearLevel": 3,
+      "course": "BSIT",
+      "yearLevel": 2,
       "enrollmentConfirmed": false,
+      "hasPendingBalance": false,
       "userType": "STUDENT"
     },
     {
@@ -22,6 +23,7 @@
       "course": "BSIT",
       "yearLevel": 2,
       "enrollmentConfirmed": true,
+      "hasPendingBalance": false,
       "userType": "STUDENT"
     },
     {
@@ -34,6 +36,46 @@
       "course": "BSIT",
       "yearLevel": 2,
       "enrollmentConfirmed": true,
+      "hasPendingBalance": false,
+      "userType": "STUDENT"
+    },
+    {
+      "id": "s004",
+      "name": "Anna Reyes",
+      "email": "anna.reyes@school.edu",
+      "password": "password123",
+      "contactNumber": "09221234567",
+      "studentNumber": "2023-00004",
+      "course": "BSIT",
+      "yearLevel": 1,
+      "enrollmentConfirmed": false,
+      "hasPendingBalance": false,
+      "userType": "STUDENT"
+    },
+    {
+      "id": "s005",
+      "name": "Carlo Bautista",
+      "email": "carlo.bautista@school.edu",
+      "password": "password123",
+      "contactNumber": "09231234567",
+      "studentNumber": "2023-00005",
+      "course": "BSIT",
+      "yearLevel": 1,
+      "enrollmentConfirmed": false,
+      "hasPendingBalance": true,
+      "userType": "STUDENT"
+    },
+    {
+      "id": "s006",
+      "name": "Sofia Garcia",
+      "email": "sofia.garcia@school.edu",
+      "password": "password123",
+      "contactNumber": "09241234567",
+      "studentNumber": "2021-00006",
+      "course": "BSIT",
+      "yearLevel": 3,
+      "enrollmentConfirmed": true,
+      "hasPendingBalance": false,
       "userType": "STUDENT"
     },
     {
@@ -59,29 +101,45 @@
       "position": "Associate Professor"
     },
     {
+      "id": "f003",
+      "userType": "FACULTY",
+      "name": "Prof. Ramon Cruz",
+      "email": "ramon.cruz@school.edu",
+      "password": "password123",
+      "contactNumber": "09251234567",
+      "employeeNumber": "EMP-003",
+      "department": "Information Technology",
+      "position": "Instructor"
+    },
+    {
       "id": "a001",
       "userType": "ADMIN",
       "name": "Carlos Mendoza",
       "email": "carlos.mendoza@school.edu",
       "password": "password123",
       "contactNumber": "09211234567",
-      "employeeNumber": "ADM-001"
+      "employeeNumber": "ADM-001",
+      "accessLevel": "SUPER"
+    },
+    {
+      "id": "a002",
+      "userType": "ADMIN",
+      "name": "Rosa Villanueva",
+      "email": "rosa.villanueva@school.edu",
+      "password": "password123",
+      "contactNumber": "09261234567",
+      "employeeNumber": "ADM-002",
+      "accessLevel": "DEPT_HEAD"
     }
   ],
   "announcements": [
     {
       "id": "ann001",
       "title": "Enrollment Period Now Open",
-      "content": "Enrollment for the 1st semester of SY 2026-2025 is now open. Please log in to the system and enroll in your subjects before August 15, 2026.",
+      "content": "Enrollment for the 1st semester of SY 2025-2026 is now open. Please log in to the system and enroll in your subjects before August 15, 2025.",
       "category": "ENROLLMENT",
       "targetAudience": "STUDENTS",
-      "postedAt": [
-        2026,
-        8,
-        1,
-        9,
-        0
-      ],
+      "postedAt": [2026, 8, 1, 9, 0],
       "isArchived": false
     },
     {
@@ -90,13 +148,7 @@
       "content": "There will be a mandatory faculty meeting on August 5, 2026 at 2:00 PM in the conference room. Attendance is required.",
       "category": "REMINDER",
       "targetAudience": "FACULTY",
-      "postedAt": [
-        2026,
-        7,
-        30,
-        10,
-        0
-      ],
+      "postedAt": [2026, 7, 30, 10, 0],
       "isArchived": false
     },
     {
@@ -105,13 +157,7 @@
       "content": "The university will be on semestral break from October 28 to November 3, 2026. Classes will resume on November 4.",
       "category": "HOLIDAY",
       "targetAudience": "ALL",
-      "postedAt": [
-        2026,
-        7,
-        28,
-        8,
-        0
-      ],
+      "postedAt": [2026, 7, 28, 8, 0],
       "isArchived": false
     },
     {
@@ -120,13 +166,7 @@
       "content": "Midterm examinations will be held from September 16-20, 2026. Please check your respective department bulletin boards for the detailed schedule.",
       "category": "EXAM",
       "targetAudience": "STUDENTS",
-      "postedAt": [
-        2026,
-        7,
-        25,
-        11,
-        0
-      ],
+      "postedAt": [2026, 7, 25, 11, 0],
       "isArchived": false
     },
     {
@@ -135,48 +175,52 @@
       "content": "The system will undergo scheduled maintenance on August 3, 2026 from 12:00 AM to 4:00 AM. All admin accounts will be temporarily inaccessible.",
       "category": "GENERAL",
       "targetAudience": "ADMIN",
-      "postedAt": [
-        2026,
-        7,
-        20,
-        14,
-        0
-      ],
-      "archived": true
+      "postedAt": [2026, 7, 20, 14, 0],
+      "isArchived": true
     },
     {
-      "id": "ann-1777423391931",
+      "id": "ann006",
       "title": "Final Exam Schedule",
-      "content": "Graduating Students:\nMay 18, 2026 - May 23, 2026\n\nNon Graduating Students:\nMay 25, 2026 - May 30, 2026",
+      "content": "Graduating Students: May 18, 2026 - May 23, 2026\n\nNon Graduating Students: May 25, 2026 - May 30, 2026",
       "category": "EXAM",
       "targetAudience": "ALL",
-      "postedAt": [
-        2026,
-        4,
-        29,
-        8,
-        43,
-        11,
-        934590900
-      ],
-      "archived": false
+      "postedAt": [2026, 4, 29, 8, 43],
+      "isArchived": false
+    },
+    {
+      "id": "ann007",
+      "title": "Scholarship Application Now Open",
+      "content": "Students who wish to apply for academic scholarships for SY 2025-2026 may submit their applications at the registrar's office from August 1-31, 2025. Requirements: certified true copy of grades, certificate of good moral character, and two 2x2 photos.",
+      "category": "GENERAL",
+      "targetAudience": "STUDENTS",
+      "postedAt": [2026, 7, 15, 9, 0],
+      "isArchived": false
+    },
+    {
+      "id": "ann008",
+      "title": "Grading Period Reminder",
+      "content": "Faculty are reminded to submit final grades no later than June 15, 2026. Late submissions will require a written explanation addressed to the dean.",
+      "category": "REMINDER",
+      "targetAudience": "FACULTY",
+      "postedAt": [2026, 5, 1, 8, 0],
+      "isArchived": false
     }
   ],
   "sections": [
     {
       "id": "SEC-001",
       "subjectCode": "CSIT111",
-      "facultyId": "f001",
-      "schedule": "MWF 8:00-9:00",
-      "roomNumber": "Room 201",
+      "facultyId": "f003",
+      "schedule": "MWF 7:00-8:00",
+      "roomNumber": "Room 101",
       "capacity": 30,
       "currentCount": 0
     },
     {
       "id": "SEC-002",
       "subjectCode": "CSIT121",
-      "facultyId": "f002",
-      "schedule": "MWF 9:00-11:00",
+      "facultyId": "f003",
+      "schedule": "TTH 7:30-9:00",
       "roomNumber": "Lab 1",
       "capacity": 25,
       "currentCount": 0
@@ -197,9 +241,7 @@
       "schedule": "MWF 1:00-3:00",
       "roomNumber": "Room 305",
       "capacity": 35,
-      "currentCount": 2,
-      "availableSlots": 33,
-      "full": false
+      "currentCount": 2
     },
     {
       "id": "SEC-005",
@@ -208,9 +250,7 @@
       "schedule": "TTH 1:00-3:00",
       "roomNumber": "Lab 3",
       "capacity": 30,
-      "currentCount": 2,
-      "availableSlots": 28,
-      "full": false
+      "currentCount": 2
     },
     {
       "id": "SEC-006",
@@ -219,9 +259,7 @@
       "schedule": "MWF 10:00-12:00",
       "roomNumber": "Lab 4",
       "capacity": 30,
-      "currentCount": 2,
-      "availableSlots": 28,
-      "full": false
+      "currentCount": 2
     },
     {
       "id": "SEC-007",
@@ -230,7 +268,7 @@
       "schedule": "MWF 3:00-5:00",
       "roomNumber": "Room 401",
       "capacity": 30,
-      "currentCount": 0
+      "currentCount": 1
     },
     {
       "id": "SEC-008",
@@ -239,7 +277,43 @@
       "schedule": "TTH 3:00-5:00",
       "roomNumber": "Room 402",
       "capacity": 25,
+      "currentCount": 1
+    },
+    {
+      "id": "SEC-009",
+      "subjectCode": "MATH031",
+      "facultyId": "f003",
+      "schedule": "MWF 8:00-9:00",
+      "roomNumber": "Room 102",
+      "capacity": 40,
       "currentCount": 0
+    },
+    {
+      "id": "SEC-010",
+      "subjectCode": "ENGL031",
+      "facultyId": "f003",
+      "schedule": "TTH 9:00-10:30",
+      "roomNumber": "Room 103",
+      "capacity": 40,
+      "currentCount": 0
+    },
+    {
+      "id": "SEC-011",
+      "subjectCode": "CSIT226",
+      "facultyId": "f002",
+      "schedule": "TTH 1:00-3:00",
+      "roomNumber": "Lab 5",
+      "capacity": 30,
+      "currentCount": 1
+    },
+    {
+      "id": "SEC-012",
+      "subjectCode": "IT317",
+      "facultyId": "f001",
+      "schedule": "TTH 3:00-5:00",
+      "roomNumber": "Room 403",
+      "capacity": 30,
+      "currentCount": 1
     }
   ],
   "subjects": [
@@ -311,7 +385,7 @@
       "yearLevel": 1,
       "semester": "SECOND",
       "course": "BSIT",
-      "prerequisites": []
+      "prerequisites": ["CSIT121"]
     },
     {
       "id": "SUB-008",
@@ -321,7 +395,7 @@
       "yearLevel": 2,
       "semester": "FIRST",
       "course": "BSIT",
-      "prerequisites": []
+      "prerequisites": ["CSIT122"]
     },
     {
       "id": "SUB-009",
@@ -331,7 +405,7 @@
       "yearLevel": 2,
       "semester": "FIRST",
       "course": "BSIT",
-      "prerequisites": []
+      "prerequisites": ["CSIT122"]
     },
     {
       "id": "SUB-010",
@@ -341,7 +415,7 @@
       "yearLevel": 2,
       "semester": "SECOND",
       "course": "BSIT",
-      "prerequisites": []
+      "prerequisites": ["CSIT227"]
     },
     {
       "id": "SUB-011",
@@ -351,7 +425,7 @@
       "yearLevel": 2,
       "semester": "SECOND",
       "course": "BSIT",
-      "prerequisites": []
+      "prerequisites": ["CSIT221"]
     },
     {
       "id": "SUB-012",
@@ -361,7 +435,7 @@
       "yearLevel": 3,
       "semester": "FIRST",
       "course": "BSIT",
-      "prerequisites": []
+      "prerequisites": ["CSIT228"]
     },
     {
       "id": "SUB-013",
@@ -381,7 +455,7 @@
       "yearLevel": 3,
       "semester": "SECOND",
       "course": "BSIT",
-      "prerequisites": []
+      "prerequisites": ["IT317"]
     },
     {
       "id": "SUB-015",
@@ -391,7 +465,7 @@
       "yearLevel": 4,
       "semester": "FIRST",
       "course": "BSIT",
-      "prerequisites": []
+      "prerequisites": ["IT332"]
     }
   ],
   "enrollments": [
@@ -403,15 +477,7 @@
       "semester": "FIRST",
       "schoolYear": "2025-2026",
       "status": "ENROLLED",
-      "enrolledAt": [
-        2026,
-        5,
-        5,
-        20,
-        32,
-        51,
-        514512600
-      ]
+      "enrolledAt": [2026, 5, 5, 20, 32, 51, 514512600]
     },
     {
       "id": "e757d377-eb9a-43fb-aec9-d7810599b861",
@@ -421,15 +487,7 @@
       "semester": "FIRST",
       "schoolYear": "2025-2026",
       "status": "ENROLLED",
-      "enrolledAt": [
-        2026,
-        5,
-        5,
-        20,
-        32,
-        51,
-        537512800
-      ]
+      "enrolledAt": [2026, 5, 5, 20, 32, 51, 537512800]
     },
     {
       "id": "69acd531-5f48-47aa-a9cd-a8a21a6d30f7",
@@ -439,15 +497,7 @@
       "semester": "FIRST",
       "schoolYear": "2025-2026",
       "status": "ENROLLED",
-      "enrolledAt": [
-        2026,
-        5,
-        5,
-        20,
-        32,
-        51,
-        543511400
-      ]
+      "enrolledAt": [2026, 5, 5, 20, 32, 51, 543511400]
     },
     {
       "id": "07fb164c-376f-470b-b10a-0d061b6e3a80",
@@ -457,15 +507,7 @@
       "semester": "FIRST",
       "schoolYear": "2025-2026",
       "status": "ENROLLED",
-      "enrolledAt": [
-        2026,
-        5,
-        6,
-        9,
-        52,
-        23,
-        295779700
-      ]
+      "enrolledAt": [2026, 5, 6, 9, 52, 23, 295779700]
     },
     {
       "id": "04c714c0-d815-4eeb-9fc9-1a56c918b9b1",
@@ -475,15 +517,7 @@
       "semester": "FIRST",
       "schoolYear": "2025-2026",
       "status": "ENROLLED",
-      "enrolledAt": [
-        2026,
-        5,
-        6,
-        9,
-        52,
-        23,
-        316708800
-      ]
+      "enrolledAt": [2026, 5, 6, 9, 52, 23, 316708800]
     },
     {
       "id": "a5787a4d-3c93-4ce7-b238-528153b9f74e",
@@ -493,15 +527,37 @@
       "semester": "FIRST",
       "schoolYear": "2025-2026",
       "status": "ENROLLED",
-      "enrolledAt": [
-        2026,
-        5,
-        6,
-        9,
-        52,
-        23,
-        322688100
-      ]
+      "enrolledAt": [2026, 5, 6, 9, 52, 23, 322688100]
+    },
+    {
+      "id": "b1c2d3e4-f5a6-7890-abcd-ef1234567890",
+      "studentId": "s006",
+      "subjectCode": "CSIT321",
+      "sectionId": "SEC-007",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [2026, 5, 7, 8, 0, 0, 0]
+    },
+    {
+      "id": "c2d3e4f5-a6b7-8901-bcde-f12345678901",
+      "studentId": "s006",
+      "subjectCode": "IT332",
+      "sectionId": "SEC-008",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [2026, 5, 7, 8, 0, 0, 0]
+    },
+    {
+      "id": "d3e4f5a6-b7c8-9012-cdef-123456789012",
+      "studentId": "s006",
+      "subjectCode": "IT317",
+      "sectionId": "SEC-012",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "status": "ENROLLED",
+      "enrolledAt": [2026, 5, 7, 8, 0, 0, 0]
     }
   ],
   "enrollmentPeriods": [
@@ -514,78 +570,227 @@
       "isOpen": true
     }
   ],
-  "completedSubjects": [],
+  "completedSubjects": [
+    {
+      "id": "CS-001",
+      "studentId": "s002",
+      "subjectCode": "CSIT111",
+      "grade": 1.5,
+      "semester": "FIRST",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-002",
+      "studentId": "s002",
+      "subjectCode": "CSIT121",
+      "grade": 1.75,
+      "semester": "FIRST",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-003",
+      "studentId": "s002",
+      "subjectCode": "CSIT122",
+      "grade": 2.0,
+      "semester": "SECOND",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-004",
+      "studentId": "s002",
+      "subjectCode": "MATH031",
+      "grade": 1.25,
+      "semester": "FIRST",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-005",
+      "studentId": "s003",
+      "subjectCode": "CSIT111",
+      "grade": 2.0,
+      "semester": "FIRST",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-006",
+      "studentId": "s003",
+      "subjectCode": "CSIT121",
+      "grade": 1.5,
+      "semester": "FIRST",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-007",
+      "studentId": "s003",
+      "subjectCode": "CSIT122",
+      "grade": 1.75,
+      "semester": "SECOND",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-008",
+      "studentId": "s006",
+      "subjectCode": "CSIT111",
+      "grade": 1.25,
+      "semester": "FIRST",
+      "schoolYear": "2023-2024"
+    },
+    {
+      "id": "CS-009",
+      "studentId": "s006",
+      "subjectCode": "CSIT121",
+      "grade": 1.5,
+      "semester": "FIRST",
+      "schoolYear": "2023-2024"
+    },
+    {
+      "id": "CS-010",
+      "studentId": "s006",
+      "subjectCode": "CSIT122",
+      "grade": 1.75,
+      "semester": "SECOND",
+      "schoolYear": "2023-2024"
+    },
+    {
+      "id": "CS-011",
+      "studentId": "s006",
+      "subjectCode": "CSIT221",
+      "grade": 1.5,
+      "semester": "FIRST",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-012",
+      "studentId": "s006",
+      "subjectCode": "CSIT227",
+      "grade": 1.25,
+      "semester": "FIRST",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-013",
+      "studentId": "s006",
+      "subjectCode": "CSIT228",
+      "grade": 1.5,
+      "semester": "SECOND",
+      "schoolYear": "2024-2025"
+    },
+    {
+      "id": "CS-014",
+      "studentId": "s006",
+      "subjectCode": "CSIT226",
+      "grade": 1.75,
+      "semester": "SECOND",
+      "schoolYear": "2024-2025"
+    }
+  ],
   "quarterlySchedules": [
     {
       "id": "e23af490-a6aa-42a9-bcb2-2908dfa6ae52",
       "balanceId": "863f0543-16a8-4083-8df7-fa9d89f03bda",
       "quarter": "PRELIM",
-      "scheduledAmount": 2250,
+      "scheduledAmount": 2000,
       "paidAmount": 0,
-      "remainingAmount": 2250,
+      "remainingAmount": 2000,
       "status": "UNPAID"
     },
     {
       "id": "17a8a88a-8972-4a57-ae07-0b2757857eac",
       "balanceId": "863f0543-16a8-4083-8df7-fa9d89f03bda",
       "quarter": "MIDTERM",
-      "scheduledAmount": 2250,
+      "scheduledAmount": 2000,
       "paidAmount": 0,
-      "remainingAmount": 2250,
+      "remainingAmount": 2000,
       "status": "UNPAID"
     },
     {
       "id": "e294d61d-0429-4cee-a0b9-e6c16c1caf5d",
       "balanceId": "863f0543-16a8-4083-8df7-fa9d89f03bda",
       "quarter": "PREFINAL",
-      "scheduledAmount": 2250,
+      "scheduledAmount": 2000,
       "paidAmount": 0,
-      "remainingAmount": 2250,
+      "remainingAmount": 2000,
       "status": "UNPAID"
     },
     {
       "id": "647a1b07-2536-4e51-b3b6-62777eb78588",
       "balanceId": "863f0543-16a8-4083-8df7-fa9d89f03bda",
       "quarter": "FINAL",
-      "scheduledAmount": 2250,
+      "scheduledAmount": 2000,
       "paidAmount": 0,
-      "remainingAmount": 2250,
+      "remainingAmount": 2000,
       "status": "UNPAID"
     },
     {
       "id": "69ef6b7c-db66-4ea9-bb2f-30deaac2663c",
       "balanceId": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
       "quarter": "PRELIM",
-      "scheduledAmount": 2250,
+      "scheduledAmount": 2000,
       "paidAmount": 0,
-      "remainingAmount": 2250,
+      "remainingAmount": 2000,
       "status": "UNPAID"
     },
     {
       "id": "cfde4764-4931-49f0-ad3d-fb8567f5ca91",
       "balanceId": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
       "quarter": "MIDTERM",
-      "scheduledAmount": 2250,
+      "scheduledAmount": 2000,
       "paidAmount": 0,
-      "remainingAmount": 2250,
+      "remainingAmount": 2000,
       "status": "UNPAID"
     },
     {
       "id": "12aee3e8-5956-47e8-a690-493ed41def69",
       "balanceId": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
       "quarter": "PREFINAL",
-      "scheduledAmount": 2250,
+      "scheduledAmount": 2000,
       "paidAmount": 0,
-      "remainingAmount": 2250,
+      "remainingAmount": 2000,
       "status": "UNPAID"
     },
     {
       "id": "0f81a745-f74e-4466-a979-036865f641d0",
       "balanceId": "4ad3eb63-5672-48b9-90e0-d5d379875d48",
       "quarter": "FINAL",
-      "scheduledAmount": 2250,
+      "scheduledAmount": 2000,
       "paidAmount": 0,
-      "remainingAmount": 2250,
+      "remainingAmount": 2000,
+      "status": "UNPAID"
+    },
+    {
+      "id": "qs-s006-prelim",
+      "balanceId": "bal-s006-001",
+      "quarter": "PRELIM",
+      "scheduledAmount": 2137.5,
+      "paidAmount": 2137.5,
+      "remainingAmount": 0,
+      "status": "PAID"
+    },
+    {
+      "id": "qs-s006-midterm",
+      "balanceId": "bal-s006-001",
+      "quarter": "MIDTERM",
+      "scheduledAmount": 2137.5,
+      "paidAmount": 1000,
+      "remainingAmount": 1137.5,
+      "status": "PARTIAL"
+    },
+    {
+      "id": "qs-s006-prefinal",
+      "balanceId": "bal-s006-001",
+      "quarter": "PREFINAL",
+      "scheduledAmount": 2137.5,
+      "paidAmount": 0,
+      "remainingAmount": 2137.5,
+      "status": "UNPAID"
+    },
+    {
+      "id": "qs-s006-final",
+      "balanceId": "bal-s006-001",
+      "quarter": "FINAL",
+      "scheduledAmount": 2137.5,
+      "paidAmount": 0,
+      "remainingAmount": 2137.5,
       "status": "UNPAID"
     }
   ],
@@ -611,6 +816,17 @@
       "downpaymentPaid": true,
       "remainingBalance": 8000,
       "discountApplied": false
+    },
+    {
+      "id": "bal-s006-001",
+      "studentId": "s006",
+      "schoolYear": "2025-2026",
+      "semester": "FIRST",
+      "paymentPlan": "QUARTERLY",
+      "totalCost": 9000,
+      "downpaymentPaid": true,
+      "remainingBalance": 4725,
+      "discountApplied": false
     }
   ],
   "payments": [
@@ -622,16 +838,7 @@
       "type": "DOWNPAYMENT",
       "quarter": null,
       "amount": 1000,
-      "paymentMethod": "CASH",
-      "paidAt": [
-        2026,
-        5,
-        5,
-        20,
-        33,
-        44,
-        293081200
-      ]
+      "paidAt": [2026, 5, 5, 20, 33, 44, 293081200]
     },
     {
       "id": "0af7a6cb-38b4-4456-a329-831178a88689",
@@ -641,25 +848,37 @@
       "type": "DOWNPAYMENT",
       "quarter": null,
       "amount": 1000,
-      "paymentMethod": "CASH",
-      "paidAt": [
-        2026,
-        5,
-        6,
-        9,
-        52,
-        28,
-        995025500
-      ]
-    }
-  ],
-  "gradingPeriods": [
+      "paidAt": [2026, 5, 6, 9, 52, 28, 995025500]
+    },
     {
-      "id": "gp001",
-      "semester": "SECOND",
-      "schoolYear": "2024-2025",
-      "deadline": "2026-05-30T23:59:00",
-      "isOpen": true
+      "id": "pay-s006-down",
+      "studentId": "s006",
+      "schoolYear": "2025-2026",
+      "semester": "FIRST",
+      "type": "DOWNPAYMENT",
+      "quarter": null,
+      "amount": 1000,
+      "paidAt": [2026, 5, 7, 8, 0, 0, 0]
+    },
+    {
+      "id": "pay-s006-prelim",
+      "studentId": "s006",
+      "schoolYear": "2025-2026",
+      "semester": "FIRST",
+      "type": "QUARTERLY",
+      "quarter": "PRELIM",
+      "amount": 2137.5,
+      "paidAt": [2026, 5, 7, 9, 0, 0, 0]
+    },
+    {
+      "id": "pay-s006-midterm-partial",
+      "studentId": "s006",
+      "schoolYear": "2025-2026",
+      "semester": "FIRST",
+      "type": "QUARTERLY",
+      "quarter": "MIDTERM",
+      "amount": 1000,
+      "paidAt": [2026, 5, 7, 10, 0, 0, 0]
     }
   ],
   "grades": [
@@ -673,19 +892,68 @@
       "prelimGrade": 3.1,
       "midtermGrade": 3.9,
       "preFinalGrade": 3.8,
-      "finalGrade": 4,
+      "finalGrade": 4.0,
       "computedMidterm": 3.58,
       "computedFinal": 3.92,
       "overallGrade": 3.75,
-      "submittedAt": [
-        2026,
-        5,
-        5,
-        20,
-        37,
-        9,
-        62984900
-      ]
+      "submittedAt": [2026, 5, 5, 20, 37, 9, 62984900]
+    },
+    {
+      "id": "grade-s002-csit221",
+      "studentId": "s002",
+      "sectionId": "SEC-004",
+      "subjectCode": "CSIT221",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "prelimGrade": 2.5,
+      "midtermGrade": 2.75,
+      "preFinalGrade": null,
+      "finalGrade": null,
+      "computedMidterm": 2.63,
+      "computedFinal": null,
+      "overallGrade": null,
+      "submittedAt": null
+    },
+    {
+      "id": "grade-s003-csit227",
+      "studentId": "s003",
+      "sectionId": "SEC-005",
+      "subjectCode": "CSIT227",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "prelimGrade": 1.5,
+      "midtermGrade": 1.75,
+      "preFinalGrade": null,
+      "finalGrade": null,
+      "computedMidterm": 1.63,
+      "computedFinal": null,
+      "overallGrade": null,
+      "submittedAt": null
+    },
+    {
+      "id": "grade-s006-csit321",
+      "studentId": "s006",
+      "sectionId": "SEC-007",
+      "subjectCode": "CSIT321",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "prelimGrade": 1.25,
+      "midtermGrade": 1.5,
+      "preFinalGrade": 1.75,
+      "finalGrade": null,
+      "computedMidterm": 1.38,
+      "computedFinal": null,
+      "overallGrade": null,
+      "submittedAt": null
+    }
+  ],
+  "gradingPeriods": [
+    {
+      "id": "gp001",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "deadline": "2026-08-30T23:59:00",
+      "isOpen": true
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

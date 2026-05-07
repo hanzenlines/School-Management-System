@@ -30,18 +30,18 @@ public class SectionRepository {
         return Arrays.asList(mapper.readValue(response.body(), Section[].class));
     }
 
-    public static Section getById(String id) throws IOException, InterruptedException  {
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/" + id))
-                .GET()
-                .build();
-
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-        if (response.body().equals("{}") || response.body().isBlank()) return null;
-
-        return mapper.readValue(response.body(), Section.class);
-    }
+//    public static Section getById(String id) throws IOException, InterruptedException  {
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .uri(URI.create(BASE_URL + "/" + id))
+//                .GET()
+//                .build();
+//
+//        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+//
+//        if (response.body().equals("{}") || response.body().isBlank()) return null;
+//
+//        return mapper.readValue(response.body(), Section.class);
+//    }
 
     public static List<Section> getBySubjectCode(String subjectCode)
             throws IOException, InterruptedException {
@@ -96,5 +96,29 @@ public class SectionRepository {
             return Collections.emptyList();
 
         return Arrays.asList(mapper.readValue(response.body(), Section[].class));
+    }
+
+    private static final java.util.Map<String, Section> cache =
+            new java.util.concurrent.ConcurrentHashMap<>();
+
+    public static Section getById(String id)
+            throws IOException, InterruptedException {
+
+        if (cache.containsKey(id)) return cache.get(id);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "/" + id))
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request,
+                HttpResponse.BodyHandlers.ofString());
+
+        if (response.body().equals("{}") || response.body().isBlank()) return null;
+
+        Section section = mapper.readValue(response.body(), Section.class);
+
+        if (section != null) cache.put(id, section);
+        return section;
     }
 }

@@ -39,22 +39,22 @@ public class SubjectRepository {
         return Arrays.asList(mapper.readValue(response.body(), Subject[].class));
     }
 
-    public static Subject getByCode(String subjectCode)
-            throws IOException, InterruptedException {
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "?subjectCode=" + subjectCode))
-                .GET()
-                .build();
-
-        HttpResponse<String> response = client.send(request,
-                HttpResponse.BodyHandlers.ofString());
-
-        if (isInvalidResponse(response.body())) return null;
-
-        Subject[] results = mapper.readValue(response.body(), Subject[].class);
-        return results.length > 0 ? results[0] : null;
-    }
+//    public static Subject getByCode(String subjectCode)
+//            throws IOException, InterruptedException {
+//
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .uri(URI.create(BASE_URL + "?subjectCode=" + subjectCode))
+//                .GET()
+//                .build();
+//
+//        HttpResponse<String> response = client.send(request,
+//                HttpResponse.BodyHandlers.ofString());
+//
+//        if (isInvalidResponse(response.body())) return null;
+//
+//        Subject[] results = mapper.readValue(response.body(), Subject[].class);
+//        return results.length > 0 ? results[0] : null;
+//    }
 
     public static List<Subject> getByCourseAndYearLevel(String course, int yearLevel)
             throws IOException, InterruptedException {
@@ -103,5 +103,30 @@ public class SubjectRepository {
                 .build();
 
         client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
+
+    private static final java.util.Map<String, Subject> cache =
+            new java.util.concurrent.ConcurrentHashMap<>();
+
+    public static Subject getByCode(String subjectCode)
+            throws IOException, InterruptedException {
+
+        if (cache.containsKey(subjectCode)) return cache.get(subjectCode);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "?subjectCode=" + subjectCode))
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request,
+                HttpResponse.BodyHandlers.ofString());
+
+        if (isInvalidResponse(response.body())) return null;
+
+        Subject[] results = mapper.readValue(response.body(), Subject[].class);
+        Subject subject = results.length > 0 ? results[0] : null;
+
+        if (subject != null) cache.put(subjectCode, subject);
+        return subject;
     }
 }

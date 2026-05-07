@@ -8,6 +8,7 @@ import models.quarterlysched.QuarterlySchedule;
 import models.section.Section;
 import models.section.SectionRepository;
 import models.student.Student;
+import models.subject.CompletedSubject;
 import models.subject.Subject;
 import models.subject.SubjectRepository;
 

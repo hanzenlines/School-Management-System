@@ -4,54 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: add student enrollment, payment feat WIP">
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradingPeriodRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/payment/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/payment/PaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/payment/PaymentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/sections/SectionDetailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Grade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/GradingPeriod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/enums/PaymentMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/PaymentView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/SectionDetailView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_28_2026_10_19_AM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_28_2026_10_19_AM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_28_2026_10_20_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_28_2026_10_20_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: add faculty grade submission, student grade view WIP">
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/subject/CompletedSubjectRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GradeView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/CompletedSubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/CompletedSubjectRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/CompletedSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/subject/CompletedSubject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/account/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/account/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/quarterlysched/QuarterlyScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/quarterlysched/QuarterlyScheduleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/SubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/subject/SubjectRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/EnrollmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EnrollmentView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/faculty_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/faculty_dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/faculty_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/faculty_dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/grades/GradesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/grades/GradesRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/grades/GradesService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/faculty/FacultyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/faculty/FacultyController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/student/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/student/StudentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/student_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/student_dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777804076455</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: add faculty grade submission, student grade view WIP">
+      <option name="closed" value="true" />
+      <created>1778041440603</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1778041440603</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,7 +244,8 @@
     <MESSAGE value="Started Enrollment logic" />
     <MESSAGE value="Enrollment Logic (TBC)" />
     <MESSAGE value="feat: add student enrollment, payment feat WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add student enrollment, payment feat WIP" />
+    <MESSAGE value="feat: add faculty grade submission, student grade view WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add faculty grade submission, student grade view WIP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
