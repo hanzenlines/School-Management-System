@@ -4,27 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: add faculty grade submission, student grade view WIP">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/subject/CompletedSubjectRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/GradeView.fxml" afterDir="false" />
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: add student grade view">
+      <change afterPath="$PROJECT_DIR$/src/main/java/features/rooms/RoomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/features/rooms/RoomRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/features/rooms/RoomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/admin/AnnouncementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/enums/RoomType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AnnouncementListView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RoomListView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/CompletedSubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/CompletedSubjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/CompletedSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/subject/CompletedSubject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/account/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/account/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/SubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/subject/SubjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/EnrollmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EnrollmentView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/student/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/student/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/student_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/student_dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/admin_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin_dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/CompletedSubject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/admin/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/admin/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +81,7 @@
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\resources" />
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -211,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778041440603</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat: add student grade view">
+      <option name="closed" value="true" />
+      <created>1778158106685</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1778158106685</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,7 +252,8 @@
     <MESSAGE value="Enrollment Logic (TBC)" />
     <MESSAGE value="feat: add student enrollment, payment feat WIP" />
     <MESSAGE value="feat: add faculty grade submission, student grade view WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add faculty grade submission, student grade view WIP" />
+    <MESSAGE value="feat: add student grade view" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add student grade view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -254,6 +262,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java</url>
           <line>42</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/models/admin/AdminController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java</url>
