@@ -4,6 +4,8 @@ import features.grades.GradeRepository;
 import features.grades.GradeService;
 import features.grades.GradingPeriodRepository;
 import features.enrollment.EnrollmentRepository;
+import features.rooms.RoomRepository;
+import features.schedule.ScheduleRepository;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import models.Enrollment;
-import models.Grade;
-import models.GradingPeriod;
+import models.*;
 import models.account.AccountRepository;
 import models.enums.Status;
 import models.faculty.Faculty;
@@ -51,9 +51,26 @@ public class SectionDetailController {
         this.onBack = onBack;
 
         sectionTitleLabel.setText("Section " + section.getId());
-        sectionDetailLabel.setText(section.getSubjectCode()
-                + "  ·  " + section.getSchedule()
-                + "  ·  Room " + section.getRoomNumber());
+        sectionDetailLabel.setText(section.getSubjectCode()); // placeholder while loading
+
+        new Thread(() -> {
+            try {
+                Schedule s = ScheduleRepository.getById(section.getScheduleId());
+                String scheduleDisplay = "No schedule";
+                if (s != null) {
+                    Room r = RoomRepository.getById(s.getRoomId());
+                    String roomName = r != null ? r.getRoomName() : "Unknown Room";
+                    scheduleDisplay = s.getTimeSlot() + " @ " + roomName;
+                }
+                final String display = scheduleDisplay;
+                Platform.runLater(() ->
+                        sectionDetailLabel.setText(section.getSubjectCode()
+                                + "  ·  " + display));
+            } catch (Exception e) {
+                Platform.runLater(() ->
+                        sectionDetailLabel.setText(section.getSubjectCode()));
+            }
+        }).start();
 
         loadDeadlineLabel();
         loadStudents();

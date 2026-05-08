@@ -10,8 +10,7 @@ public class Section {
     private final String id;
     private final String subjectCode;
     private final String facultyId;
-    private final String schedule;
-    private String roomNumber;
+    private final String scheduleId;
     private int capacity;
     private int currentCount;
 
@@ -20,16 +19,14 @@ public class Section {
             @JsonProperty("id")             String id,
             @JsonProperty("subjectCode")    String subjectCode,
             @JsonProperty("facultyId")      String facultyId,
-            @JsonProperty("schedule")       String schedule,
-            @JsonProperty("roomNumber")     String roomNumber,
+            @JsonProperty("scheduleId")     String scheduleId,
             @JsonProperty("capacity")       int capacity,
             @JsonProperty("currentCount")   int currentCount
     ) {
         this.id = id;
         this.subjectCode = subjectCode;
         this.facultyId = facultyId;
-        this.schedule = schedule;
-        this.roomNumber = roomNumber;
+        this.scheduleId = scheduleId;
         this.capacity = capacity;
         this.currentCount = currentCount;
     }
@@ -135,15 +132,7 @@ public class Section {
 
     public String getFacultyId() { return facultyId; }
 
-    public String getSchedule() { return schedule; }
-
-    public String getRoomNumber() { return roomNumber; }
-
-    public void setRoomNumber(String roomNumber) {
-        if (roomNumber == null || roomNumber.isBlank())
-            throw new IllegalArgumentException("Name cannot be empty");
-        this.roomNumber = roomNumber;
-    }
+    public String getScheduleId() { return scheduleId; }
 
     public int getCapacity() { return capacity; }
 

@@ -1,5 +1,7 @@
 package features.enrollment;
 
+import features.rooms.RoomRepository;
+import features.schedule.ScheduleRepository;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Enrollment;
+import models.Room;
+import models.Schedule;
 import models.enums.Status;
 import models.student.Student;
 import models.subject.Subject;
@@ -411,9 +415,11 @@ public class EnrollmentController {
         nameLabel.setStyle(
                 "-fx-font-size: 13px; -fx-font-weight: 500; -fx-text-fill: #2c2c2a;");
 
+        String scheduleDisplay = resolveSchedule(item.section().getScheduleId());
+
         Label codeLabel = new Label(item.subject().getSubjectCode()
                 + "  ·  " + item.subject().getUnits() + " units"
-                + "  ·  " + item.section().getSchedule());
+                + "  ·  " + scheduleDisplay);
         codeLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #888780;");
 
         info.getChildren().addAll(nameLabel, codeLabel);
@@ -501,5 +507,18 @@ public class EnrollmentController {
         label.setStyle("-fx-font-size: 13px; -fx-text-fill: #c0392b;");
         label.setPadding(new Insets(16, 0, 0, 0));
         contentArea.getChildren().add(label);
+    }
+
+    private String resolveSchedule(String scheduleId) {
+        if (scheduleId == null) return "No schedule";
+        try {
+            Schedule s = ScheduleRepository.getById(scheduleId);
+            if (s == null) return "Unknown schedule";
+            Room r = RoomRepository.getById(s.getRoomId());
+            String roomName = r != null ? r.getRoomName() : "Unknown Room";
+            return s.getTimeSlot() + " @ " + roomName;
+        } catch (Exception e) {
+            return "—";
+        }
     }
 }

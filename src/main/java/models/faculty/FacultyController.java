@@ -3,6 +3,8 @@ package models.faculty;
 import features.announcements.AnnouncementService;
 import features.grades.GradeService;
 import features.grades.GradingPeriodRepository;
+import features.rooms.RoomRepository;
+import features.schedule.ScheduleRepository;
 import features.sections.SectionDetailController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -18,6 +20,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Announcement;
 import models.GradingPeriod;
+import models.Room;
+import models.Schedule;
 import models.enums.UserType;
 import models.section.Section;
 import models.section.SectionRepository;
@@ -235,10 +239,27 @@ public class FacultyController {
 
                     top.getChildren().addAll(nameLabel, slotsLabel);
 
-                    Label detailLabel = new Label(
-                            section.getSubjectCode() + "  ·  Section " + section.getId()
-                                    + "  ·  " + section.getSchedule()
-                                    + "  ·  Room " + section.getRoomNumber());
+                    Label detailLabel = new Label(section.getSubjectCode()
+                            + "  ·  Section " + section.getId()); // placeholder while loading
+
+                    new Thread(() -> {
+                        try {
+                            Schedule s = ScheduleRepository.getById(section.getScheduleId());
+                            String scheduleDisplay = "No schedule";
+                            if (s != null) {
+                                Room r = RoomRepository.getById(s.getRoomId());
+                                String roomName = r != null ? r.getRoomName() : "Unknown Room";
+                                scheduleDisplay = s.getTimeSlot() + " @ " + roomName;
+                            }
+                            final String display = scheduleDisplay;
+                            Platform.runLater(() ->
+                                    detailLabel.setText(section.getSubjectCode()
+                                            + "  ·  Section " + section.getId()
+                                            + "  ·  " + display));
+                        } catch (Exception e) {
+                            // leave placeholder as-is
+                        }
+                    }).start();
                     detailLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #888780;");
 
                     card.getChildren().addAll(top, detailLabel);

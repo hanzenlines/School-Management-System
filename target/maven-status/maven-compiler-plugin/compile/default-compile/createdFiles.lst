@@ -37,6 +37,7 @@ features\sections\SectionsRepository.class
 features\announcements\AnnouncementService$1.class
 features\grades\GradeRepository.class
 features\schedule\ScheduleService.class
+models\Schedule.class
 features\rooms\RoomService.class
 models\EnrollmentPeriod.class
 features\curriculum\CurriculumController.class
@@ -56,6 +57,7 @@ models\Balance.class
 models\account\AccountRepository.class
 features\payment\PaymentController.class
 features\grades\GradeController$RowData.class
+models\Schedule$Day.class
 models\enums\PaymentType.class
 features\schedule\ScheduleRepository.class
 models\quarterlysched\QuarterlySchedule.class
@@ -78,6 +80,7 @@ features\auth\AuthService.class
 features\rooms\RoomController.class
 models\subject\SubjectRepository.class
 features\enrollment\EnrollmentService.class
+models\Course.class
 models\subject\CompletedSubject.class
 features\curriculum\CurriculumRepository.class
 models\section\Section.class

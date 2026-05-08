@@ -1,5 +1,7 @@
 package features.enrollment;
 
+import features.rooms.RoomRepository;
+import features.schedule.ScheduleRepository;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -7,6 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Room;
+import models.Schedule;
 import models.section.Section;
 import models.student.Student;
 import models.subject.Subject;
@@ -78,7 +82,7 @@ public class SectionPickerController {
         Label sectionLabel = new Label("Section " + section.getId());
         sectionLabel.setStyle("-fx-font-size: 13px; -fx-text-fill: #2c2c2a;");
 
-        Label scheduleLabel = new Label(section.getSchedule()); // if available
+        Label scheduleLabel = new Label(resolveSchedule(section.getScheduleId()));
         scheduleLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #888780;");
 
         Label slotsLabel = new Label(
@@ -129,5 +133,18 @@ public class SectionPickerController {
         Label label = new Label(text);
         label.setStyle("-fx-font-size: 12px; -fx-text-fill: #888780;");
         return label;
+    }
+
+    private String resolveSchedule(String scheduleId) {
+        if (scheduleId == null) return "No schedule";
+        try {
+            Schedule s = ScheduleRepository.getById(scheduleId);
+            if (s == null) return "Unknown schedule";
+            Room r = RoomRepository.getById(s.getRoomId());
+            String roomName = r != null ? r.getRoomName() : "Unknown Room";
+            return s.getTimeSlot() + " @ " + roomName;
+        } catch (Exception e) {
+            return "—";
+        }
     }
 }

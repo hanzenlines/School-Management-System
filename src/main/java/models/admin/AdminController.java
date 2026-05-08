@@ -1,6 +1,7 @@
 package models.admin;
 
 import features.rooms.RoomController;
+import features.schedule.ScheduleController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -67,7 +68,7 @@ public class AdminController {
     private void setSidebarActive(Button active) {
         sidebarAnnouncements.setStyle(SIDEBAR_INACTIVE);
         sidebarRooms.setStyle(SIDEBAR_INACTIVE);
-//        sidebarSchedules.setStyle(SIDEBAR_INACTIVE);
+        sidebarSchedules.setStyle(SIDEBAR_INACTIVE);
 //        sidebarSections.setStyle(SIDEBAR_INACTIVE);
 //        sidebarStudents.setStyle(SIDEBAR_INACTIVE);
 //        sidebarFaculty.setStyle(SIDEBAR_INACTIVE);
@@ -94,13 +95,13 @@ public class AdminController {
                 controller -> ((RoomController) controller).initData());
     }
 
-//    @FXML
-//    private void showSchedules() {
-//        if ("Schedules".equals(pageTitleLabel.getText())) return;
-//        loadView("Schedules", sidebarSchedules,
-//                "/features/admin/schedules/ScheduleListView.fxml",
-//                controller -> ((ScheduleController) controller).initData());
-//    }
+    @FXML
+    private void showSchedules() {
+        if ("Schedules".equals(pageTitleLabel.getText())) return;
+        loadView("Schedules", sidebarSchedules,
+                "/ScheduleListView.fxml",
+                controller -> ((ScheduleController) controller).initData());
+    }
 
 //    @FXML
 //    private void showSections() {

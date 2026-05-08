@@ -1,23 +1,36 @@
+package models;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Schedule {
 
     public enum Day {
         MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
     }
 
-    private String scheduleId;
-    private Day day;
-    private String startTime;   
-    private String endTime;     
-    private String room;
+    private final String id;
+    private final Day day;
+    private final String startTime;
+    private final String endTime;
+    private final String roomId;
 
    
-    // constructor
-    public Schedule(String scheduleId, Day day, String startTime, String endTime, String room) {
-        this.scheduleId = scheduleId;
+    @JsonCreator
+    public Schedule(
+            @JsonProperty("id")          String id,
+            @JsonProperty("day")         Day day,
+            @JsonProperty("startTime")   String startTime,
+            @JsonProperty("endTime")     String endTime,
+            @JsonProperty("roomId")      String roomId
+    ) {
+        this.id = id;
         this.day = day;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.room = room;
+        this.roomId = roomId;
     }
 
 
@@ -26,7 +39,7 @@ public class Schedule {
         if (this.day != other.day) {
             return false;
         }
-        if (this.room.equalsIgnoreCase(other.room)) {
+        if (this.roomId.equalsIgnoreCase(other.roomId)) {
             return timesOverlap(this.startTime, this.endTime, other.startTime, other.endTime);
         }
 
@@ -48,49 +61,27 @@ public class Schedule {
     }
   
     public String getTimeSlot() {
-        return day + " " + startTime + " - " + endTime + " @ " + room;
-    }
-
-    public void displayInfo() {
-        System.out.println("  Day      : " + day);
-        System.out.println("  Time     : " + startTime + " - " + endTime);
-        System.out.println("  Room     : " + room);
+        return day + " " + startTime + " - " + endTime;
     }
   
     // Getters and Setters
-    public String getScheduleId() { 
-      return scheduleId; 
+    public String getId() {
+      return id;
     }
 
     public Day getDay() { 
       return day; 
     }
 
-    public void setDay(Day day) { 
-      this.day = day; 
-    }
-
     public String getStartTime() { 
       return startTime; 
-    }
-
-    public void setStartTime(String startTime) { 
-      this.startTime = startTime; 
     }
 
     public String getEndTime() { 
       return endTime; 
     }
 
-    public void setEndTime(String endTime) { 
-      this.endTime = endTime; 
-    }
-
-    public String getRoom() { 
-      return room; 
-    }
-
-    public void setRoom(String room) { 
-      this.room = room; 
+    public String getRoomId() {
+      return roomId;
     }
 }

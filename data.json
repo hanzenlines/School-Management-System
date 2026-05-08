@@ -252,116 +252,6 @@
       "isArchived": false
     }
   ],
-  "sections": [
-    {
-      "id": "SEC-001",
-      "subjectCode": "CSIT111",
-      "facultyId": "f003",
-      "schedule": "MWF 7:00-8:00",
-      "roomNumber": "Room 101",
-      "capacity": 30,
-      "currentCount": 0
-    },
-    {
-      "id": "SEC-002",
-      "subjectCode": "CSIT121",
-      "facultyId": "f003",
-      "schedule": "TTH 7:30-9:00",
-      "roomNumber": "Lab 1",
-      "capacity": 25,
-      "currentCount": 0
-    },
-    {
-      "id": "SEC-003",
-      "subjectCode": "CSIT122",
-      "facultyId": "f002",
-      "schedule": "TTH 10:00-12:00",
-      "roomNumber": "Lab 2",
-      "capacity": 30,
-      "currentCount": 0
-    },
-    {
-      "id": "SEC-004",
-      "subjectCode": "CSIT221",
-      "facultyId": "f001",
-      "schedule": "MWF 1:00-3:00",
-      "roomNumber": "Room 305",
-      "capacity": 35,
-      "currentCount": 2
-    },
-    {
-      "id": "SEC-005",
-      "subjectCode": "CSIT227",
-      "facultyId": "f002",
-      "schedule": "TTH 1:00-3:00",
-      "roomNumber": "Lab 3",
-      "capacity": 30,
-      "currentCount": 2
-    },
-    {
-      "id": "SEC-006",
-      "subjectCode": "CSIT228",
-      "facultyId": "f001",
-      "schedule": "MWF 10:00-12:00",
-      "roomNumber": "Lab 4",
-      "capacity": 30,
-      "currentCount": 2
-    },
-    {
-      "id": "SEC-007",
-      "subjectCode": "CSIT321",
-      "facultyId": "f001",
-      "schedule": "MWF 3:00-5:00",
-      "roomNumber": "Room 401",
-      "capacity": 30,
-      "currentCount": 1
-    },
-    {
-      "id": "SEC-008",
-      "subjectCode": "IT332",
-      "facultyId": "f002",
-      "schedule": "TTH 3:00-5:00",
-      "roomNumber": "Room 402",
-      "capacity": 25,
-      "currentCount": 1
-    },
-    {
-      "id": "SEC-009",
-      "subjectCode": "MATH031",
-      "facultyId": "f003",
-      "schedule": "MWF 8:00-9:00",
-      "roomNumber": "Room 102",
-      "capacity": 40,
-      "currentCount": 0
-    },
-    {
-      "id": "SEC-010",
-      "subjectCode": "ENGL031",
-      "facultyId": "f003",
-      "schedule": "TTH 9:00-10:30",
-      "roomNumber": "Room 103",
-      "capacity": 40,
-      "currentCount": 0
-    },
-    {
-      "id": "SEC-011",
-      "subjectCode": "CSIT226",
-      "facultyId": "f002",
-      "schedule": "TTH 1:00-3:00",
-      "roomNumber": "Lab 5",
-      "capacity": 30,
-      "currentCount": 1
-    },
-    {
-      "id": "SEC-012",
-      "subjectCode": "IT317",
-      "facultyId": "f001",
-      "schedule": "TTH 3:00-5:00",
-      "roomNumber": "Room 403",
-      "capacity": 30,
-      "currentCount": 1
-    }
-  ],
   "subjects": [
     {
       "id": "SUB-001",
@@ -528,6 +418,414 @@
       "prerequisites": [
         "IT332"
       ]
+    }
+  ],
+  "rooms": [
+    {
+      "id": "fbcbd7a8-565c-4296-aa60-94245f05289f",
+      "roomName": "RTL607",
+      "capacity": 40,
+      "roomType": "LECTURE",
+      "isActive": true
+    },
+    {
+      "id": "room-101",
+      "roomName": "Room 101",
+      "capacity": 40,
+      "roomType": "LECTURE",
+      "isActive": true
+    },
+    {
+      "id": "room-102",
+      "roomName": "Room 102",
+      "capacity": 40,
+      "roomType": "LECTURE",
+      "isActive": true
+    },
+    {
+      "id": "room-103",
+      "roomName": "Room 103",
+      "capacity": 40,
+      "roomType": "LECTURE",
+      "isActive": true
+    },
+    {
+      "id": "room-305",
+      "roomName": "Room 305",
+      "capacity": 40,
+      "roomType": "LECTURE",
+      "isActive": true
+    },
+    {
+      "id": "room-401",
+      "roomName": "Room 401",
+      "capacity": 40,
+      "roomType": "LECTURE",
+      "isActive": true
+    },
+    {
+      "id": "room-402",
+      "roomName": "Room 402",
+      "capacity": 40,
+      "roomType": "LECTURE",
+      "isActive": true
+    },
+    {
+      "id": "room-403",
+      "roomName": "Room 403",
+      "capacity": 40,
+      "roomType": "LECTURE",
+      "isActive": true
+    },
+    {
+      "id": "lab-1",
+      "roomName": "Lab 1",
+      "capacity": 30,
+      "roomType": "LAB",
+      "isActive": true
+    },
+    {
+      "id": "lab-2",
+      "roomName": "Lab 2",
+      "capacity": 30,
+      "roomType": "LAB",
+      "isActive": true
+    },
+    {
+      "id": "lab-3",
+      "roomName": "Lab 3",
+      "capacity": 30,
+      "roomType": "LAB",
+      "isActive": true
+    },
+    {
+      "id": "lab-4",
+      "roomName": "Lab 4",
+      "capacity": 30,
+      "roomType": "LAB",
+      "isActive": true
+    },
+    {
+      "id": "lab-5",
+      "roomName": "Lab 5",
+      "capacity": 30,
+      "roomType": "LAB",
+      "isActive": true
+    }
+  ],
+  "schedules": [
+    {
+      "id": "sched-001",
+      "day": "MONDAY",
+      "startTime": "07:00",
+      "endTime": "08:00",
+      "roomId": "room-101"
+    },
+    {
+      "id": "sched-001b",
+      "day": "WEDNESDAY",
+      "startTime": "07:00",
+      "endTime": "08:00",
+      "roomId": "room-101"
+    },
+    {
+      "id": "sched-001c",
+      "day": "FRIDAY",
+      "startTime": "07:00",
+      "endTime": "08:00",
+      "roomId": "room-101"
+    },
+    {
+      "id": "sched-002",
+      "day": "TUESDAY",
+      "startTime": "07:30",
+      "endTime": "09:00",
+      "roomId": "lab-1"
+    },
+    {
+      "id": "sched-002b",
+      "day": "THURSDAY",
+      "startTime": "07:30",
+      "endTime": "09:00",
+      "roomId": "lab-1"
+    },
+    {
+      "id": "sched-003",
+      "day": "TUESDAY",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "roomId": "lab-2"
+    },
+    {
+      "id": "sched-003b",
+      "day": "THURSDAY",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "roomId": "lab-2"
+    },
+    {
+      "id": "sched-004",
+      "day": "MONDAY",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "roomId": "room-305"
+    },
+    {
+      "id": "sched-004b",
+      "day": "WEDNESDAY",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "roomId": "room-305"
+    },
+    {
+      "id": "sched-004c",
+      "day": "FRIDAY",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "roomId": "room-305"
+    },
+    {
+      "id": "sched-005",
+      "day": "TUESDAY",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "roomId": "lab-3"
+    },
+    {
+      "id": "sched-005b",
+      "day": "THURSDAY",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "roomId": "lab-3"
+    },
+    {
+      "id": "sched-006",
+      "day": "MONDAY",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "roomId": "lab-4"
+    },
+    {
+      "id": "sched-006b",
+      "day": "WEDNESDAY",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "roomId": "lab-4"
+    },
+    {
+      "id": "sched-006c",
+      "day": "FRIDAY",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "roomId": "lab-4"
+    },
+    {
+      "id": "sched-007",
+      "day": "MONDAY",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "roomId": "room-401"
+    },
+    {
+      "id": "sched-007b",
+      "day": "WEDNESDAY",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "roomId": "room-401"
+    },
+    {
+      "id": "sched-007c",
+      "day": "FRIDAY",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "roomId": "room-401"
+    },
+    {
+      "id": "sched-008",
+      "day": "TUESDAY",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "roomId": "room-402"
+    },
+    {
+      "id": "sched-008b",
+      "day": "THURSDAY",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "roomId": "room-402"
+    },
+    {
+      "id": "sched-009",
+      "day": "MONDAY",
+      "startTime": "08:00",
+      "endTime": "09:00",
+      "roomId": "room-102"
+    },
+    {
+      "id": "sched-009b",
+      "day": "WEDNESDAY",
+      "startTime": "08:00",
+      "endTime": "09:00",
+      "roomId": "room-102"
+    },
+    {
+      "id": "sched-009c",
+      "day": "FRIDAY",
+      "startTime": "08:00",
+      "endTime": "09:00",
+      "roomId": "room-102"
+    },
+    {
+      "id": "sched-010",
+      "day": "TUESDAY",
+      "startTime": "09:00",
+      "endTime": "10:30",
+      "roomId": "room-103"
+    },
+    {
+      "id": "sched-010b",
+      "day": "THURSDAY",
+      "startTime": "09:00",
+      "endTime": "10:30",
+      "roomId": "room-103"
+    },
+    {
+      "id": "sched-011",
+      "day": "TUESDAY",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "roomId": "lab-5"
+    },
+    {
+      "id": "sched-011b",
+      "day": "THURSDAY",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "roomId": "lab-5"
+    },
+    {
+      "id": "sched-012",
+      "day": "TUESDAY",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "roomId": "room-403"
+    },
+    {
+      "id": "sched-012b",
+      "day": "THURSDAY",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "roomId": "room-403"
+    }
+  ],
+  "sections": [
+    {
+      "id": "SEC-001",
+      "sectionCode": "IT-G1",
+      "subjectCode": "CSIT111",
+      "facultyId": "f003",
+      "scheduleIds": ["sched-001", "sched-001b", "sched-001c"],
+      "capacity": 30,
+      "currentCount": 0
+    },
+    {
+      "id": "SEC-002",
+      "sectionCode": "IT-G2",
+      "subjectCode": "CSIT121",
+      "facultyId": "f003",
+      "scheduleIds": ["sched-002", "sched-002b"],
+      "capacity": 25,
+      "currentCount": 0
+    },
+    {
+      "id": "SEC-003",
+      "sectionCode": "IT-G3",
+      "subjectCode": "CSIT122",
+      "facultyId": "f002",
+      "scheduleIds": ["sched-003", "sched-003b"],
+      "capacity": 30,
+      "currentCount": 0
+    },
+    {
+      "id": "SEC-004",
+      "sectionCode": "IT-G4",
+      "subjectCode": "CSIT221",
+      "facultyId": "f001",
+      "scheduleIds": ["sched-004", "sched-004b", "sched-004c"],
+      "capacity": 35,
+      "currentCount": 2
+    },
+    {
+      "id": "SEC-005",
+      "sectionCode": "IT-G5",
+      "subjectCode": "CSIT227",
+      "facultyId": "f002",
+      "scheduleIds": ["sched-005", "sched-005b"],
+      "capacity": 30,
+      "currentCount": 2
+    },
+    {
+      "id": "SEC-006",
+      "sectionCode": "IT-G6",
+      "subjectCode": "CSIT228",
+      "facultyId": "f001",
+      "scheduleIds": ["sched-006", "sched-006b", "sched-006c"],
+      "capacity": 30,
+      "currentCount": 2
+    },
+    {
+      "id": "SEC-007",
+      "sectionCode": "IT-G7",
+      "subjectCode": "CSIT321",
+      "facultyId": "f001",
+      "scheduleIds": ["sched-007", "sched-007b", "sched-007c"],
+      "capacity": 30,
+      "currentCount": 1
+    },
+    {
+      "id": "SEC-008",
+      "sectionCode": "IT-G8",
+      "subjectCode": "IT332",
+      "facultyId": "f002",
+      "scheduleIds": ["sched-008", "sched-008b"],
+      "capacity": 25,
+      "currentCount": 1
+    },
+    {
+      "id": "SEC-009",
+      "sectionCode": "IT-G9",
+      "subjectCode": "MATH031",
+      "facultyId": "f003",
+      "scheduleIds": ["sched-009", "sched-009b", "sched-009c"],
+      "capacity": 40,
+      "currentCount": 0
+    },
+    {
+      "id": "SEC-010",
+      "sectionCode": "IT-G10",
+      "subjectCode": "ENGL031",
+      "facultyId": "f003",
+      "scheduleIds": ["sched-010", "sched-010b"],
+      "capacity": 40,
+      "currentCount": 0
+    },
+    {
+      "id": "SEC-011",
+      "sectionCode": "IT-G11",
+      "subjectCode": "CSIT226",
+      "facultyId": "f002",
+      "scheduleIds": ["sched-011", "sched-011b"],
+      "capacity": 30,
+      "currentCount": 1
+    },
+    {
+      "id": "SEC-012",
+      "sectionCode": "IT-G12",
+      "subjectCode": "IT317",
+      "facultyId": "f001",
+      "scheduleIds": ["sched-012", "sched-012b"],
+      "capacity": 30,
+      "currentCount": 1
     }
   ],
   "enrollments": [
@@ -1157,14 +1455,19 @@
       "isOpen": true
     }
   ],
-  "rooms": [
+  "courses": [
     {
-      "id": "fbcbd7a8-565c-4296-aa60-94245f05289f",
-      "roomName": "RTL607",
-      "capacity": 40,
-      "roomType": "LECTURE",
-      "isActive": true
+      "id": "course-001",
+      "code": "BSIT",
+      "name": "Bachelor of Science in Information Technology",
+      "sectionPrefix": "IT-G"
+    },
+    {
+      "id": "course-002",
+      "code": "BSCS",
+      "name": "Bachelor of Science in Computer Science",
+      "sectionPrefix": "CS-F"
     }
-  ],
+  ]
   "$schema": "./node_modules/json-server/schema.json"
 }

@@ -4,23 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: add student grade view">
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/rooms/RoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/rooms/RoomRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/rooms/RoomService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/admin/AnnouncementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/enums/RoomType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AnnouncementListView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RoomListView.fxml" afterDir="false" />
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: add room creation for admin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ScheduleListView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Schedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/sections/SectionDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/sections/SectionDetailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/section/Section.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/admin_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin_dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService$CartItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService$CartItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/EnrollmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/CompletedSubject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/enrollment/SectionPickerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/enrollment/SectionPickerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/schedule/ScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/schedule/ScheduleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/schedule/ScheduleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/schedule/ScheduleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/schedule/ScheduleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/schedule/ScheduleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/sections/SectionDetailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/sections/SectionDetailController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/admin/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/admin/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/faculty/FacultyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/faculty/FacultyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/section/Section.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/section/Section.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -218,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778158106685</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat: add room creation for admin">
+      <option name="closed" value="true" />
+      <created>1778215277731</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1778215277731</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,7 +252,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Repo2/alfeche" />
+                        <option value="Repo1/master" />
                       </list>
                     </value>
                   </entry>
@@ -253,7 +273,8 @@
     <MESSAGE value="feat: add student enrollment, payment feat WIP" />
     <MESSAGE value="feat: add faculty grade submission, student grade view WIP" />
     <MESSAGE value="feat: add student grade view" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add student grade view" />
+    <MESSAGE value="feat: add room creation for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add room creation for admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -263,11 +284,6 @@
           <line>42</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/models/admin/AdminController.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java</url>
           <line>45</line>
@@ -276,6 +292,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java</url>
+          <line>232</line>
+          <properties class="features.enrollment.EnrollmentService" method="hasScheduleConflict">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

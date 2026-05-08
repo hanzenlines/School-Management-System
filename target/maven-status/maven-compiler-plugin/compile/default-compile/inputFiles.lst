@@ -35,6 +35,7 @@ C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\featur
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\Payment.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\features\announcements\AnnouncementController.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\features\rooms\RoomController.java
+C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\Course.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\features\grades\GradeService.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\features\evaluation\EvaluationController.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\account\AccountRepository.java
@@ -49,6 +50,7 @@ C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\featur
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\GradingPeriod.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\section\SectionRepository.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\features\curriculum\CurriculumService.java
+C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\Schedule.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\student\Student.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\features\announcements\AnnouncementRepository.java
 C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\enums\PaymentMethod.java

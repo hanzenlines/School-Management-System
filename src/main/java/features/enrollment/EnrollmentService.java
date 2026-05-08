@@ -1,5 +1,6 @@
 package features.enrollment;
 
+import features.schedule.ScheduleRepository;
 import models.*;
 import models.account.AccountRepository;
 import models.quarterlysched.QuarterlyScheduleRepository;
@@ -232,6 +233,10 @@ public class EnrollmentService {
     private static boolean hasScheduleConflict(String studentId, Section newSection)
             throws IOException, InterruptedException {
 
+        if (newSection.getScheduleId() == null) return false;
+        Schedule newSchedule = ScheduleRepository.getById(newSection.getScheduleId());
+        if (newSchedule == null) return false;
+
         List<Enrollment> active = EnrollmentRepository
                 .getByStudentId(studentId)
                 .stream()
@@ -241,10 +246,12 @@ public class EnrollmentService {
 
         for (Enrollment e : active) {
             Section existing = SectionRepository.getById(e.getSectionId());
-            if (existing != null &&
-                    existing.getSchedule().equals(newSection.getSchedule())) {
-                return true;
-            }
+            if (existing == null || existing.getScheduleId() == null) continue;
+
+            Schedule existingSchedule = ScheduleRepository.getById(existing.getScheduleId());
+            if (existingSchedule == null) continue;
+
+            if (newSchedule.hasConflict(existingSchedule)) return true;
         }
         return false;
     }
@@ -326,8 +333,20 @@ public class EnrollmentService {
             throw new IllegalStateException("Schedule conflict with an existing enrollment");
 
         boolean cartConflict = studentCart.stream()
-                .anyMatch(item -> item.section().getSchedule()
-                        .equals(section.getSchedule()));
+                .anyMatch(item -> {
+                    try {
+                        if (item.section().getScheduleId() == null
+                                || section.getScheduleId() == null) return false;
+                        Schedule cartSchedule = ScheduleRepository
+                                .getById(item.section().getScheduleId());
+                        Schedule newSchedule = ScheduleRepository
+                                .getById(section.getScheduleId());
+                        if (cartSchedule == null || newSchedule == null) return false;
+                        return newSchedule.hasConflict(cartSchedule);
+                    } catch (Exception e) {
+                        return false;
+                    }
+                });
         if (cartConflict)
             throw new IllegalStateException("Schedule conflict with another selected subject");
 
