@@ -1,41 +1,47 @@
+package models.section;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Section {
 
-    private String sectionId;
-    private String sectionCode;
-    private int maxSlots;
-    private int currentSlots;
-    private String remarks;
-    private String semester;
-    private String schoolYear;
+    private final String id;
+    private final String subjectCode;
+    private final String facultyId;
+    private final String schedule;
+    private String roomNumber;
+    private int capacity;
+    private int currentCount;
 
-
-    private Subject subject;      
-    private Faculty faculty;      
-    private Schedule schedule;   
-
-    // constructor
-    public Section(String sectionId, String sectionCode, int maxSlots,
-                   String semester, String schoolYear) {
-        this.sectionId = sectionId;
-        this.sectionCode = sectionCode;
-        this.maxSlots = maxSlots;
-        this.currentSlots = 0;
-        this.semester = semester;
-        this.schoolYear = schoolYear;
-        this.remarks = "";
-        this.subject = null;
-        this.faculty = null;
-        this.schedule = null;
+    @JsonCreator
+    public Section(
+            @JsonProperty("id")             String id,
+            @JsonProperty("subjectCode")    String subjectCode,
+            @JsonProperty("facultyId")      String facultyId,
+            @JsonProperty("schedule")       String schedule,
+            @JsonProperty("roomNumber")     String roomNumber,
+            @JsonProperty("capacity")       int capacity,
+            @JsonProperty("currentCount")   int currentCount
+    ) {
+        this.id = id;
+        this.subjectCode = subjectCode;
+        this.facultyId = facultyId;
+        this.schedule = schedule;
+        this.roomNumber = roomNumber;
+        this.capacity = capacity;
+        this.currentCount = currentCount;
     }
 
 
     // methods
     public int getAvailableSlots() {
-        return maxSlots - currentSlots;
+        return capacity - currentCount;
     }
 
     public boolean isFull() {
-        return currentSlots >= maxSlots;
+        return currentCount >= capacity;
     }
 
     public boolean addStudent() {
@@ -47,18 +53,18 @@ public class Section {
         System.out.println("[Section] Student added to " + sectionCode
                 + ". Slots: " + currentSlots + "/" + maxSlots);
         return true;
-    }
+        }
 
     public boolean removeStudent() {
         if (currentSlots <= 0) {
-            System.out.println("[Section] No students in " + sectionCode + " to remove.");
+            System.out.println("[models.section.Section] No students in " + sectionCode + " to remove.");
             return false;
         }
         currentSlots--;
         System.out.println("[Section] Student removed from " + sectionCode
                 + ". Slots: " + currentSlots + "/" + maxSlots);
         return true;
-    }
+        }
 
     public void assignFaculty(Faculty faculty) {
         this.faculty = faculty;
@@ -68,20 +74,20 @@ public class Section {
 
         System.out.println("[Section] Faculty " + faculty.getEmployeeId()
                 + " assigned to " + sectionCode);
-    }
+        }
 
-    public void assignSubject(Subject subject) {
+        public void assignSubject(Subject subject) {
         this.subject = subject;
         System.out.println("[Section] Subject " + subject.getSubjectCode()
                 + " - " + subject.getTitle() + " assigned to " + sectionCode);
-    }
+        }
 
-    public void assignSchedule(Schedule schedule) {
+        public void assignSchedule(Schedule schedule) {
         this.schedule = schedule;
         System.out.println("[Section] Schedule assigned to " + sectionCode);
-    }
+        }
 
-    public void displayInfo() {
+        public void displayInfo() {
         System.out.println("========================================");
         System.out.println("  SECTION INFO");
         System.out.println("========================================");
@@ -120,58 +126,46 @@ public class Section {
         }
 
         System.out.println("========================================");
-    }
+        }
 
     // Getters and Setters
-    public String getSectionId() { 
-      return sectionId; 
+    public String getId() { return id; }
+
+    public String getSubjectCode() { return subjectCode; }
+
+    public String getFacultyId() { return facultyId; }
+
+    public String getSchedule() { return schedule; }
+
+    public String getRoomNumber() { return roomNumber; }
+
+    public void setRoomNumber(String roomNumber) {
+        if (roomNumber == null || roomNumber.isBlank())
+            throw new IllegalArgumentException("Name cannot be empty");
+        this.roomNumber = roomNumber;
     }
 
-    public String getSectionCode() { 
-      return sectionCode; 
-    }
+    public int getCapacity() { return capacity; }
 
-    public int getMaxSlots() { 
-      return maxSlots; 
-    }
-
-    public void setMaxSlots(int maxSlots) {
-        if (maxSlots < currentSlots) {
-            System.out.println("[Section] Can't set max below current enrolled count.");
-            return;
+    public void setCapacity(int capacity) {
+        if (capacity <= 0 || capacity > 50) {
+            throw new IllegalArgumentException("Invalid capacity size");
         }
-        this.maxSlots = maxSlots;
+        this.capacity = capacity;
     }
 
-    public int getCurrentSlots() { 
-      return currentSlots; 
+    public int getCurrentCount() { return currentCount; }
+
+    public void incrementCurrentCount() {
+        if (currentCount >= capacity)
+            throw new IllegalStateException("Section is already full");
+        this.currentCount++;
     }
 
-    public String getRemarks() { 
-      return remarks; 
-    }
-
-    public void setRemarks(String remarks) { 
-      this.remarks = remarks; 
-    }
-
-    public String getSemester() { 
-      return semester; 
-    }
-
-    public String getSchoolYear() { 
-      return schoolYear; 
-    }
-
-    public Subject getSubject() { 
-      return subject; 
-    }
-
-    public Faculty getFaculty() { 
-      return faculty; 
-    }
-
-    public Schedule getSchedule() { 
-      return schedule; 
+    public void decrementCurrentCount() {
+        if (currentCount <= 0)
+            throw new IllegalStateException("Section is already empty");
+        this.currentCount--;
     }
 }
+ 
