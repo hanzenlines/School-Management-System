@@ -1,6 +1,8 @@
 package features.rooms;
 
+import features.schedule.ScheduleRepository;
 import models.Room;
+import models.Schedule;
 import models.enums.RoomType;
 import models.section.Section;
 import models.section.SectionRepository;
@@ -73,9 +75,12 @@ public class RoomService {
     public static void deleteRoom(String roomId)
             throws IOException, InterruptedException {
 
-        // guard — check if any schedule references this room
-        // full implementation after ScheduleRepository exists
-        // for now just delete
+        List<Schedule> schedules = ScheduleRepository.getByRoomId(roomId);
+        if (!schedules.isEmpty())
+            throw new IllegalStateException(
+                    "Cannot delete room — it has " + schedules.size()
+                            + " schedule(s) assigned to it. Remove them first.");
+
         RoomRepository.delete(roomId);
     }
 }

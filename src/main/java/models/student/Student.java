@@ -9,7 +9,7 @@ public class Student extends Account {
     private final String studentNumber;
     private String course;
     private int yearLevel;
-    private boolean hasPendingBalance;
+    boolean hasPendingBalance;
     private boolean enrollmentConfirmed;
 
     @JsonCreator

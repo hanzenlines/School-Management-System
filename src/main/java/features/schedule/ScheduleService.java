@@ -1,6 +1,8 @@
 package features.schedule;
 
 import models.Schedule;
+import models.section.Section;
+import models.section.SectionRepository;
 
 import java.io.IOException;
 import java.util.List;
@@ -62,8 +64,13 @@ public class ScheduleService {
      */
     public static void deleteSchedule(String scheduleId)
             throws IOException, InterruptedException {
-        // TODO: once SectionRepository.getByScheduleId() exists, check here
-        // and throw if any section references this scheduleId
+
+        List<Section> sections = SectionRepository.getByScheduleId(scheduleId);
+        if (!sections.isEmpty())
+            throw new IllegalStateException(
+                    "Cannot delete schedule — it is referenced by section: "
+                            + sections.get(0).getSectionCode() + ". Delete the section first.");
+
         ScheduleRepository.delete(scheduleId);
     }
 

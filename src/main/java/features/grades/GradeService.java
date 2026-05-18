@@ -72,6 +72,21 @@ public class GradeService {
                     LocalDateTime.now()
             );
             GradeRepository.save(grade);
+            if (overall != null && overall >= PASSING_GRADE) {
+                boolean alreadyCompleted = CompletedSubjectRepository
+                        .existsByStudentAndSubject(studentId, subjectCode);
+                if (!alreadyCompleted) {
+                    CompletedSubject completed = new CompletedSubject(
+                            UUID.randomUUID().toString(),
+                            studentId,
+                            subjectCode,
+                            overall,
+                            semester,
+                            schoolYear
+                    );
+                    CompletedSubjectRepository.save(completed);
+                }
+            }
         } else {
             // update existing — only overwrite non-null incoming values
             if (prelim != null) existing.setPrelimGrade(prelim);

@@ -82,18 +82,15 @@ public class SectionPickerController {
         Label sectionLabel = new Label("Section " + section.getId());
         sectionLabel.setStyle("-fx-font-size: 13px; -fx-text-fill: #2c2c2a;");
 
-        Label scheduleLabel = new Label(resolveSchedule(section.getScheduleId()));
+        Label scheduleLabel = new Label(resolveSchedules(section.getScheduleIds()));
         scheduleLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #888780;");
 
         Label slotsLabel = new Label(
-                section.getCurrentCount() + "/" + section.getCapacity() + " slots"
-        );
+                section.getCurrentCount() + "/" + section.getCapacity() + " slots");
         slotsLabel.setStyle("-fx-font-size: 11px; -fx-text-fill: #555452;");
 
         card.getChildren().addAll(sectionLabel, scheduleLabel, slotsLabel);
-
         card.setOnMouseClicked(e -> enroll(section));
-
         return card;
     }
 
@@ -135,14 +132,19 @@ public class SectionPickerController {
         return label;
     }
 
-    private String resolveSchedule(String scheduleId) {
-        if (scheduleId == null) return "No schedule";
+    private String resolveSchedules(List<String> scheduleIds) {
+        if (scheduleIds == null || scheduleIds.isEmpty()) return "No schedule";
         try {
-            Schedule s = ScheduleRepository.getById(scheduleId);
-            if (s == null) return "Unknown schedule";
-            Room r = RoomRepository.getById(s.getRoomId());
-            String roomName = r != null ? r.getRoomName() : "Unknown Room";
-            return s.getTimeSlot() + " @ " + roomName;
+            StringBuilder sb = new StringBuilder();
+            for (String scheduleId : scheduleIds) {
+                Schedule s = ScheduleRepository.getById(scheduleId);
+                if (s == null) continue;
+                Room r = RoomRepository.getById(s.getRoomId());
+                String roomName = r != null ? r.getRoomName() : "Unknown Room";
+                if (sb.length() > 0) sb.append(" | ");
+                sb.append(s.getTimeSlot()).append(" @ ").append(roomName);
+            }
+            return sb.isEmpty() ? "—" : sb.toString();
         } catch (Exception e) {
             return "—";
         }

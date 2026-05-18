@@ -515,27 +515,6 @@
   ],
   "schedules": [
     {
-      "id": "sched-001",
-      "day": "MONDAY",
-      "startTime": "07:00",
-      "endTime": "08:00",
-      "roomId": "room-101"
-    },
-    {
-      "id": "sched-001b",
-      "day": "WEDNESDAY",
-      "startTime": "07:00",
-      "endTime": "08:00",
-      "roomId": "room-101"
-    },
-    {
-      "id": "sched-001c",
-      "day": "FRIDAY",
-      "startTime": "07:00",
-      "endTime": "08:00",
-      "roomId": "room-101"
-    },
-    {
       "id": "sched-002",
       "day": "TUESDAY",
       "startTime": "07:30",
@@ -716,6 +695,22 @@
       "startTime": "15:00",
       "endTime": "17:00",
       "roomId": "room-403"
+    },
+    {
+      "id": "182e470a-9ddc-4f1d-aa80-4d5a20a52fe7",
+      "day": "MONDAY",
+      "startTime": "07:00",
+      "endTime": "08:00",
+      "roomId": "room-101",
+      "timeSlot": "MONDAY 07:00 - 08:00"
+    },
+    {
+      "id": "594ee239-527a-4025-aaec-cef67f3cafa1",
+      "day": "FRIDAY",
+      "startTime": "07:00",
+      "endTime": "08:00",
+      "roomId": "room-101",
+      "timeSlot": "FRIDAY 07:00 - 08:00"
     }
   ],
   "sections": [
@@ -724,16 +719,24 @@
       "sectionCode": "IT-G1",
       "subjectCode": "CSIT111",
       "facultyId": "f003",
-      "scheduleIds": ["sched-001", "sched-001b", "sched-001c"],
+      "scheduleIds": [
+        "182e470a-9ddc-4f1d-aa80-4d5a20a52fe7",
+        "594ee239-527a-4025-aaec-cef67f3cafa1"
+      ],
       "capacity": 30,
-      "currentCount": 0
+      "currentCount": 0,
+      "full": false,
+      "availableSlots": 30
     },
     {
       "id": "SEC-002",
       "sectionCode": "IT-G2",
       "subjectCode": "CSIT121",
       "facultyId": "f003",
-      "scheduleIds": ["sched-002", "sched-002b"],
+      "scheduleIds": [
+        "sched-002",
+        "sched-002b"
+      ],
       "capacity": 25,
       "currentCount": 0
     },
@@ -742,7 +745,10 @@
       "sectionCode": "IT-G3",
       "subjectCode": "CSIT122",
       "facultyId": "f002",
-      "scheduleIds": ["sched-003", "sched-003b"],
+      "scheduleIds": [
+        "sched-003",
+        "sched-003b"
+      ],
       "capacity": 30,
       "currentCount": 0
     },
@@ -751,7 +757,11 @@
       "sectionCode": "IT-G4",
       "subjectCode": "CSIT221",
       "facultyId": "f001",
-      "scheduleIds": ["sched-004", "sched-004b", "sched-004c"],
+      "scheduleIds": [
+        "sched-004",
+        "sched-004b",
+        "sched-004c"
+      ],
       "capacity": 35,
       "currentCount": 2
     },
@@ -760,7 +770,10 @@
       "sectionCode": "IT-G5",
       "subjectCode": "CSIT227",
       "facultyId": "f002",
-      "scheduleIds": ["sched-005", "sched-005b"],
+      "scheduleIds": [
+        "sched-005",
+        "sched-005b"
+      ],
       "capacity": 30,
       "currentCount": 2
     },
@@ -769,7 +782,11 @@
       "sectionCode": "IT-G6",
       "subjectCode": "CSIT228",
       "facultyId": "f001",
-      "scheduleIds": ["sched-006", "sched-006b", "sched-006c"],
+      "scheduleIds": [
+        "sched-006",
+        "sched-006b",
+        "sched-006c"
+      ],
       "capacity": 30,
       "currentCount": 2
     },
@@ -778,7 +795,11 @@
       "sectionCode": "IT-G7",
       "subjectCode": "CSIT321",
       "facultyId": "f001",
-      "scheduleIds": ["sched-007", "sched-007b", "sched-007c"],
+      "scheduleIds": [
+        "sched-007",
+        "sched-007b",
+        "sched-007c"
+      ],
       "capacity": 30,
       "currentCount": 1
     },
@@ -787,7 +808,10 @@
       "sectionCode": "IT-G8",
       "subjectCode": "IT332",
       "facultyId": "f002",
-      "scheduleIds": ["sched-008", "sched-008b"],
+      "scheduleIds": [
+        "sched-008",
+        "sched-008b"
+      ],
       "capacity": 25,
       "currentCount": 1
     },
@@ -796,7 +820,11 @@
       "sectionCode": "IT-G9",
       "subjectCode": "MATH031",
       "facultyId": "f003",
-      "scheduleIds": ["sched-009", "sched-009b", "sched-009c"],
+      "scheduleIds": [
+        "sched-009",
+        "sched-009b",
+        "sched-009c"
+      ],
       "capacity": 40,
       "currentCount": 0
     },
@@ -805,7 +833,10 @@
       "sectionCode": "IT-G10",
       "subjectCode": "ENGL031",
       "facultyId": "f003",
-      "scheduleIds": ["sched-010", "sched-010b"],
+      "scheduleIds": [
+        "sched-010",
+        "sched-010b"
+      ],
       "capacity": 40,
       "currentCount": 0
     },
@@ -814,7 +845,10 @@
       "sectionCode": "IT-G11",
       "subjectCode": "CSIT226",
       "facultyId": "f002",
-      "scheduleIds": ["sched-011", "sched-011b"],
+      "scheduleIds": [
+        "sched-011",
+        "sched-011b"
+      ],
       "capacity": 30,
       "currentCount": 1
     },
@@ -823,7 +857,10 @@
       "sectionCode": "IT-G12",
       "subjectCode": "IT317",
       "facultyId": "f001",
-      "scheduleIds": ["sched-012", "sched-012b"],
+      "scheduleIds": [
+        "sched-012",
+        "sched-012b"
+      ],
       "capacity": 30,
       "currentCount": 1
     }
@@ -1468,6 +1505,6 @@
       "name": "Bachelor of Science in Computer Science",
       "sectionPrefix": "CS-F"
     }
-  ]
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

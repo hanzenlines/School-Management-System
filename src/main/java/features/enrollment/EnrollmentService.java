@@ -233,9 +233,15 @@ public class EnrollmentService {
     private static boolean hasScheduleConflict(String studentId, Section newSection)
             throws IOException, InterruptedException {
 
-        if (newSection.getScheduleId() == null) return false;
-        Schedule newSchedule = ScheduleRepository.getById(newSection.getScheduleId());
-        if (newSchedule == null) return false;
+        if (newSection.getScheduleIds() == null || newSection.getScheduleIds().isEmpty())
+            return false;
+
+        // fetch all schedules for the new section
+        List<Schedule> newSchedules = new java.util.ArrayList<>();
+        for (String sid : newSection.getScheduleIds()) {
+            Schedule s = ScheduleRepository.getById(sid);
+            if (s != null) newSchedules.add(s);
+        }
 
         List<Enrollment> active = EnrollmentRepository
                 .getByStudentId(studentId)
@@ -246,12 +252,16 @@ public class EnrollmentService {
 
         for (Enrollment e : active) {
             Section existing = SectionRepository.getById(e.getSectionId());
-            if (existing == null || existing.getScheduleId() == null) continue;
+            if (existing == null || existing.getScheduleIds().isEmpty()) continue;
 
-            Schedule existingSchedule = ScheduleRepository.getById(existing.getScheduleId());
-            if (existingSchedule == null) continue;
+            for (String existingId : existing.getScheduleIds()) {
+                Schedule existingSchedule = ScheduleRepository.getById(existingId);
+                if (existingSchedule == null) continue;
 
-            if (newSchedule.hasConflict(existingSchedule)) return true;
+                for (Schedule newSchedule : newSchedules) {
+                    if (newSchedule.hasConflict(existingSchedule)) return true;
+                }
+            }
         }
         return false;
     }
@@ -335,14 +345,20 @@ public class EnrollmentService {
         boolean cartConflict = studentCart.stream()
                 .anyMatch(item -> {
                     try {
-                        if (item.section().getScheduleId() == null
-                                || section.getScheduleId() == null) return false;
-                        Schedule cartSchedule = ScheduleRepository
-                                .getById(item.section().getScheduleId());
-                        Schedule newSchedule = ScheduleRepository
-                                .getById(section.getScheduleId());
-                        if (cartSchedule == null || newSchedule == null) return false;
-                        return newSchedule.hasConflict(cartSchedule);
+                        if (item.section().getScheduleIds().isEmpty()
+                                || section.getScheduleIds().isEmpty()) return false;
+
+                        for (String cartSid : item.section().getScheduleIds()) {
+                            Schedule cartSchedule = ScheduleRepository.getById(cartSid);
+                            if (cartSchedule == null) continue;
+
+                            for (String newSid : section.getScheduleIds()) {
+                                Schedule newSchedule = ScheduleRepository.getById(newSid);
+                                if (newSchedule == null) continue;
+                                if (newSchedule.hasConflict(cartSchedule)) return true;
+                            }
+                        }
+                        return false;
                     } catch (Exception e) {
                         return false;
                     }

@@ -415,7 +415,7 @@ public class EnrollmentController {
         nameLabel.setStyle(
                 "-fx-font-size: 13px; -fx-font-weight: 500; -fx-text-fill: #2c2c2a;");
 
-        String scheduleDisplay = resolveSchedule(item.section().getScheduleId());
+        String scheduleDisplay = resolveSchedules(item.section().getScheduleIds());
 
         Label codeLabel = new Label(item.subject().getSubjectCode()
                 + "  ·  " + item.subject().getUnits() + " units"
@@ -509,14 +509,19 @@ public class EnrollmentController {
         contentArea.getChildren().add(label);
     }
 
-    private String resolveSchedule(String scheduleId) {
-        if (scheduleId == null) return "No schedule";
+    private String resolveSchedules(List<String> scheduleIds) {
+        if (scheduleIds == null || scheduleIds.isEmpty()) return "No schedule";
         try {
-            Schedule s = ScheduleRepository.getById(scheduleId);
-            if (s == null) return "Unknown schedule";
-            Room r = RoomRepository.getById(s.getRoomId());
-            String roomName = r != null ? r.getRoomName() : "Unknown Room";
-            return s.getTimeSlot() + " @ " + roomName;
+            StringBuilder sb = new StringBuilder();
+            for (String scheduleId : scheduleIds) {
+                Schedule s = ScheduleRepository.getById(scheduleId);
+                if (s == null) continue;
+                Room r = RoomRepository.getById(s.getRoomId());
+                String roomName = r != null ? r.getRoomName() : "Unknown Room";
+                if (sb.length() > 0) sb.append(" | ");
+                sb.append(s.getTimeSlot()).append(" @ ").append(roomName);
+            }
+            return sb.isEmpty() ? "—" : sb.toString();
         } catch (Exception e) {
             return "—";
         }

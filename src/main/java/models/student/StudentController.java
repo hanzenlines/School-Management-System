@@ -4,6 +4,7 @@ import features.announcements.AnnouncementService;
 import features.enrollment.EnrollmentController;
 import features.grades.GradeController;
 import features.payment.PaymentController;
+import features.schedule.StudentScheduleController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +30,7 @@ public class StudentController {
     @FXML private Button sidebarEnrollment;
     @FXML private Button sidebarPayments;
     @FXML private Button sidebarGrades;
+    @FXML private Button sidebarSchedule;
 
     private Student student;
 
@@ -254,6 +256,7 @@ public class StudentController {
         sidebarEnrollment.setStyle(SIDEBAR_INACTIVE);
         sidebarPayments.setStyle(SIDEBAR_INACTIVE);
         sidebarGrades.setStyle(SIDEBAR_INACTIVE);
+        sidebarSchedule.setStyle(SIDEBAR_INACTIVE);
         active.setStyle(SIDEBAR_ACTIVE);
     }
 
@@ -276,6 +279,29 @@ public class StudentController {
             contentArea.getChildren().add(view);
         } catch (IOException e) {
             Label error = new Label("Failed to load grades.");
+            error.setStyle("-fx-text-fill: #a32d2d; -fx-font-size: 13px;");
+            contentArea.getChildren().add(error);
+        }
+    }
+
+    @FXML
+    private void showSchedule() {
+        if ("Schedule".equals(pageTitleLabel.getText())) return;
+        setSidebarActive(sidebarSchedule);
+        pageTitleLabel.setText("Schedule");
+        contentArea.getChildren().clear();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/ScheduleView.fxml"));
+            Parent view = loader.load();
+
+            StudentScheduleController controller = loader.getController();
+            controller.initData(student);
+
+            contentArea.getChildren().add(view);
+        } catch (IOException e) {
+            Label error = new Label("Failed to load schedule.");
             error.setStyle("-fx-text-fill: #a32d2d; -fx-font-size: 13px;");
             contentArea.getChildren().add(error);
         }

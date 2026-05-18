@@ -28,8 +28,8 @@ public class EnrollmentPeriodRepository {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println("PERIOD RAW RESPONSE:");
-        System.out.println(response.body());
+//        System.out.println("PERIOD RAW RESPONSE:");
+//        System.out.println(response.body());
 
         return Arrays.asList(mapper.readValue(response.body(), EnrollmentPeriod[].class));
     }

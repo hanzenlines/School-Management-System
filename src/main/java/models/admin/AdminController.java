@@ -1,5 +1,7 @@
 package models.admin;
 
+import features.enrollment.EnrollmentPeriodController;
+import features.grades.GradingPeriodController;
 import features.rooms.RoomController;
 import features.schedule.ScheduleController;
 import javafx.fxml.FXML;
@@ -11,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.faculty.FacultyListController;
+import models.student.StudentListController;
 
 import java.io.IOException;
 
@@ -70,10 +74,10 @@ public class AdminController {
         sidebarRooms.setStyle(SIDEBAR_INACTIVE);
         sidebarSchedules.setStyle(SIDEBAR_INACTIVE);
 //        sidebarSections.setStyle(SIDEBAR_INACTIVE);
-//        sidebarStudents.setStyle(SIDEBAR_INACTIVE);
-//        sidebarFaculty.setStyle(SIDEBAR_INACTIVE);
-//        sidebarEnrollmentPeriod.setStyle(SIDEBAR_INACTIVE);
-//        sidebarGradingPeriod.setStyle(SIDEBAR_INACTIVE);
+        sidebarStudents.setStyle(SIDEBAR_INACTIVE);
+        sidebarFaculty.setStyle(SIDEBAR_INACTIVE);
+        sidebarEnrollmentPeriod.setStyle(SIDEBAR_INACTIVE);
+        sidebarGradingPeriod.setStyle(SIDEBAR_INACTIVE);
         active.setStyle(SIDEBAR_ACTIVE);
     }
 
@@ -111,37 +115,37 @@ public class AdminController {
 //                controller -> ((SectionController) controller).initData());
 //    }
 
-//    @FXML
-//    private void showStudents() {
-//        if ("Students".equals(pageTitleLabel.getText())) return;
-//        loadView("Students", sidebarStudents,
-//                "/features/admin/students/StudentListView.fxml",
-//                controller -> ((StudentListController) controller).initData());
-//    }
+    @FXML
+    private void showStudents() {
+        if ("Students".equals(pageTitleLabel.getText())) return;
+        loadView("Students", sidebarStudents,
+                "/StudentListView.fxml",
+                controller -> ((StudentListController) controller).initData());
+    }
 
-//    @FXML
-//    private void showFaculty() {
-//        if ("Faculty".equals(pageTitleLabel.getText())) return;
-//        loadView("Faculty", sidebarFaculty,
-//                "/features/admin/faculty/FacultyListView.fxml",
-//                controller -> ((FacultyListController) controller).initData());
-//    }
+    @FXML
+    private void showFaculty() {
+        if ("Faculty".equals(pageTitleLabel.getText())) return;
+        loadView("Faculty", sidebarFaculty,
+                "/FacultyListView.fxml",
+                controller -> ((FacultyListController) controller).initData());
+    }
 
-//    @FXML
-//    private void showEnrollmentPeriod() {
-//        if ("Enrollment Period".equals(pageTitleLabel.getText())) return;
-//        loadView("Enrollment Period", sidebarEnrollmentPeriod,
-//                "/features/admin/periods/EnrollmentPeriodView.fxml",
-//                controller -> ((EnrollmentPeriodController) controller).initData());
-//    }
+    @FXML
+    private void showEnrollmentPeriod() {
+        if ("Enrollment Period".equals(pageTitleLabel.getText())) return;
+        loadView("Enrollment Period", sidebarEnrollmentPeriod,
+                "/EnrollmentPeriodView.fxml",
+                controller -> ((EnrollmentPeriodController) controller).initData());
+    }
 
-//    @FXML
-//    private void showGradingPeriod() {
-//        if ("Grading Period".equals(pageTitleLabel.getText())) return;
-//        loadView("Grading Period", sidebarGradingPeriod,
-//                "/features/admin/periods/GradingPeriodView.fxml",
-//                controller -> ((GradingPeriodController) controller).initData());
-//    }
+    @FXML
+    private void showGradingPeriod() {
+        if ("Grading Period".equals(pageTitleLabel.getText())) return;
+        loadView("Grading Period", sidebarGradingPeriod,
+                "/GradingPeriodView.fxml",
+                controller -> ((GradingPeriodController) controller).initData());
+    }
 
     // ── Generic view loader ───────────────────────────────────────────────────
 

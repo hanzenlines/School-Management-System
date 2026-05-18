@@ -55,14 +55,19 @@ public class SectionDetailController {
 
         new Thread(() -> {
             try {
-                Schedule s = ScheduleRepository.getById(section.getScheduleId());
-                String scheduleDisplay = "No schedule";
-                if (s != null) {
+                List<String> scheduleIds = section.getScheduleIds();
+                StringBuilder sb = new StringBuilder();
+
+                for (String sid : scheduleIds) {
+                    Schedule s = ScheduleRepository.getById(sid);
+                    if (s == null) continue;
                     Room r = RoomRepository.getById(s.getRoomId());
                     String roomName = r != null ? r.getRoomName() : "Unknown Room";
-                    scheduleDisplay = s.getTimeSlot() + " @ " + roomName;
+                    if (sb.length() > 0) sb.append(" | ");
+                    sb.append(s.getTimeSlot()).append(" @ ").append(roomName);
                 }
-                final String display = scheduleDisplay;
+
+                String display = sb.isEmpty() ? "No schedule" : sb.toString();
                 Platform.runLater(() ->
                         sectionDetailLabel.setText(section.getSubjectCode()
                                 + "  ·  " + display));

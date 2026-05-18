@@ -4,6 +4,7 @@ import features.announcements.AnnouncementService;
 import features.grades.GradeService;
 import features.grades.GradingPeriodRepository;
 import features.rooms.RoomRepository;
+import features.schedule.FacultyScheduleController;
 import features.schedule.ScheduleRepository;
 import features.sections.SectionDetailController;
 import javafx.application.Platform;
@@ -39,6 +40,7 @@ public class FacultyController {
     @FXML private VBox contentArea;
     @FXML private Button sidebarAnnouncements;
     @FXML private Button sidebarSections;
+    @FXML private Button sidebarSchedule;
 
     private Faculty faculty;
 
@@ -78,6 +80,7 @@ public class FacultyController {
     private void setSidebarActive(Button active) {
         sidebarAnnouncements.setStyle(SIDEBAR_INACTIVE);
         sidebarSections.setStyle(SIDEBAR_INACTIVE);
+        sidebarSchedule.setStyle(SIDEBAR_INACTIVE);
         active.setStyle(SIDEBAR_ACTIVE);
     }
 
@@ -244,14 +247,19 @@ public class FacultyController {
 
                     new Thread(() -> {
                         try {
-                            Schedule s = ScheduleRepository.getById(section.getScheduleId());
-                            String scheduleDisplay = "No schedule";
-                            if (s != null) {
+                            List<String> scheduleIds = section.getScheduleIds();
+                            StringBuilder sb = new StringBuilder();
+
+                            for (String sid : scheduleIds) {
+                                Schedule s = ScheduleRepository.getById(sid);
+                                if (s == null) continue;
                                 Room r = RoomRepository.getById(s.getRoomId());
                                 String roomName = r != null ? r.getRoomName() : "Unknown Room";
-                                scheduleDisplay = s.getTimeSlot() + " @ " + roomName;
+                                if (sb.length() > 0) sb.append(" | ");
+                                sb.append(s.getTimeSlot()).append(" @ ").append(roomName);
                             }
-                            final String display = scheduleDisplay;
+
+                            String display = sb.isEmpty() ? "No schedule" : sb.toString();
                             Platform.runLater(() ->
                                     detailLabel.setText(section.getSubjectCode()
                                             + "  ·  Section " + section.getId()
@@ -303,6 +311,29 @@ public class FacultyController {
             contentArea.getChildren().add(
                     buildErrorLabel("Failed to open section: " + e.getMessage()));
             e.printStackTrace();
+        }
+    }
+
+    // new method:
+    @FXML
+    private void showMySchedule() {
+        if ("My Schedule".equals(pageTitleLabel.getText())) return;
+        setSidebarActive(sidebarSchedule);
+        pageTitleLabel.setText("My Schedule");
+        contentArea.getChildren().clear();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/FacultyScheduleView.fxml"));
+            Parent view = loader.load();
+
+            FacultyScheduleController controller = loader.getController();
+            controller.initData(faculty);
+
+            contentArea.getChildren().add(view);
+        } catch (IOException e) {
+            contentArea.getChildren().add(
+                    buildErrorLabel("Failed to load schedule."));
         }
     }
 
