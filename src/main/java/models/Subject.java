@@ -1,8 +1,9 @@
-package models.subject;
+package models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import models.enums.Semester;
 //import models.enums.Semester;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class Subject {
     private final String subjectName;
     private final int units;
     private final int yearLevel;
-    //private final Semester semester;
+    private final Semester semester;
     private final String course;
     private List<String> prerequisites;
 
@@ -26,7 +27,7 @@ public class Subject {
             @JsonProperty("subjectName")    String subjectName,
             @JsonProperty("units")          int units,
             @JsonProperty("yearLevel")      int yearLevel,
-            //@JsonProperty("semester")       Semester semester,
+            @JsonProperty("semester")       Semester semester,
             @JsonProperty("course")         String course,
             @JsonProperty("prerequisites")  List<String> prerequisites
     ) {
@@ -35,7 +36,7 @@ public class Subject {
         this.subjectName = subjectName;
         this.units = units;
         this.yearLevel = yearLevel;
-        //this.semester = semester;
+        this.semester = semester;
         this.course = course;
         this.prerequisites = prerequisites;
     }
@@ -61,7 +62,7 @@ public class Subject {
          return yearLevel; 
         }
 
-    //public Semester getSemester() { return semester; }
+    public Semester getSemester() { return semester; }
 
     public String getCourse() {
          return course; 

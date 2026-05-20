@@ -1,8 +1,8 @@
-package models.faculty;
+package models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import models.account.Account;
+import models.Account;
 import models.enums.UserType;
 
 public class Faculty extends Account {
