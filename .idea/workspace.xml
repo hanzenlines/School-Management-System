@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="checkpoint" />
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="merged contributions">
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/announcements/AnnouncementController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/profile/ProfileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/profile/ProfileRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/profile/ProfileService.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,13 +131,30 @@
       <option name="project" value="LOCAL" />
       <updated>1779280727280</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="checkpoint">
+      <option name="closed" value="true" />
+      <created>1779287510928</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1779287510928</updated>
+    </task>
+    <task id="LOCAL-00006" summary="merged contributions">
+      <option name="closed" value="true" />
+      <created>1779287702827</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1779287702827</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactor FacultyEvaluation class structure&#10;&#10;Refactored FacultyEvaluation class to use final fields and removed ratings map. Updated constructor and average score calculation." />
     <MESSAGE value="Refactor Account class and update member variables&#10;&#10;Refactor Account class to use final fields and improve structure." />
     <MESSAGE value="checkpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="checkpoint" />
+    <MESSAGE value="merged contributions" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged contributions" />
   </component>
 </project>
