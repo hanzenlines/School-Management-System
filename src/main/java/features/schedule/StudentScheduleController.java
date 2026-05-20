@@ -10,9 +10,9 @@ import models.Enrollment;
 import models.Room;
 import models.Schedule;
 import models.enums.Status;
-import models.section.Section;
-import models.section.SectionRepository;
-import models.student.Student;
+import models.Section;
+import features.section.SectionRepository;
+import models.Student;
 import models.Subject;
 import features.subject.SubjectRepository;
 

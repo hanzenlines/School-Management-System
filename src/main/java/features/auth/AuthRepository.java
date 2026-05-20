@@ -2,10 +2,10 @@ package features.auth;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import models.account.Account;
-import models.admin.Admin;
-import models.faculty.Faculty;
-import models.student.Student;
+import models.Account;
+import models.Admin;
+import models.Faculty;
+import models.Student;
 
 import java.io.IOException;
 import java.net.URI;

@@ -1,8 +1,8 @@
 package features.schedule;
 
 import models.Schedule;
-import models.section.Section;
-import models.section.SectionRepository;
+import models.Section;
+import features.section.SectionRepository;
 
 import java.io.IOException;
 import java.util.List;

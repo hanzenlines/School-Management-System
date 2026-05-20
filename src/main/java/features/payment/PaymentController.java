@@ -1,6 +1,5 @@
 package features.payment;
 
-import features.enrollment.BalanceRepository;
 import features.enrollment.EnrollmentPeriodRepository;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -10,8 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import models.*;
 import models.enums.*;
-import models.quarterlysched.QuarterlySchedule;
-import models.student.Student;
+import models.QuarterlySchedule;
+import models.Student;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;

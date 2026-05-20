@@ -4,38 +4,63 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: finished section/schedule, add admin student &amp; faculty viewer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationResultsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EvaluationResultsView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EvaluationView.fxml" afterDir="false" />
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="checkpoint before file arrangement changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/FacultyEvaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/CompletedSubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/CompletedSubjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/auth/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/auth/AuthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/auth/AuthRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/calendar/CalendarController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/calendar/CalendarRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/calendar/CalendarService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/curriculum/CurriculumController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/curriculum/CurriculumRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/curriculum/CurriculumService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/BalanceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/payment/BalanceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/payment/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/payment/PaymentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/payment/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/payment/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/rooms/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/rooms/RoomService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/FacultyScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/FacultyScheduleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/StudentScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/StudentScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/sections/SectionDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/section/SectionDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/sections/SectionsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/sections/SectionsRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/sections/SectionsService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/SectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/section/SectionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/CompletedSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/subject/CompletedSubject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/CompletedSubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/subject/CompletedSubjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/Subject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/SubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/subject/SubjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/account/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/account/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/admin/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/AnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/admin/AnnouncementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/course/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/course/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/course/CourseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/Faculty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Faculty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/faculty/FacultyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/faculty/FacultyListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/faculty/FacultyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/quarterlysched/QuarterlySchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/QuarterlySchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/quarterlysched/QuarterlyScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/payment/QuarterlyScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/Section.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/section/SectionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/SectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/section/SectionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/student/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/student/StudentListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/student/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AnnouncementListView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AnnouncementListView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FacultyListView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FacultyListView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SectionDetailView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SectionDetailView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/StudentListView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/StudentListView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/faculty_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/faculty_dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -257,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779106996761</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="checkpoint before file arrangement changes">
+      <option name="closed" value="true" />
+      <created>1779272819306</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1779272819306</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,13 +338,14 @@
     <MESSAGE value="feat: add room creation for admin" />
     <MESSAGE value="feat: add schedule creation for admin, section WIP" />
     <MESSAGE value="feat: finished section/schedule, add admin student &amp; faculty viewer" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: finished section/schedule, add admin student &amp; faculty viewer" />
+    <MESSAGE value="checkpoint before file arrangement changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkpoint before file arrangement changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/features/section/SectionRepository.java</url>
           <line>46</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -326,7 +360,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java</url>
-          <line>232</line>
+          <line>233</line>
           <properties class="features.enrollment.EnrollmentService" method="hasScheduleConflict">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

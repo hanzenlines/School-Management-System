@@ -13,11 +13,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Room;
 import models.Schedule;
-import models.faculty.Faculty;
-import models.faculty.FacultyRepository;
-import models.section.Section;
-import models.section.SectionRepository;
-import models.section.SectionService;
+import models.Faculty;
+import features.faculty.FacultyRepository;
+import models.Section;
+import features.section.SectionRepository;
+import features.section.SectionService;
 import models.Subject;
 import features.subject.SubjectRepository;
 

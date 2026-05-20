@@ -8,7 +8,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.enums.PaymentPlan;
-import models.student.Student;
+import models.Student;
 import models.Subject;
 
 import java.util.List;

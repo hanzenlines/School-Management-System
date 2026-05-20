@@ -1,14 +1,15 @@
 package features.enrollment;
 
+import features.payment.BalanceRepository;
 import features.schedule.ScheduleRepository;
 import models.*;
-import models.account.AccountRepository;
-import models.quarterlysched.QuarterlyScheduleRepository;
+import features.account.AccountRepository;
+import features.payment.QuarterlyScheduleRepository;
 import models.enums.*;
-import models.quarterlysched.QuarterlySchedule;
-import models.section.Section;
-import models.section.SectionRepository;
-import models.student.Student;
+import models.QuarterlySchedule;
+import models.Section;
+import features.section.SectionRepository;
+import models.Student;
 import features.subject.CompletedSubject;
 import models.Subject;
 import features.subject.SubjectRepository;

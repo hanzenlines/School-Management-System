@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="models.student.StudentListController"
+      fx:controller="features.student.StudentListController"
       spacing="12"
       style="-fx-background-color: transparent;">
     <VBox fx:id="contentArea" spacing="12"/>

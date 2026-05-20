@@ -5,14 +5,13 @@ import features.schedule.ScheduleRepository;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Room;
 import models.Schedule;
-import models.section.Section;
-import models.student.Student;
+import models.Section;
+import models.Student;
 import models.Subject;
 
 import java.util.List;

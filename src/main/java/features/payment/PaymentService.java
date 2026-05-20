@@ -1,14 +1,12 @@
 package features.payment;
 
-import features.enrollment.BalanceRepository;
 import features.enrollment.EnrollmentRepository;
 import models.Balance;
 import models.Enrollment;
 import models.Payment;
 import models.enums.*;
-import models.quarterlysched.QuarterlySchedule;
-import models.quarterlysched.QuarterlyScheduleRepository;
-import models.student.Student;
+import models.QuarterlySchedule;
+import models.Student;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

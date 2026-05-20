@@ -7,9 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import models.Room;
 import models.Schedule;
-import models.faculty.Faculty;
-import models.section.Section;
-import models.section.SectionRepository;
+import models.Faculty;
+import models.Section;
+import features.section.SectionRepository;
 import models.Subject;
 import features.subject.SubjectRepository;
 

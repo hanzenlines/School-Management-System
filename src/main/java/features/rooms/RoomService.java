@@ -4,13 +4,10 @@ import features.schedule.ScheduleRepository;
 import models.Room;
 import models.Schedule;
 import models.enums.RoomType;
-import models.section.Section;
-import models.section.SectionRepository;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class RoomService {
 

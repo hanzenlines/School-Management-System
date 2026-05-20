@@ -20,7 +20,7 @@ import models.Enrollment;
 import models.Room;
 import models.Schedule;
 import models.enums.Status;
-import models.student.Student;
+import models.Student;
 import models.Subject;
 import features.subject.SubjectRepository;
 

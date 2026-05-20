@@ -3,13 +3,13 @@ package features.auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import models.account.Account;
-import models.admin.Admin;
-import models.faculty.Faculty;
-import models.student.Student;
-import models.student.StudentController;
-import models.faculty.FacultyController;
-import models.admin.AdminController;
+import models.Account;
+import models.Admin;
+import models.Faculty;
+import models.Student;
+import features.student.StudentController;
+import features.faculty.FacultyController;
+import features.admin.AdminController;
 
 public class AuthController {
 

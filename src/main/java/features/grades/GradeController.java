@@ -1,6 +1,7 @@
 package features.grades;
 
 import features.enrollment.EnrollmentRepository;
+import features.faculty.FacultyRepository;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -9,13 +10,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import models.Enrollment;
 import models.Grade;
-import models.account.AccountRepository;
+import features.account.AccountRepository;
 import models.enums.Semester;
 import models.enums.Status;
-import models.faculty.Faculty;
-import models.section.Section;
-import models.section.SectionRepository;
-import models.student.Student;
+import models.Faculty;
+import models.Section;
+import features.section.SectionRepository;
+import models.Student;
 import models.Subject;
 import features.subject.SubjectRepository;
 
@@ -111,8 +112,7 @@ public class GradeController {
 
                         String facultyName = "—";
                         if (section != null && section.getFacultyId() != null) {
-                            Faculty faculty = AccountRepository
-                                    .getFacultyById(section.getFacultyId());
+                            Faculty faculty = FacultyRepository.getById(section.getFacultyId());
                             if (faculty != null) facultyName = faculty.getName();
                         }
 

@@ -1,6 +1,6 @@
 package features.auth;
 
-import models.account.Account;
+import models.Account;
 
 import java.io.IOException;
 

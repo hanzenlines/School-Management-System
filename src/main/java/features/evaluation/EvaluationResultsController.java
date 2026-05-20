@@ -7,12 +7,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.FacultyEvaluation;
-import models.faculty.Faculty;
-import models.faculty.FacultyRepository;
+import models.Faculty;
+import features.faculty.FacultyRepository;
 
 import java.util.List;
 import java.util.Map;

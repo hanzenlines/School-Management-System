@@ -4,7 +4,7 @@
 <?import javafx.geometry.Insets?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="models.student.StudentController"
+            fx:controller="features.student.StudentController"
             prefWidth="900" prefHeight="600"
             style="-fx-background-color: #f5f4f0;">
 
