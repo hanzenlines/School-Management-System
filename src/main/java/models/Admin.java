@@ -1,8 +1,7 @@
-package models.admin;
+package models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import models.account.Account;
 import models.enums.UserType;
 
 public class Admin extends Account {

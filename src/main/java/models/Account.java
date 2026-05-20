@@ -1,4 +1,4 @@
-package models.account;
+package models;
 
 import models.enums.UserType;
 
