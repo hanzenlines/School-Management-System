@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="checkpoint">
-      <change beforePath="$PROJECT_DIR$/src/models/course/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/faculty/Faculty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Faculty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/subject/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Subject.java" afterDir="false" />
-    </list>
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="checkpoint" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
