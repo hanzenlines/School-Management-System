@@ -9,9 +9,9 @@ import models.quarterlysched.QuarterlySchedule;
 import models.section.Section;
 import models.section.SectionRepository;
 import models.student.Student;
-import models.subject.CompletedSubject;
-import models.subject.Subject;
-import models.subject.SubjectRepository;
+import features.subject.CompletedSubject;
+import models.Subject;
+import features.subject.SubjectRepository;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

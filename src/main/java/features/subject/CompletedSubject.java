@@ -1,4 +1,4 @@
-package models.subject;
+package features.subject;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

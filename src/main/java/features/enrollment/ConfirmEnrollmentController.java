@@ -7,12 +7,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import models.Enrollment;
 import models.enums.PaymentPlan;
-import models.enums.Status;
 import models.student.Student;
-import models.subject.Subject;
-import models.subject.SubjectRepository;
+import models.Subject;
 
 import java.util.List;
 

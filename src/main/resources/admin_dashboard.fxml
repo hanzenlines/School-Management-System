@@ -72,6 +72,13 @@
                     style="-fx-background-color: transparent; -fx-text-fill: #888780; -fx-font-size: 13px;
                    -fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT;
                    -fx-cursor: hand;"/>
+            <Button text="Faculty Evaluation"
+                    fx:id="sidebarEvaluation"
+                    onAction="#showEvaluationResults"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent; -fx-text-fill: #888780; -fx-font-size: 13px;
+                   -fx-background-radius: 6; -fx-padding: 8 12; -fx-alignment: CENTER-LEFT;
+                   -fx-cursor: hand;"/>
 
 <!--             Periods-->
             <Label text="PERIODS"

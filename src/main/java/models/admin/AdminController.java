@@ -1,6 +1,8 @@
 package models.admin;
 
 import features.enrollment.EnrollmentPeriodController;
+import features.evaluation.EvaluationController;
+import features.evaluation.EvaluationResultsController;
 import features.grades.GradingPeriodController;
 import features.rooms.RoomController;
 import features.schedule.ScheduleController;
@@ -29,6 +31,7 @@ public class AdminController {
     @FXML private Button sidebarSections;
     @FXML private Button sidebarStudents;
     @FXML private Button sidebarFaculty;
+    @FXML private Button sidebarEvaluation;
     @FXML private Button sidebarEnrollmentPeriod;
     @FXML private Button sidebarGradingPeriod;
 
@@ -76,6 +79,7 @@ public class AdminController {
 //        sidebarSections.setStyle(SIDEBAR_INACTIVE);
         sidebarStudents.setStyle(SIDEBAR_INACTIVE);
         sidebarFaculty.setStyle(SIDEBAR_INACTIVE);
+        sidebarEvaluation.setStyle(SIDEBAR_INACTIVE);
         sidebarEnrollmentPeriod.setStyle(SIDEBAR_INACTIVE);
         sidebarGradingPeriod.setStyle(SIDEBAR_INACTIVE);
         active.setStyle(SIDEBAR_ACTIVE);
@@ -145,6 +149,15 @@ public class AdminController {
         loadView("Grading Period", sidebarGradingPeriod,
                 "/GradingPeriodView.fxml",
                 controller -> ((GradingPeriodController) controller).initData());
+    }
+
+    @FXML
+    private void showEvaluationResults() {
+        if ("Faculty Evaluation Results".equals(pageTitleLabel.getText())) return;
+        loadView("Faculty Evaluation Results", sidebarEvaluation,
+                "/EvaluationResultsView.fxml",
+                controller -> ((EvaluationResultsController) controller).initData());
+
     }
 
     // ── Generic view loader ───────────────────────────────────────────────────

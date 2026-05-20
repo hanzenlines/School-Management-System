@@ -4,9 +4,8 @@ import features.schedule.ScheduleRepository;
 import models.Schedule;
 import models.course.Course;
 import models.course.CourseRepository;
-import models.faculty.FacultyRepository;
-import models.subject.Subject;
-import models.subject.SubjectRepository;
+import models.Subject;
+import features.subject.SubjectRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;

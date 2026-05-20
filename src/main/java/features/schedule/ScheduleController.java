@@ -9,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Room;
@@ -19,8 +18,8 @@ import models.faculty.FacultyRepository;
 import models.section.Section;
 import models.section.SectionRepository;
 import models.section.SectionService;
-import models.subject.Subject;
-import models.subject.SubjectRepository;
+import models.Subject;
+import features.subject.SubjectRepository;
 
 import java.util.ArrayList;
 import java.util.List;

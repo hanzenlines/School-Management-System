@@ -4,7 +4,6 @@ import features.enrollment.EnrollmentRepository;
 import features.rooms.RoomRepository;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import models.Enrollment;
@@ -14,8 +13,8 @@ import models.enums.Status;
 import models.section.Section;
 import models.section.SectionRepository;
 import models.student.Student;
-import models.subject.Subject;
-import models.subject.SubjectRepository;
+import models.Subject;
+import features.subject.SubjectRepository;
 
 import java.util.*;
 import java.util.stream.Collectors;

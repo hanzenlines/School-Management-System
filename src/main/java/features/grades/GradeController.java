@@ -16,8 +16,8 @@ import models.faculty.Faculty;
 import models.section.Section;
 import models.section.SectionRepository;
 import models.student.Student;
-import models.subject.Subject;
-import models.subject.SubjectRepository;
+import models.Subject;
+import features.subject.SubjectRepository;
 
 import java.time.format.DateTimeFormatter;
 import java.util.*;

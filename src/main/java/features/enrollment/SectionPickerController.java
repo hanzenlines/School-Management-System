@@ -13,7 +13,7 @@ import models.Room;
 import models.Schedule;
 import models.section.Section;
 import models.student.Student;
-import models.subject.Subject;
+import models.Subject;
 
 import java.util.List;
 

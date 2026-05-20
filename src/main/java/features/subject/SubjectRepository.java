@@ -1,7 +1,8 @@
-package models.subject;
+package features.subject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import models.Subject;
 
 import java.io.IOException;
 import java.net.URI;

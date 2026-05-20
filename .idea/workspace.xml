@@ -4,44 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: add schedule creation for admin, section WIP">
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentPeriodController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradingPeriodController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/schedule/FacultyScheduleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/features/schedule/StudentScheduleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/course/CourseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/section/SectionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EnrollmentPeriodView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FacultyListView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FacultyScheduleView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/GradingPeriodView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ScheduleView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/StudentListView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="58c0ea16-b8c1-4122-b08f-1b9fed100f25" name="Changes" comment="feat: finished section/schedule, add admin student &amp; faculty viewer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationResultsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/EvaluationResultsView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/EvaluationView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/FacultyEvaluation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/CompletedSubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/CompletedSubjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentPeriodRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentPeriodRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/EnrollmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/enrollment/SectionPickerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/evaluation/EvaluationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/grades/GradeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/rooms/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/rooms/RoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/payment/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/payment/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/FacultyScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/FacultyScheduleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/ScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/features/sections/SectionDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/sections/SectionDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/course/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/features/schedule/StudentScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/schedule/StudentScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Subject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/admin/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/section/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/section/SectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/faculty/FacultyListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/section/SectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/section/SectionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/student/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/CompletedSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/subject/CompletedSubject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/CompletedSubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/subject/CompletedSubjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/Subject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/subject/SubjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/features/subject/SubjectRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/admin_dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/faculty_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/faculty_dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/student_dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,28 +66,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.LoginUI.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Maven.SchoolManagementSystem [clean,install].executor": "Run",
-    "Maven.SchoolManagementSystem [clean,javafx:run].executor": "Run",
-    "Maven.SchoolManagementSystem [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.SchoolManagementSystem [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "Maven.UI.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Marion Alfeche/IdeaProjects/SchoolManagementSystem/src/main/resources",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.LoginUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SchoolManagementSystem [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SchoolManagementSystem [clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SchoolManagementSystem [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SchoolManagementSystem [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.UI.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marion Alfeche/IdeaProjects/SchoolManagementSystem/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\resources" />
@@ -102,8 +96,8 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\resources" />
-      <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\student" />
       <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models" />
+      <recent name="C:\Users\Marion Alfeche\IdeaProjects\SchoolManagementSystem\src\main\java\models\student" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -255,12 +249,30 @@
       <option name="project" value="LOCAL" />
       <updated>1778232498105</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: finished section/schedule, add admin student &amp; faculty viewer">
+      <option name="closed" value="true" />
+      <created>1779106996760</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1779106996761</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1aa0057f-b0a8-4885-8d91-2b53180d5160" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="1aa0057f-b0a8-4885-8d91-2b53180d5160">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -269,7 +281,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Repo1/master" />
+                        <option value="Repo2/manto" />
                       </list>
                     </value>
                   </entry>
@@ -292,7 +304,8 @@
     <MESSAGE value="feat: add student grade view" />
     <MESSAGE value="feat: add room creation for admin" />
     <MESSAGE value="feat: add schedule creation for admin, section WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add schedule creation for admin, section WIP" />
+    <MESSAGE value="feat: finished section/schedule, add admin student &amp; faculty viewer" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: finished section/schedule, add admin student &amp; faculty viewer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -304,7 +317,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/features/enrollment/ConfirmEnrollmentController.java</url>
-          <line>45</line>
+          <line>42</line>
           <properties class="features.enrollment.ConfirmEnrollmentController" method="loadSummary">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

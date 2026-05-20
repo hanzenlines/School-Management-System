@@ -2,12 +2,9 @@ package features.grades;
 
 import models.Grade;
 import models.GradingPeriod;
-import models.section.Section;
 import models.enums.Semester;
-import models.section.Section;
-import models.student.Student;
-import models.subject.CompletedSubject;
-import models.subject.CompletedSubjectRepository;
+import features.subject.CompletedSubject;
+import features.subject.CompletedSubjectRepository;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

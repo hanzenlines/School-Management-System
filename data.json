@@ -1506,5 +1506,22 @@
       "sectionPrefix": "CS-F"
     }
   ],
+  "facultyEvaluations": [
+    {
+      "id": "de154a1c-5fe2-4a57-8489-e44e65b484ea",
+      "studentId": "s003",
+      "facultyId": "f001",
+      "sectionId": "SEC-004",
+      "semester": "FIRST",
+      "schoolYear": "2025-2026",
+      "teachingEffectiveness": 5,
+      "subjectKnowledge": 5,
+      "communication": 5,
+      "professionalism": 5,
+      "studentEngagement": 5,
+      "comments": "ssadasdasds",
+      "averageScore": 5
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

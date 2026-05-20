@@ -26,8 +26,8 @@ import models.Schedule;
 import models.enums.UserType;
 import models.section.Section;
 import models.section.SectionRepository;
-import models.subject.Subject;
-import models.subject.SubjectRepository;
+import models.Subject;
+import features.subject.SubjectRepository;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
