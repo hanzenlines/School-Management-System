@@ -2,7 +2,7 @@ package models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import models.account.Account;
+import models.Account;
 import models.enums.UserType;
 
 public class Student extends Account {
@@ -56,6 +56,8 @@ public class Student extends Account {
     public void setHasPendingBalance(Boolean hasPendingBalance) {
         this.hasPendingBalance = hasPendingBalance;
     }
+
+    public boolean hasPendingBalance() { return hasPendingBalance; }
 
     public boolean isEnrollmentConfirmed() { return enrollmentConfirmed; }
 
